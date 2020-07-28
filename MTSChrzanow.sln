@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTSChrzanow.Android", "MTSC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTSChrzanow.iOS", "MTSChrzanow.iOS\MTSChrzanow.iOS.csproj", "{E1E6678B-B1EB-48FD-84E3-101BB3A52206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTSChrzanow", "MTSChrzanow\MTSChrzanow.csproj", "{DCD76624-1F10-4D05-AA78-B489389A9444}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTSChrzanow", "MTSChrzanow\MTSChrzanow.csproj", "{DCD76624-1F10-4D05-AA78-B489389A9444}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
