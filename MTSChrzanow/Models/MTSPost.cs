@@ -1,19 +1,43 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace MTSChrzanow.Models
 {
 	public class MTSPost
 	{
+		[JsonProperty("id")]
 		public long Id { get; set; }
+		[JsonProperty("date")]
 		public DateTime Date { get; set; }
+		[JsonProperty("link")]
 		public string Link { get; set; }
-		public string Title { get; set; }
-		public string Content { get; set; }
+		[JsonProperty("title")]
+		public Title Title { get; set; }
+		[JsonProperty("content")]
+		public Content Content { get; set; }
+		[JsonProperty("tags")]
 		public string[] Tags { get; set; }
 		
 		public override string ToString() =>
-			$"Id: { Id }, { Date }" +
-			$" { Title }" +
-			$" { Content }";
+			$"Id: { Id }" +
+			$"{ Date }" +
+			$" { Title.Rendered }" +
+			$" { Content.Rendered }";
+	}
+
+	public class Title
+	{
+		[JsonProperty("rendered")]
+		public string Rendered { get; set; }
+		[JsonProperty("protected")]
+		public bool Protected { get; set; }
+	}
+
+	public class Content
+	{
+		[JsonProperty("rendered")]
+		public string Rendered { get; set; }
+		[JsonProperty("protected")]
+		public bool Protected { get; set; }
 	}
 }
