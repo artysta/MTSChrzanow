@@ -5,24 +5,38 @@ using Android.Util;
 using System.Text;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Windows.Input;
+using Xamarin.Forms;
+using MTSChrzanow.Views;
+using Android.Content.Res;
 
 namespace MTSChrzanow.ViewModels
 {
 	class MainViewModel : BaseViewModel
 	{
-		ObservableCollection<MTSPost> _mtsPosts;
+		private INavigation _navigation;
+		private ObservableCollection<MTSPost> _mtsPosts;
+		private ICommand _goToDetailsCommand;
+		
+		public ICommand GoToDetailsCommand => _goToDetailsCommand ?? (_goToDetailsCommand = new Command<MTSPost>(OnGoToDetails));
+
+		private async void OnGoToDetails(MTSPost item)
+		{
+			await _navigation.PushAsync(new DetailsPage(item));
+		}
+
 		public ObservableCollection<MTSPost> MTSPosts
 		{
 			get { return _mtsPosts; }
 			set
 			{
-				_mtsPosts = value;
-				OnPropertyChanged();
+				SetProperty(ref _mtsPosts, value);
 			}
 		}
 
-		public MainViewModel()
+		public MainViewModel(INavigation navigation)
 		{
+			_navigation = navigation;
 			MTSPosts = new ObservableCollection<MTSPost>(GetPosts());
 		}
 
