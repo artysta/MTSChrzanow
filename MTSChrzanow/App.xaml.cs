@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MTSChrzanow.Views;
 
 namespace MTSChrzanow
 {
@@ -23,7 +24,7 @@ namespace MTSChrzanow
 		private async Task InitializeApp()
 		{
 			await LoadConfig();
-			MainPage = new MainPage();
+			MainPage = new NavigationPage(new MainPage());
 		}
 
 		private static async Task LoadConfig()
