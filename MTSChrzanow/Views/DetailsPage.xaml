@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MTSChrzanow.Views.DetailsPage"
+             xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels">
+    <ContentPage.BindingContext>
+        <viewModels:DetailsViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout>
+            <Label Text="{ Binding MTSPost.Date }" FontAttributes="Bold"/>
+            <Label Text="{ Binding MTSPost.Title.Rendered }" TextColor="Red" FontAttributes="Bold"/>
+            <Label Text="{ Binding MTSPost.Content.Rendered }"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
