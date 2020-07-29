@@ -1,4 +1,5 @@
-﻿using MTSChrzanow.ViewModels;
+﻿using MTSChrzanow.Models;
+using MTSChrzanow.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,17 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace MTSChrzanow
+namespace MTSChrzanow.Views
 {
 	// Learn more about making custom code visible in the Xamarin.Forms previewer
 	// by visiting https://aka.ms/xamarinforms-previewer
 	[DesignTimeVisible(false)]
 	public partial class MainPage : ContentPage
 	{
+		MainViewModel viewModel;
 		public MainPage()
 		{
 			InitializeComponent();
-			BindingContext = new MainViewModel();
+			viewModel = new MainViewModel(Navigation);
+			BindingContext = viewModel;
+		}
+
+		void ListView_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
+		{
+			viewModel.GoToDetailsCommand.Execute(e.Item as MTSPost);
 		}
 	}
 }
