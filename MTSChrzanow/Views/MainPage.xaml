@@ -5,11 +5,49 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MTSChrzanow.MainPage">
-
+    <!--
     <ContentView>
         <ListView
            ItemsSource="{ Binding MTSPosts }"
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+    </ContentView>
+    -->
+
+
+    <ContentView>
+
+        <ListView
+            ItemsSource="{ Binding MTSPosts }"
+            HasUnevenRows="true"
+            SeparatorVisibility="Default">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell
+                        Tapped="ViewCell_Tapped">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"></RowDefinition>
+                                <RowDefinition Height="20"></RowDefinition>
+                                <RowDefinition Height="20"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label
+                                Text="{ Binding Title.Rendered }"
+                                FontAttributes="Bold"
+                                TextColor="Red"
+                                Grid.Row="0"/>
+                            <Label
+                                Text="{ Binding Date }"
+                                FontAttributes="Bold"
+                                Grid.Row="1" />
+                            <Label
+                                Text="{ Binding Link }"
+                                FontAttributes="Bold"
+                                Grid.Row="2" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentView>
 </ContentPage>
