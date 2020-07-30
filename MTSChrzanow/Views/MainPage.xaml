@@ -4,7 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              x:Class="MTSChrzanow.Views.MainPage">
+    <ContentPage.BindingContext>
+        <viewModels:MainViewModel/>
+    </ContentPage.BindingContext>
     <!--
     <ContentView>
         <ListView
@@ -14,41 +18,42 @@
     </ContentView>
     -->
 
-
     <ContentView>
-
-        <ListView
+        <StackLayout>
+            <Picker ItemsSource="{ Binding PagePickerItems }" Title="Select page" SelectedIndexChanged="Picker_SelectedIndexChanged" ></Picker>
+            <ListView
             ItemsSource="{ Binding MTSPosts }"
             HasUnevenRows="true"
             SeparatorVisibility="Default"
             ItemTapped="ListView_ItemTapped"
             SelectionMode="None">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="20"></RowDefinition>
-                                <RowDefinition Height="20"></RowDefinition>
-                                <RowDefinition Height="20"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Label
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label
                                 Text="{ Binding Title.Rendered }"
                                 FontAttributes="Bold"
                                 TextColor="Red"
                                 Grid.Row="0"/>
-                            <Label
+                                <Label
                                 Text="{ Binding Date }"
                                 FontAttributes="Bold"
                                 Grid.Row="1" />
-                            <Label
+                                <Label
                                 Text="{ Binding Link }"
                                 FontAttributes="Bold"
                                 Grid.Row="2" />
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentView>
 </ContentPage>
