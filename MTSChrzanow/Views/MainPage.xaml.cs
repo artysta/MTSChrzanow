@@ -23,9 +23,15 @@ namespace MTSChrzanow.Views
 			BindingContext = viewModel;
 		}
 
-		void ListView_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
+		void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			viewModel.GoToDetailsCommand.Execute(e.Item as MTSPost);
+		}
+
+		void Picker_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			Picker p = (Picker)sender;
+			viewModel.PickerSelectionChanged.Execute(p.SelectedIndex);
 		}
 	}
 }

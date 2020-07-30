@@ -17,12 +17,19 @@ namespace MTSChrzanow.ViewModels
 		private INavigation _navigation;
 		private ObservableCollection<MTSPost> _mtsPosts;
 		private ICommand _goToDetailsCommand;
-		
+		private ICommand _pickerSelectionChanged;
+
 		public ICommand GoToDetailsCommand => _goToDetailsCommand ?? (_goToDetailsCommand = new Command<MTSPost>(OnGoToDetails));
+		public ICommand PickerSelectionChanged => _pickerSelectionChanged ?? (_pickerSelectionChanged = new Command<int>(OnSelectionChanged));
 
 		private async void OnGoToDetails(MTSPost item)
 		{
 			await _navigation.PushAsync(new DetailsPage(item));
+		}
+
+		private void OnSelectionChanged(int selectedPage)
+		{
+			GetPostsFromPage(selectedPage + 1);
 		}
 
 		public ObservableCollection<MTSPost> MTSPosts
@@ -34,22 +41,52 @@ namespace MTSChrzanow.ViewModels
 			}
 		}
 
+		public string[] PagePickerItems { set; get; }
+
+		public MainViewModel() { }
+
 		public MainViewModel(INavigation navigation)
 		{
 			_navigation = navigation;
-			MTSPosts = new ObservableCollection<MTSPost>(GetPosts());
+			InitializePages();
 		}
 
-		private List<MTSPost> GetPosts()
+		private void SetPosts(List<MTSPost> posts)
 		{
-			Log.Debug("JSON_POST", "Reading json...");
+			if (posts != null) MTSPosts = new ObservableCollection<MTSPost>(posts);
+		}
+
+		// Initialize pages when te app starts.
+		private void InitializePages()
+		{
+			WebClient client = new WebClient();
 			string query = GetQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiPostsUrl);
-			string json = new WebClient().DownloadString(query);
-			Log.Debug("JSON_POST", json);
-			
+			string json = client.DownloadString(query);
+
 			// Deserialize blog posts.
 			var posts = JsonConvert.DeserializeObject<List<MTSPost>>(json);
-			return posts;
+			SetPosts(posts);
+
+			// Get total amount of pages and initialize picker values.
+			WebHeaderCollection headers = client.ResponseHeaders;
+			int totalPages = int.Parse(headers["X-WP-TotalPages"]);
+			SetPickerItemsValues(totalPages);
+		}
+
+		private void GetPostsFromPage(int pageNumber)
+		{
+			string query = GetQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiPostsFromPageUrl, pageNumber.ToString());
+			string json = new WebClient().DownloadString(query);
+
+			// Deserialize blog posts.
+			var posts = JsonConvert.DeserializeObject<List<MTSPost>>(json);
+			SetPosts(posts);
+		}
+
+		private void SetPickerItemsValues(int k)
+		{
+			PagePickerItems = new string[k];
+			for (int i = 0; i < k; i++) PagePickerItems[i] = "Page " + (i + 1);
 		}
 
 		private string GetQuery(params string[] list)
