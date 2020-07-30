@@ -9,6 +9,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using MTSChrzanow.Views;
 using Android.Content.Res;
+using System;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -57,11 +58,11 @@ namespace MTSChrzanow.ViewModels
 		}
 
 		// Initialize pages when te app starts.
-		private void InitializePages()
+		private async void InitializePages()
 		{
 			WebClient client = new WebClient();
 			string query = GetQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiPostsUrl);
-			string json = client.DownloadString(query);
+			string json = await client.DownloadStringTaskAsync(query);
 
 			// Deserialize blog posts.
 			var posts = JsonConvert.DeserializeObject<List<MTSPost>>(json);
@@ -73,10 +74,10 @@ namespace MTSChrzanow.ViewModels
 			SetPickerItemsValues(totalPages);
 		}
 
-		private void GetPostsFromPage(int pageNumber)
+		private async void GetPostsFromPage(int pageNumber)
 		{
 			string query = GetQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiPostsFromPageUrl, pageNumber.ToString());
-			string json = new WebClient().DownloadString(query);
+			string json = await new WebClient().DownloadStringTaskAsync(query);
 
 			// Deserialize blog posts.
 			var posts = JsonConvert.DeserializeObject<List<MTSPost>>(json);
