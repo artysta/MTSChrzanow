@@ -58,11 +58,11 @@ namespace MTSChrzanow.ViewModels
 		}
 
 		// Initialize pages when te app starts.
-		private async void InitializePages()
+		private void InitializePages()
 		{
 			WebClient client = new WebClient();
 			string query = GetQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiPostsUrl);
-			string json = await client.DownloadStringTaskAsync(query);
+			string json = client.DownloadString(query);
 
 			// Deserialize blog posts.
 			var posts = JsonConvert.DeserializeObject<List<MTSPost>>(json);
