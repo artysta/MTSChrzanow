@@ -1,11 +1,6 @@
 ﻿using MTSChrzanow.Models;
 using MTSChrzanow.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace MTSChrzanow.Views
@@ -15,7 +10,7 @@ namespace MTSChrzanow.Views
 	[DesignTimeVisible(false)]
 	public partial class MainPage : ContentPage
 	{
-		MainViewModel viewModel;
+		private MainViewModel viewModel;
 		public MainPage()
 		{
 			InitializeComponent();
@@ -23,15 +18,9 @@ namespace MTSChrzanow.Views
 			BindingContext = viewModel;
 		}
 
-		void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+		private void Button_Clicked(object sender, System.EventArgs e)
 		{
-			viewModel.GoToDetailsCommand.Execute(e.Item as MTSPost);
-		}
-
-		void Picker_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			Picker p = (Picker)sender;
-			viewModel.PickerSelectionChanged.Execute(p.SelectedIndex);
+			viewModel.GoToPostsCommand.Execute(null);
 		}
 	}
 }

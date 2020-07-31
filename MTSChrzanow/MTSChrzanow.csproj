@@ -31,8 +31,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\DetailsPage.xaml.cs">
       <DependentUpon>DetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PostsPage.xaml.cs">
+      <DependentUpon>PostsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
