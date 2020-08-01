@@ -1,5 +1,7 @@
-﻿using MTSChrzanow.Models;
+﻿using Android.Webkit;
+using MTSChrzanow.Models;
 using MTSChrzanow.ViewModels;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
 
@@ -10,7 +12,8 @@ namespace MTSChrzanow.Views
 	[DesignTimeVisible(false)]
 	public partial class MainPage : ContentPage
 	{
-		private MainViewModel viewModel;
+		MainViewModel viewModel;
+
 		public MainPage()
 		{
 			InitializeComponent();
@@ -18,9 +21,9 @@ namespace MTSChrzanow.Views
 			BindingContext = viewModel;
 		}
 
-		private void Button_Clicked(object sender, System.EventArgs e)
+		void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
 		{
-			viewModel.GoToPostsCommand.Execute(null);
+			viewModel.GoToSelectedPage.Execute(e.Item as MainMenuItem);
 		}
 	}
 }

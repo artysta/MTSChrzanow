@@ -5,27 +5,57 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
+using Java.IO;
 
 namespace MTSChrzanow.ViewModels
 {
 	public class MainViewModel : BaseViewModel
 	{
+		private ObservableCollection<MainMenuItem> _menuItems;
 		private INavigation _navigation;
 		private ICommand _goToPostsCommand;
 
-		public ICommand GoToPostsCommand => _goToPostsCommand ?? (_goToPostsCommand = new Command(OnGoToPosts));
+		public ICommand GoToSelectedPage => _goToPostsCommand ?? (_goToPostsCommand = new Command<MainMenuItem>(OnMenuItemClicked));
 
-		private async void OnGoToPosts()
-		{
-			await _navigation.PushAsync(new PostsPage());
-		}
-
-		public MainViewModel() { }
+		public MainViewModel() : this(null)	{ }
 
 		public MainViewModel(INavigation navigation)
 		{
 			_navigation = navigation;
+			InitializeMenu();
+		}
+
+		public void InitializeMenu()
+		{
+			List<MainMenuItem> items = new List<MainMenuItem>
+			{
+				new MainMenuItem { Type = MainMenuItem.MenuItemType.Posts, Title = "Posts" },
+				new MainMenuItem { Type = MainMenuItem.MenuItemType.About, Title = "About" }
+			};
+
+			MenuItems = new ObservableCollection<MainMenuItem>(items);
+		}
+
+		public ObservableCollection<MainMenuItem> MenuItems
+		{
+			get { return _menuItems; }
+			set
+			{
+				SetProperty(ref _menuItems, value);
+			}
+		}
+		
+		private async void OnMenuItemClicked(MainMenuItem item)
+		{
+			if (item == null)
+				return;
+
+			if (item.Type == MainMenuItem.MenuItemType.Posts)
+				await _navigation.PushAsync(new PostsPage());
+			else
+				return;
 		}
 	}
 }

@@ -11,8 +11,11 @@
         <viewModels:MainViewModel/>
     </ContentPage.BindingContext>
     <ContentView>
-        <StackLayout>
-            <Button Text="Go to posts page" Clicked="Button_Clicked"/>
-        </StackLayout>
+        <ListView
+           ItemsSource="{ Binding MenuItems }"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand"
+           ItemTapped="ListView_ItemTapped">
+        </ListView>
     </ContentView>
 </ContentPage>
