@@ -31,8 +31,11 @@ namespace MTSChrzanow.ViewModels
 		{
 			List<MainMenuItem> items = new List<MainMenuItem>
 			{
-				new MainMenuItem { Type = MainMenuItem.MenuItemType.Posts, Title = "Posts" },
-				new MainMenuItem { Type = MainMenuItem.MenuItemType.About, Title = "About" }
+				new MainMenuItem { Type = MainMenuItem.MenuItemType.Posts, Title = "Aktualności" },
+				new MainMenuItem { Type = MainMenuItem.MenuItemType.Table, Title = "Tabela" },
+				new MainMenuItem { Type = MainMenuItem.MenuItemType.Players, Title = "Zawodnicy" },
+				new MainMenuItem { Type = MainMenuItem.MenuItemType.Sponsors, Title = "Sponsorzy" },
+				new MainMenuItem { Type = MainMenuItem.MenuItemType.About, Title = "O aplikacji" }
 			};
 
 			MenuItems = new ObservableCollection<MainMenuItem>(items);

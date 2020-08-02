@@ -5,6 +5,9 @@
 		public enum MenuItemType
 		{
 			Posts,
+			Table,
+			Players,
+			Sponsors,
 			About
 		}
 
