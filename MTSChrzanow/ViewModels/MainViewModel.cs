@@ -56,9 +56,17 @@ namespace MTSChrzanow.ViewModels
 				return;
 
 			if (item.Type == MainMenuItem.MenuItemType.Posts)
+			{
 				await _navigation.PushAsync(new PostsPage());
+			}
+			else if (item.Type == MainMenuItem.MenuItemType.Players)
+			{
+				await _navigation.PushAsync(new PositionsPage());
+			}
 			else
+			{
 				return;
+			}
 		}
 	}
 }
