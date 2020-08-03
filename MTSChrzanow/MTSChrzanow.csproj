@@ -31,6 +31,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\PlayerDetailsPage.xaml.cs">
+      <DependentUpon>PlayerDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PlayersPage.xaml.cs">
+      <DependentUpon>PlayersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\PositionsPage.xaml.cs">
+      <DependentUpon>PositionsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
