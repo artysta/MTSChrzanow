@@ -5,28 +5,42 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
-             x:Class="MTSChrzanow.Views.PostsPage">
+             xmlns:converters="clr-namespace:MTSChrzanow.Converters"
+             x:Class="MTSChrzanow.Views.PostsPage"
+             Title="Aktualności">
     <ContentPage.BindingContext>
         <viewModels:PostsViewModel/>
     </ContentPage.BindingContext>
-    <!--
-    <ContentView>
-        <ListView
-           ItemsSource="{ Binding MTSPosts }"
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </ContentView>
-    -->
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:NegateBooleanConverter x:Key="inverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentView>
-        <StackLayout>
-            <Picker ItemsSource="{ Binding PagePickerItems }" Title="Select page" SelectedIndexChanged="Picker_SelectedIndexChanged" ></Picker>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ActivityIndicator IsRunning="{ Binding IsBusy }"
+                               IsVisible="{ Binding IsBusy }"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Grid.Row="1"/>
+            <Picker ItemsSource="{ Binding PagePickerItems }"
+                    Title="Wybierz stronę"
+                    SelectedIndexChanged="Picker_SelectedIndexChanged"
+                    Grid.Row="0"/>
             <ListView
-            ItemsSource="{ Binding MTSPosts }"
-            HasUnevenRows="true"
-            SeparatorVisibility="Default"
-            ItemTapped="ListView_ItemTapped"
-            SelectionMode="None">
+                ItemsSource="{ Binding MTSPosts }"
+                IsVisible="{ Binding IsBusy, Converter = { StaticResource inverter } }"
+                HasUnevenRows="true"
+                SeparatorVisibility="Default"
+                ItemTapped="ListView_ItemTapped"
+                SelectionMode="None"
+                Grid.Row="1">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -37,23 +51,23 @@
                                     <RowDefinition Height="20"></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Label
-                                Text="{ Binding Title.Rendered }"
-                                FontAttributes="Bold"
-                                TextColor="Red"
-                                Grid.Row="0"/>
+                                    Text="{ Binding Title.Rendered }"
+                                    FontAttributes="Bold"
+                                    TextColor="DarkBlue"
+                                    Grid.Row="0"/>
                                 <Label
-                                Text="{ Binding Date }"
-                                FontAttributes="Bold"
-                                Grid.Row="1" />
+                                    Text="{ Binding Date }"
+                                    FontAttributes="Bold"
+                                    Grid.Row="1" />
                                 <Label
-                                Text="{ Binding Link }"
-                                FontAttributes="Bold"
-                                Grid.Row="2" />
+                                    Text="{ Binding Link }"
+                                    FontAttributes="Bold"
+                                    Grid.Row="2" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+        </Grid>
     </ContentView>
 </ContentPage>

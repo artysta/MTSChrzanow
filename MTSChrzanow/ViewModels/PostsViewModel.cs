@@ -10,28 +10,21 @@ using Xamarin.Forms;
 using MTSChrzanow.Views;
 using Android.Content.Res;
 using System;
+using System.Threading.Tasks;
 
 namespace MTSChrzanow.ViewModels
 {
 	class PostsViewModel : BaseViewModel
 	{
-		private INavigation _navigation;
+		private bool _isBusy;
 		private ObservableCollection<MTSPost> _mtsPosts;
+		private ObservableCollection<string> _pagePickerItems;
+		private INavigation _navigation;
 		private ICommand _goToDetailsCommand;
 		private ICommand _pickerSelectionChanged;
 
 		public ICommand GoToDetailsCommand => _goToDetailsCommand ?? (_goToDetailsCommand = new Command<MTSPost>(OnGoToDetails));
 		public ICommand PickerSelectionChanged => _pickerSelectionChanged ?? (_pickerSelectionChanged = new Command<int>(OnSelectionChanged));
-
-		private async void OnGoToDetails(MTSPost item)
-		{
-			await _navigation.PushAsync(new DetailsPage(item));
-		}
-
-		private void OnSelectionChanged(int selectedPage)
-		{
-			GetPostsFromPage(selectedPage + 1);
-		}
 
 		public ObservableCollection<MTSPost> MTSPosts
 		{
@@ -42,7 +35,23 @@ namespace MTSChrzanow.ViewModels
 			}
 		}
 
-		public string[] PagePickerItems { set; get; }
+		public ObservableCollection<string> PagePickerItems
+		{
+			get { return _pagePickerItems; }
+			set
+			{
+				SetProperty(ref _pagePickerItems, value);
+			}
+		}
+
+		public bool IsBusy
+		{
+			get { return _isBusy; }
+			set
+			{
+				SetProperty(ref _isBusy, value);
+			}
+		}
 
 		public PostsViewModel() { }
 
@@ -58,11 +67,12 @@ namespace MTSChrzanow.ViewModels
 		}
 
 		// Initialize pages when te app starts.
-		private void InitializePages()
+		private async Task InitializePages()
 		{
+			IsBusy = true;
 			WebClient client = new WebClient();
 			string query = GetQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiPostsUrl);
-			string json = client.DownloadString(query);
+			string json = await client.DownloadStringTaskAsync(query);
 
 			// Deserialize blog posts.
 			var posts = JsonConvert.DeserializeObject<List<MTSPost>>(json);
@@ -72,22 +82,31 @@ namespace MTSChrzanow.ViewModels
 			WebHeaderCollection headers = client.ResponseHeaders;
 			int totalPages = int.Parse(headers["X-WP-TotalPages"]);
 			SetPickerItemsValues(totalPages);
+			IsBusy = false;
 		}
 
-		private async void GetPostsFromPage(int pageNumber)
+		private async Task GetPostsFromPage(int pageNumber)
 		{
+			IsBusy = true;
 			string query = GetQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiPostsFromPageUrl, pageNumber.ToString());
 			string json = await new WebClient().DownloadStringTaskAsync(query);
 
 			// Deserialize blog posts.
 			var posts = JsonConvert.DeserializeObject<List<MTSPost>>(json);
 			SetPosts(posts);
+			IsBusy = false;
 		}
 
 		private void SetPickerItemsValues(int k)
 		{
-			PagePickerItems = new string[k];
-			for (int i = 0; i < k; i++) PagePickerItems[i] = "Page " + (i + 1);
+			List<string> items = new List<string>();
+
+			for (int i = 0; i < k; i++)
+			{
+				items.Add("Strona " + (i + 1));
+			}
+
+			PagePickerItems = new ObservableCollection<string>(items);
 		}
 
 		private string GetQuery(params string[] list)
@@ -95,6 +114,16 @@ namespace MTSChrzanow.ViewModels
 			StringBuilder sb = new StringBuilder();
 			foreach (string s in list) sb.Append(s);
 			return sb.ToString();
+		}
+
+		private async void OnGoToDetails(MTSPost item)
+		{
+			await _navigation.PushAsync(new DetailsPage(item));
+		}
+
+		private void OnSelectionChanged(int selectedPage)
+		{
+			GetPostsFromPage(selectedPage + 1);
 		}
 	}
 }
