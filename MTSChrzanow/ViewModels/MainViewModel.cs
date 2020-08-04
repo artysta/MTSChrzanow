@@ -63,6 +63,10 @@ namespace MTSChrzanow.ViewModels
 			{
 				await _navigation.PushAsync(new PositionsPage());
 			}
+			else if (item.Type == MainMenuItem.MenuItemType.Sponsors)
+			{
+				await _navigation.PushAsync(new SponsorsPage());
+			}
 			else
 			{
 				return;
