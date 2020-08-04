@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              x:Class="MTSChrzanow.Views.MainPage"
-             Title="Pozycje">
+             Title="MTS Chrzanów">
     <ContentPage.BindingContext>
         <viewModels:MainViewModel/>
     </ContentPage.BindingContext>
