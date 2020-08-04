@@ -31,11 +31,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\SponsorDetailsPage.xaml.cs">
+      <DependentUpon>SponsorDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\PlayerDetailsPage.xaml.cs">
       <DependentUpon>PlayerDetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\PlayersPage.xaml.cs">
       <DependentUpon>PlayersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SponsorsPage.xaml.cs">
+      <DependentUpon>SponsorsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\PositionsPage.xaml.cs">
       <DependentUpon>PositionsPage.xaml</DependentUpon>
