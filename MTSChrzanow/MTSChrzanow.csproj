@@ -31,6 +31,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\GamesPage.xaml.cs">
+      <DependentUpon>GamesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GameDetailsPage.xaml.cs">
+      <DependentUpon>GameDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SponsorDetailsPage.xaml.cs">
       <DependentUpon>SponsorDetailsPage.xaml</DependentUpon>
     </Compile>
@@ -56,4 +62,5 @@
       <DependentUpon>PostsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
+
 </Project>
