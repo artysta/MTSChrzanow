@@ -14,6 +14,7 @@ namespace MTSChrzanow.Views
 		{
 			InitializeComponent();
 			BindingContext = new DetailsViewModel(post);
+			Title = post.Title.Rendered;
 		}
 	}
 }
