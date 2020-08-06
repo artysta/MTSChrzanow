@@ -6,19 +6,22 @@
              mc:Ignorable="d"
              x:Class="MTSChrzanow.Views.PlayerDetailsPage"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
-             Title="Szczegóły">
+             Title="Szczegóły"
+             BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
         <viewModels:PlayerDetailsViewModel/>
     </ContentPage.BindingContext>
-    <ScrollView>
-        <StackLayout>
-            <Label Text="{ Binding MTSPlayer.Name, StringFormat='Imię i nazwisko {0}.' }" FontAttributes="Bold"/>
-            <Label Text="{ Binding MTSPlayer.Number, StringFormat='Numer {0}.' }"/>
-            <Label Text="{ Binding MTSPlayer.Position, StringFormat='Pozycja {0}.' }"/>
-            <Label Text="{ Binding MTSPlayer.Nationality, StringFormat='Narodowość: {0}.' }"/>
-            <Label Text="{ Binding MTSPlayer.BirthDate, StringFormat='Data urodzenia {0}.' }"/>
-            <Label Text="{ Binding MTSPlayer.Height, StringFormat='Wzrost {0} cm.' }"/>
-            <Label Text="{ Binding MTSPlayer.Weight, StringFormat='Waga {0} kg.' }"/>
-        </StackLayout>
-    </ScrollView>
+    <Frame Style="{ StaticResource DetailsFrameStyle }">
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{ Binding MTSPlayer.Name, StringFormat='Imię i nazwisko {0}.' }" FontAttributes="Bold"/>
+                <Label Text="{ Binding MTSPlayer.Number, StringFormat='Numer {0}.' }"/>
+                <Label Text="{ Binding MTSPlayer.Position, StringFormat='Pozycja {0}.' }"/>
+                <Label Text="{ Binding MTSPlayer.Nationality, StringFormat='Narodowość: {0}.' }"/>
+                <Label Text="{ Binding MTSPlayer.BirthDate, StringFormat='Data urodzenia {0}.' }"/>
+                <Label Text="{ Binding MTSPlayer.Height, StringFormat='Wzrost {0} cm.' }"/>
+                <Label Text="{ Binding MTSPlayer.Weight, StringFormat='Waga {0} kg.' }"/>
+            </StackLayout>
+        </ScrollView>
+    </Frame>
 </ContentPage>

@@ -6,16 +6,19 @@
              mc:Ignorable="d"
              x:Class="MTSChrzanow.Views.GameDetailsPage"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
-             Title="Szczegóły">
+             Title="Szczegóły"
+             BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
         <viewModels:GameDetailsViewModel/>
     </ContentPage.BindingContext>
-    <ScrollView>
-        <StackLayout>
-            <Label Text="{ Binding Game.Home, StringFormat='Home: {0}' }"/>
-            <Label Text="VS"/>
-            <Label Text="{ Binding Game.Away, StringFormat='Away: {0}' }"/>
-            <Label Text="{ Binding Game.DateOfGame, StringFormat='Data spotkania to {0}' }"/>
-        </StackLayout>
-    </ScrollView>
+    <Frame Style="{ StaticResource DetailsFrameStyle }">
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{ Binding Game.Home, StringFormat='Home: {0}' }"/>
+                <Label Text="VS"/>
+                <Label Text="{ Binding Game.Away, StringFormat='Away: {0}' }"/>
+                <Label Text="{ Binding Game.DateOfGame, StringFormat='Data spotkania to {0}' }"/>
+            </StackLayout>
+        </ScrollView>
+    </Frame>
 </ContentPage>

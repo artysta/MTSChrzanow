@@ -7,7 +7,8 @@
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              xmlns:converters="clr-namespace:MTSChrzanow.Converters"
              x:Class="MTSChrzanow.Views.PostsPage"
-             Title="Aktualności">
+             Title="Aktualności"
+             BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
         <viewModels:PostsViewModel/>
     </ContentPage.BindingContext>
@@ -26,6 +27,7 @@
             </Grid.RowDefinitions>
             <ActivityIndicator IsRunning="{ Binding IsBusy }"
                                IsVisible="{ Binding IsBusy }"
+                               Style="{ StaticResource ActivityIndicatorStyle }"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
                                Grid.Row="1"/>
@@ -33,37 +35,34 @@
                     Title="Wybierz stronę"
                     SelectedIndexChanged="Picker_SelectedIndexChanged"
                     Grid.Row="0"/>
-            <ListView
-                ItemsSource="{ Binding MTSPosts }"
-                IsVisible="{ Binding IsBusy, Converter = { StaticResource inverter } }"
-                HasUnevenRows="true"
-                SeparatorVisibility="Default"
-                ItemTapped="ListView_ItemTapped"
-                SelectionMode="None"
-                Grid.Row="1">
+            <ListView ItemsSource="{ Binding MTSPosts }"
+                      IsVisible="{ Binding IsBusy, Converter = { StaticResource inverter } }"
+                      HasUnevenRows="true"
+                      SeparatorVisibility="None"
+                      ItemTapped="ListView_ItemTapped"
+                      SelectionMode="None"
+                      Grid.Row="1">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="20"></RowDefinition>
-                                    <RowDefinition Height="20"></RowDefinition>
-                                    <RowDefinition Height="20"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Label
-                                    Text="{ Binding Title.Rendered }"
-                                    FontAttributes="Bold"
-                                    TextColor="DarkBlue"
-                                    Grid.Row="0"/>
-                                <Label
-                                    Text="{ Binding Date }"
-                                    FontAttributes="Bold"
-                                    Grid.Row="1" />
-                                <Label
-                                    Text="{ Binding Link }"
-                                    FontAttributes="Bold"
-                                    Grid.Row="2" />
-                            </Grid>
+                            <Frame Style="{ StaticResource SinglePostFrameStyle }">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{ Binding Title.Rendered }"
+                                           Style="{ StaticResource LabelPrimaryStyle }"
+                                           Grid.Row="0"/>
+                                    <Label Text="{ Binding Date }"
+                                           Style="{ StaticResource LabelSecondaryStyle }"
+                                           Grid.Row="1" />
+                                    <Label Text="{ Binding Link }"
+                                           Style="{ StaticResource LabelSecondaryStyle }"
+                                           Grid.Row="2" />
+                                </Grid>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

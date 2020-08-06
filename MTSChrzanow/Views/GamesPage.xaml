@@ -6,19 +6,19 @@
              mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              x:Class="MTSChrzanow.Views.GamesPage"
-             Title="Mecze">
+             Title="Mecze"
+             BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
         <viewModels:GamesViewModel/>
     </ContentPage.BindingContext>
 
     <ContentView>
         <StackLayout>
-            <ListView
-            ItemsSource="{ Binding Games }"
-            HasUnevenRows="true"
-            SeparatorVisibility="Default"
-            ItemTapped="ListView_ItemTapped"
-            SelectionMode="None">
+            <ListView ItemsSource="{ Binding Games }"
+                      HasUnevenRows="true"
+                      SeparatorVisibility="Default"
+                      ItemTapped="ListView_ItemTapped"
+                      SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

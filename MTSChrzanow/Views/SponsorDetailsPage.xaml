@@ -6,20 +6,23 @@
              mc:Ignorable="d"
              x:Class="MTSChrzanow.Views.SponsorDetailsPage"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
-             Title="Szczegóły">
+             Title="Szczegóły"
+             BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
         <viewModels:SponsorDetailsViewModel/>
     </ContentPage.BindingContext>
-    <ScrollView>
-        <StackLayout>
-            <Label Text="{ Binding MTSSponsor.Name }" FontAttributes="Bold"/>
-            <Label Text="{ Binding MTSSponsor.City }" FontAttributes="Bold"/>
-            <Label Text="{ Binding MTSSponsor.PostalCode }" FontAttributes="Bold"/>
-            <Label Text="{ Binding MTSSponsor.Street }" FontAttributes="Bold"/>
-            <Label Text="{ Binding MTSSponsor.PhoneNumber }" FontAttributes="Bold"/>
-            <Label Text="{ Binding MTSSponsor.Mail }" FontAttributes="Bold"/>
-            <Label Text="{ Binding MTSSponsor.WebSite }" FontAttributes="Bold"/>
-            <Label Text="{ Binding MTSSponsor.Description }" FontAttributes="Bold"/>
-        </StackLayout>
-    </ScrollView>
+    <Frame Style="{ StaticResource DetailsFrameStyle }">
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{ Binding MTSSponsor.Name }" FontAttributes="Bold"/>
+                <Label Text="{ Binding MTSSponsor.City }" FontAttributes="Bold"/>
+                <Label Text="{ Binding MTSSponsor.PostalCode }" FontAttributes="Bold"/>
+                <Label Text="{ Binding MTSSponsor.Street }" FontAttributes="Bold"/>
+                <Label Text="{ Binding MTSSponsor.PhoneNumber }" FontAttributes="Bold"/>
+                <Label Text="{ Binding MTSSponsor.Mail }" FontAttributes="Bold"/>
+                <Label Text="{ Binding MTSSponsor.WebSite }" FontAttributes="Bold"/>
+                <Label Text="{ Binding MTSSponsor.Description }" FontAttributes="Bold"/>
+            </StackLayout>
+        </ScrollView>
+    </Frame>
 </ContentPage>

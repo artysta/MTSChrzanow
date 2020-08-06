@@ -6,19 +6,19 @@
              mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              x:Class="MTSChrzanow.Views.MainPage"
-             Title="MTS Chrzanów">
+             Title="MTS Chrzanów"
+             BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
         <viewModels:MainViewModel/>
     </ContentPage.BindingContext>
 
     <ContentView>
         <StackLayout>
-            <ListView
-            ItemsSource="{ Binding MenuItems }"
-            HasUnevenRows="true"
-            SeparatorVisibility="Default"
-            ItemTapped="ListView_ItemTapped"
-            SelectionMode="None">
+            <ListView ItemsSource="{ Binding MenuItems }"
+                      HasUnevenRows="true"
+                      SeparatorVisibility="Default"
+                      ItemTapped="ListView_ItemTapped"
+                      SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

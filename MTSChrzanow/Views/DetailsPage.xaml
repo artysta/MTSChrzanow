@@ -5,15 +5,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MTSChrzanow.Views.DetailsPage"
-             xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels">
+             xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
+             BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
         <viewModels:DetailsViewModel/>
     </ContentPage.BindingContext>
-    <ScrollView>
-        <StackLayout>
-            <Label Text="{ Binding MTSPost.Date }" FontAttributes="Bold"/>
-            <Label Text="{ Binding MTSPost.Title.Rendered }" TextColor="Red" FontAttributes="Bold"/>
-            <Label Text="{ Binding MTSPost.Content.Rendered }"/>
-        </StackLayout>
+    <Frame Style="{ StaticResource DetailsFrameStyle }">
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{ Binding MTSPost.Title.Rendered }"
+                       Style="{ StaticResource LabelPrimaryStyle }"
+                       HorizontalOptions="Center"/>
+                <Label Text="{ Binding MTSPost.Date }"/>
+                <Label Text="{ Binding MTSPost.Content.Rendered }"/>
+            </StackLayout>
     </ScrollView>
+    </Frame>
 </ContentPage>

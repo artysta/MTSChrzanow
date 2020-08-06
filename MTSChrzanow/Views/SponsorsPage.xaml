@@ -6,19 +6,19 @@
              mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              x:Class="MTSChrzanow.Views.SponsorsPage"
-             Title="Sponsorzy">
+             Title="Sponsorzy"
+             BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
         <viewModels:SponsorsViewModel/>
     </ContentPage.BindingContext>
 
     <ContentView>
         <StackLayout>
-            <ListView
-            ItemsSource="{ Binding MTSSponsors }"
-            HasUnevenRows="true"
-            SeparatorVisibility="Default"
-            ItemTapped="ListView_ItemTapped"
-            SelectionMode="None">
+            <ListView ItemsSource="{ Binding MTSSponsors }"
+                      HasUnevenRows="true"
+                      SeparatorVisibility="Default"
+                      ItemTapped="ListView_ItemTapped"
+                      SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
