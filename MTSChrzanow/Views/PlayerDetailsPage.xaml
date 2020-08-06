@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="MTSChrzanow.Views.PlayerDetailsPage"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
+             xmlns:local="clr-namespace:MTSChrzanow"
              Title="Szczegóły"
              BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
@@ -14,6 +15,7 @@
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
             <StackLayout>
+                <Image Source="{ local:ImageResource MTSChrzanow.Images.logo_xamarin.png }"/>
                 <Label Text="{ Binding MTSPlayer.Name, StringFormat='Imię i nazwisko {0}.' }" FontAttributes="Bold"/>
                 <Label Text="{ Binding MTSPlayer.Number, StringFormat='Numer {0}.' }"/>
                 <Label Text="{ Binding MTSPlayer.Position, StringFormat='Pozycja {0}.' }"/>
