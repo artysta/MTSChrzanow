@@ -32,7 +32,7 @@ namespace MTSChrzanow.ViewModels
 			List<MainMenuItem> items = new List<MainMenuItem>
 			{
 				new MainMenuItem { Type = MainMenuItem.MenuItemType.Posts, Title = "Aktualności" },
-				new MainMenuItem { Type = MainMenuItem.MenuItemType.Table, Title = "Tabela" },
+				new MainMenuItem { Type = MainMenuItem.MenuItemType.Table, Title = "Terminarz" },
 				new MainMenuItem { Type = MainMenuItem.MenuItemType.Players, Title = "Zawodnicy" },
 				new MainMenuItem { Type = MainMenuItem.MenuItemType.Sponsors, Title = "Sponsorzy" },
 				new MainMenuItem { Type = MainMenuItem.MenuItemType.About, Title = "O aplikacji" }
@@ -70,6 +70,10 @@ namespace MTSChrzanow.ViewModels
 			else if (item.Type == MainMenuItem.MenuItemType.Sponsors)
 			{
 				await _navigation.PushAsync(new SponsorsPage());
+			}
+			else if (item.Type == MainMenuItem.MenuItemType.About)
+			{
+				await _navigation.PushAsync(new AboutPage());
 			}
 			else
 			{
