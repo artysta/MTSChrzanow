@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace MTSChrzanow.Models
 {
@@ -13,6 +14,8 @@ namespace MTSChrzanow.Models
         public string BirthDate { get; set; }
         public double Height { get; set; }
         public int Weight { get; set; }
+        public ImageSource PhotoSource { get; set; }
+
         public override string ToString() => $"{ Name }, { Number }, { Position }, { Nationality }, { BirthDate }, { Height } cm, { Weight } kg.";
     }
 }
