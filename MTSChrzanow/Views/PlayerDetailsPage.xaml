@@ -15,7 +15,7 @@
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
             <StackLayout>
-                <Image Source="{ local:ImageResource MTSChrzanow.Images.logo_xamarin.png }"/>
+                <Image Source="{ Binding MTSPlayer.PhotoSource }"/>
                 <Label Text="{ Binding MTSPlayer.Name, StringFormat='Imię i nazwisko {0}.' }" FontAttributes="Bold"/>
                 <Label Text="{ Binding MTSPlayer.Number, StringFormat='Numer {0}.' }"/>
                 <Label Text="{ Binding MTSPlayer.Position, StringFormat='Pozycja {0}.' }"/>
