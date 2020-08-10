@@ -12,11 +12,19 @@
 
   <ItemGroup>
     <None Remove="config.json" />
+    <None Remove="Images\logo_duhabex.png" />
+    <None Remove="Images\logo_mts.png" />
+    <None Remove="Images\logo_prbm_cembud.png" />
+    <None Remove="Images\logo_unimetal_recycling.png" />
     <None Remove="Images\logo_xamarin.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="config.json" />
+    <EmbeddedResource Include="Images\logo_duhabex.png" />
+    <EmbeddedResource Include="Images\logo_mts.png" />
+    <EmbeddedResource Include="Images\logo_prbm_cembud.png" />
+    <EmbeddedResource Include="Images\logo_unimetal_recycling.png" />
     <EmbeddedResource Include="Images\logo_xamarin.png" />
   </ItemGroup>
 
@@ -33,6 +41,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\GamesPage.xaml.cs">
       <DependentUpon>GamesPage.xaml</DependentUpon>
     </Compile>
