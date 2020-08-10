@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              xmlns:converters="clr-namespace:MTSChrzanow.Converters"
+             xmlns:local="clr-namespace:MTSChrzanow"
              x:Class="MTSChrzanow.Views.PostsPage"
              Title="Aktualności"
              BackgroundColor="{ StaticResource AppBgColor }">
@@ -30,8 +31,10 @@
                                Style="{ StaticResource ActivityIndicatorStyle }"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"
-                               Grid.Row="1"/>
+                               Grid.Row="1"
+                               Grid.RowSpan="2"/>
             <Picker ItemsSource="{ Binding PagePickerItems }"
+                    IsVisible="{ Binding IsBusyFristLoad, Converter = { StaticResource inverter } }"
                     Title="Wybierz stronę"
                     SelectedIndexChanged="Picker_SelectedIndexChanged"
                     Grid.Row="0"/>
@@ -52,15 +55,29 @@
                                         <RowDefinition Height="auto"></RowDefinition>
                                         <RowDefinition Height="auto"></RowDefinition>
                                     </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{ local:ImageResource MTSChrzanow.Images.logo_mts.png }"
+                                           Grid.Row="0"
+                                           Grid.Column="0"
+                                           Grid.RowSpan="3"
+                                           WidthRequest="60"/>
                                     <Label Text="{ Binding Title.Rendered }"
                                            Style="{ StaticResource LabelPrimaryStyle }"
-                                           Grid.Row="0"/>
+                                           Grid.Row="0"
+                                           Grid.Column="1"/>
                                     <Label Text="{ Binding Date }"
                                            Style="{ StaticResource LabelSecondaryStyle }"
-                                           Grid.Row="1" />
-                                    <Label Text="{ Binding Link }"
+                                           Grid.Row="1"
+                                           Grid.Column="1"/>
+                                    <Label Text="{ Binding Content.Rendered }"
                                            Style="{ StaticResource LabelSecondaryStyle }"
-                                           Grid.Row="2" />
+                                           TextType="Html"
+                                           MaxLines="2"
+                                           Grid.Row="2"
+                                           Grid.Column="1"/>
                                 </Grid>
                             </Frame>
                         </ViewCell>
