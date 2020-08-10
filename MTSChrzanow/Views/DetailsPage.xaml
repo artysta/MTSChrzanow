@@ -17,7 +17,7 @@
                        Style="{ StaticResource LabelPrimaryStyle }"
                        HorizontalOptions="Center"/>
                 <Label Text="{ Binding MTSPost.Date }"/>
-                <Label Text="{ Binding MTSPost.Content.Rendered }"/>
+                <Label TextType="Html" Text="{ Binding MTSPost.Content.Rendered }"/>
             </StackLayout>
     </ScrollView>
     </Frame>
