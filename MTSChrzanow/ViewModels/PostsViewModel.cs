@@ -17,6 +17,7 @@ namespace MTSChrzanow.ViewModels
 	class PostsViewModel : BaseViewModel
 	{
 		private bool _isBusy;
+		private bool _isFirstBusy;
 		private ObservableCollection<MTSPost> _mtsPosts;
 		private ObservableCollection<string> _pagePickerItems;
 		private INavigation _navigation;
@@ -43,13 +44,22 @@ namespace MTSChrzanow.ViewModels
 				SetProperty(ref _pagePickerItems, value);
 			}
 		}
-
+		
 		public bool IsBusy
 		{
 			get { return _isBusy; }
 			set
 			{
 				SetProperty(ref _isBusy, value);
+			}
+		}
+		
+		public bool IsBusyFristLoad
+		{
+			get { return _isFirstBusy; }
+			set
+			{
+				SetProperty(ref _isFirstBusy, value);
 			}
 		}
 
@@ -69,7 +79,7 @@ namespace MTSChrzanow.ViewModels
 		// Initialize pages when te app starts.
 		private async Task InitializePages()
 		{
-			IsBusy = true;
+			IsBusy = IsBusyFristLoad = true;
 			WebClient client = new WebClient();
 			string query = GetQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiPostsUrl);
 			string json = await client.DownloadStringTaskAsync(query);
@@ -82,7 +92,7 @@ namespace MTSChrzanow.ViewModels
 			WebHeaderCollection headers = client.ResponseHeaders;
 			int totalPages = int.Parse(headers["X-WP-TotalPages"]);
 			SetPickerItemsValues(totalPages);
-			IsBusy = false;
+			IsBusy = IsBusyFristLoad  = false;
 		}
 
 		private async Task GetPostsFromPage(int pageNumber)
