@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     
     <Color x:Key="PrimaryColor">#003a75</Color>
-    <Color x:Key="PostFrameBgColor">#efb800</Color>
+    <Color x:Key="PostFrameBgColor">#ffffff</Color>
     <Color x:Key="DetailsFrameBgColor">#ffffff</Color>
     <Color x:Key="AppBgColor">#ededed</Color>
 </ResourceDictionary>
