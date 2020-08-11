@@ -12,8 +12,15 @@
 
   <ItemGroup>
     <None Remove="config.json" />
+    <None Remove="Images\logo_chmax.png" />
+    <None Remove="Images\logo_debal.png" />
+    <None Remove="Images\logo_ds_auto.png" />
     <None Remove="Images\logo_duhabex.png" />
+    <None Remove="Images\logo_gmina_chrzanow.png" />
+    <None Remove="Images\logo_mcdonalds.png" />
+    <None Remove="Images\logo_mrowka.png" />
     <None Remove="Images\logo_mts.png" />
+    <None Remove="Images\logo_powiat_chrzanowski.png" />
     <None Remove="Images\logo_prbm_cembud.png" />
     <None Remove="Images\logo_unimetal_recycling.png" />
     <None Remove="Images\logo_xamarin.png" />
@@ -21,8 +28,15 @@
 
   <ItemGroup>
     <EmbeddedResource Include="config.json" />
+    <EmbeddedResource Include="Images\logo_chmax.png" />
+    <EmbeddedResource Include="Images\logo_debal.png" />
+    <EmbeddedResource Include="Images\logo_ds_auto.png" />
     <EmbeddedResource Include="Images\logo_duhabex.png" />
+    <EmbeddedResource Include="Images\logo_gmina_chrzanow.png" />
+    <EmbeddedResource Include="Images\logo_mcdonalds.png" />
+    <EmbeddedResource Include="Images\logo_mrowka.png" />
     <EmbeddedResource Include="Images\logo_mts.png" />
+    <EmbeddedResource Include="Images\logo_powiat_chrzanowski.png" />
     <EmbeddedResource Include="Images\logo_prbm_cembud.png" />
     <EmbeddedResource Include="Images\logo_unimetal_recycling.png" />
     <EmbeddedResource Include="Images\logo_xamarin.png" />
