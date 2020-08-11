@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using MTSChrzanow.Views;
+using System.Collections.Generic;
+using System.Reflection;
+using Xamarin.Forms;
 
 namespace MTSChrzanow.Models
 {
@@ -7,6 +10,7 @@ namespace MTSChrzanow.Models
 		public static List<MTSSponsor> GetMTSSponsors()
 		{
 			List<MTSSponsor> list = new List<MTSSponsor>();
+			Assembly assembly = typeof(SponsorDetailsPage).GetTypeInfo().Assembly;
 
 			list.Add
 			(
@@ -19,7 +23,8 @@ namespace MTSChrzanow.Models
 					Street = "Aleja Henryka 20",
 					PhoneNumber = "+48 (32) 75 85 152",
 					Mail = "sekretariat@chrzanow.pl",
-					WebSite = "https://www.chrzanow.pl/"
+					WebSite = "https://www.chrzanow.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_gmina_chrzanow.png", assembly)
 				}
 			);
 
@@ -34,7 +39,8 @@ namespace MTSChrzanow.Models
 					Street = "Tuwima 21",
 					PhoneNumber = "+48 730 016 017",
 					Mail = "info@unimetalrecycling.pl",
-					WebSite = "https://unimetalrecycling.pl/"
+					WebSite = "https://unimetalrecycling.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_unimetal_recycling.png", assembly)
 				}
 			);
 
@@ -49,7 +55,8 @@ namespace MTSChrzanow.Models
 					Street = "Sikorskiego 71",
 					PhoneNumber = "(32) 442 00 07",
 					Mail = "biuro@mant.pl",
-					WebSite = "https://mant.pl"
+					WebSite = "https://mant.pl",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
 
@@ -64,7 +71,8 @@ namespace MTSChrzanow.Models
 					Street = "Rynek 16",
 					PhoneNumber = "+48 (32) 754 15 65",
 					Mail = "biuro@chrzanowskaizba.pl",
-					WebSite = "http://www.chrzanowskaizba.pl/"
+					WebSite = "http://www.chrzanowskaizba.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
 
@@ -79,7 +87,8 @@ namespace MTSChrzanow.Models
 					Street = "Tuwima 21",
 					PhoneNumber = "+48 604 611 917",
 					Mail = "dsautospzoo@wp.pl",
-					WebSite = "https://katalizatorychrzanow.pl/"
+					WebSite = "https://katalizatorychrzanow.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_ds_auto.png", assembly)
 				}
 			);
 
@@ -94,7 +103,8 @@ namespace MTSChrzanow.Models
 					Street = "Harcerska 10",
 					PhoneNumber = "+48 (32) 624 0 624",
 					Mail = "kontakt@duhabex.pl",
-					WebSite = "https://duhabex.pl"
+					WebSite = "https://duhabex.pl",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_duhabex.png", assembly)
 				}
 			);
 
@@ -109,7 +119,8 @@ namespace MTSChrzanow.Models
 					Street = "Śląska 42",
 					PhoneNumber = "+48 (32) 623 34 45",
 					Mail = "biuro@prbmcembud.pl",
-					WebSite = "http://prbmcembud.pl/"
+					WebSite = "http://prbmcembud.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_prbm_cembud.png", assembly)
 				}
 			);
 
@@ -124,7 +135,8 @@ namespace MTSChrzanow.Models
 					Street = "Oświęcimska 3",
 					PhoneNumber = "+48 (32) 728 06 06",
 					Mail = "rejestracja@igamed.pl",
-					WebSite = "https://www.igamed.pl/"
+					WebSite = "https://www.igamed.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
 
@@ -139,7 +151,8 @@ namespace MTSChrzanow.Models
 					Street = "Kroczymiech 24",
 					PhoneNumber = "+48 (32) 623 59 61",
 					Mail = "chrzanow@psbmrowka.com.pl",
-					WebSite = "https://www.mrowkachrzanow.pl/"
+					WebSite = "https://www.mrowkachrzanow.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_mrowka.png", assembly)
 				}
 			);
 
@@ -154,7 +167,8 @@ namespace MTSChrzanow.Models
 					Street = "Trzebińska 71",
 					PhoneNumber = "+48 664 718 101",
 					Mail = "N/A",
-					WebSite = "N/A"
+					WebSite = "N/A",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_mcdonalds.png", assembly)
 				}
 			);
 
@@ -169,7 +183,8 @@ namespace MTSChrzanow.Models
 					Street = "Kopalniana 2a",
 					PhoneNumber = "+48 530 200 233",
 					Mail = "biuro@domosnieruchomosci.pl",
-					WebSite = "http://essanieruchomosci.pl/"
+					WebSite = "http://essanieruchomosci.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
 
@@ -184,7 +199,8 @@ namespace MTSChrzanow.Models
 					Street = "Kopalniana 2a",
 					PhoneNumber = "+48 (32) 720 69 14",
 					Mail = "sklep@kreatywnemaluchy.pl",
-					WebSite = "https://kreatywnemaluchy.pl/"
+					WebSite = "https://kreatywnemaluchy.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
 
@@ -199,7 +215,8 @@ namespace MTSChrzanow.Models
 					Street = "Kusocińskiego 4",
 					PhoneNumber = "+48 (32) 623 05 07",
 					Mail = "N/A",
-					WebSite = "N/A"
+					WebSite = "N/A",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
 
@@ -214,7 +231,8 @@ namespace MTSChrzanow.Models
 					Street = "Stara Huta 33",
 					PhoneNumber = "+48 (32) 623 48 33",
 					Mail = "N/A",
-					WebSite = "N/A"
+					WebSite = "N/A",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
 
@@ -229,7 +247,8 @@ namespace MTSChrzanow.Models
 					Street = "Matejki 2/5",
 					PhoneNumber = "+48 600 181 065",
 					Mail = "osk@l4you.pl",
-					WebSite = "http://www.l4you.pl/"
+					WebSite = "http://www.l4you.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
 
@@ -244,7 +263,8 @@ namespace MTSChrzanow.Models
 					Street = "Partyzantów 2",
 					PhoneNumber = "+48 32 625-79-95",
 					Mail = "sekretariat@powiat-chrzanowski.pl",
-					WebSite = "http://www.powiat-chrzanowski.pl/"
+					WebSite = "http://www.powiat-chrzanowski.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_powiat_chrzanowski.png", assembly)
 				}
 			);
 
@@ -259,7 +279,8 @@ namespace MTSChrzanow.Models
 					Street = "Trzebińska 40",
 					PhoneNumber = "+48 (32) 623 96 48",
 					Mail = "kontakt@chmax.pl",
-					WebSite = "https://chmax.pl"
+					WebSite = "https://chmax.pl",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_chmax.png", assembly)
 				}
 			);
 
@@ -274,7 +295,8 @@ namespace MTSChrzanow.Models
 					Street = "Akacjowa 2",
 					PhoneNumber = "+48 501 619 980",
 					Mail = "leszek@debal.pl",
-					WebSite = "http://debal.pl/"
+					WebSite = "http://debal.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_debal.png", assembly)
 				}
 			);
 
@@ -289,7 +311,8 @@ namespace MTSChrzanow.Models
 					Street = "Słowackiego 4/4",
 					PhoneNumber = "+48 509 969 369",
 					Mail = "kancelariamosor@gmail.com",
-					WebSite = "http://kancelariamosor.pl/"
+					WebSite = "http://kancelariamosor.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
 
@@ -304,7 +327,8 @@ namespace MTSChrzanow.Models
 					Street = "Jaworznicka 37a",
 					PhoneNumber = "+48 693 988 666",
 					Mail = "biuro@drukarniaoptima.pl",
-					WebSite = "https://drukarniaoptima.pl/"
+					WebSite = "https://drukarniaoptima.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
 
@@ -319,7 +343,8 @@ namespace MTSChrzanow.Models
 					Street = "Kardynała Stefana Wyszyńskiego 17A",
 					PhoneNumber = "+48 784 572 702",
 					Mail = "kontakt@joannatambor.pl",
-					WebSite = "https://joannatambor.pl/"
+					WebSite = "https://joannatambor.pl/",
+					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
 			return list;
