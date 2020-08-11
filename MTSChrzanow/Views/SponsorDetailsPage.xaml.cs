@@ -10,10 +10,20 @@ namespace MTSChrzanow.Views
 	[DesignTimeVisible(false)]
 	public partial class SponsorDetailsPage : ContentPage
 	{
+		private SponsorDetailsViewModel viewModel;
+		private MTSSponsor _sponsor;
+
 		public SponsorDetailsPage(MTSSponsor sponsor)
 		{
+			_sponsor = sponsor;
 			InitializeComponent();
-			BindingContext = new SponsorDetailsViewModel(sponsor);
+			viewModel = new SponsorDetailsViewModel(_sponsor);
+			BindingContext = viewModel;
+		}
+
+		private void Button_Clicked(object sender, System.EventArgs e)
+		{
+			viewModel.GoToDetailsCommand.Execute(_sponsor);
 		}
 	}
 }

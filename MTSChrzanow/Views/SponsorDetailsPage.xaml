@@ -6,7 +6,6 @@
              mc:Ignorable="d"
              x:Class="MTSChrzanow.Views.SponsorDetailsPage"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
-             xmlns:local="clr-namespace:MTSChrzanow"
              Title="Szczegóły"
              BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
@@ -16,14 +15,18 @@
         <ScrollView>
             <StackLayout>
                 <Image Source="{ Binding MTSSponsor.LogoSource }"/>
-                <Label Text="{ Binding MTSSponsor.Name }" FontAttributes="Bold"/>
-                <Label Text="{ Binding MTSSponsor.City }" FontAttributes="Bold"/>
-                <Label Text="{ Binding MTSSponsor.PostalCode }" FontAttributes="Bold"/>
-                <Label Text="{ Binding MTSSponsor.Street }" FontAttributes="Bold"/>
-                <Label Text="{ Binding MTSSponsor.PhoneNumber }" FontAttributes="Bold"/>
-                <Label Text="{ Binding MTSSponsor.Mail }" FontAttributes="Bold"/>
-                <Label Text="{ Binding MTSSponsor.WebSite }" FontAttributes="Bold"/>
-                <Label Text="{ Binding MTSSponsor.Description }" FontAttributes="Bold"/>
+                <Label Text="{ Binding MTSSponsor.Name }"/>
+                <Label Text="{ Binding MTSSponsor.City }"/>
+                <Label Text="{ Binding MTSSponsor.PostalCode }"/>
+                <Label Text="{ Binding MTSSponsor.Street }"/>
+                <Label Text="{ Binding MTSSponsor.PhoneNumber }"/>
+                <Label Text="{ Binding MTSSponsor.Mail }"/>
+                <Label Text="{ Binding MTSSponsor.WebSite }"/>
+                <Label Text="{ Binding MTSSponsor.Description }"/>
+                <Button Text="Odwiedź stronę sponsora"
+                        CommandParameter="{ Binding MTSSPonsor.WebSite }"
+                        Style="{ StaticResource MainButtonStyle }"
+                        Clicked="Button_Clicked"/>
             </StackLayout>
         </ScrollView>
     </Frame>

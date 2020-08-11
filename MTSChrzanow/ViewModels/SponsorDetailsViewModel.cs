@@ -1,9 +1,16 @@
 ﻿using MTSChrzanow.Models;
+using System;
+using System.Windows.Input;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MTSChrzanow.ViewModels
 {
 	public class SponsorDetailsViewModel : BaseViewModel
 	{
+		private ICommand _goToDetailsCommand;
+		public ICommand GoToDetailsCommand => _goToDetailsCommand ?? (_goToDetailsCommand = new Command<MTSSponsor>(OnGoToSponsorWebsite));
+
 		private MTSSponsor _mtsSponsor;
 		public MTSSponsor MTSSponsor
 		{
@@ -19,6 +26,11 @@ namespace MTSChrzanow.ViewModels
 		public SponsorDetailsViewModel(MTSSponsor sponsor)
 		{
 			MTSSponsor = sponsor;
+		}
+
+		private async void OnGoToSponsorWebsite(MTSSponsor sponsor)
+		{
+			await Launcher.OpenAsync(sponsor.WebSite);
 		}
 	}
 }
