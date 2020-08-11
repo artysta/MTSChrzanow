@@ -33,11 +33,14 @@
                                VerticalOptions="Center"
                                Grid.Row="1"
                                Grid.RowSpan="2"/>
-            <Picker ItemsSource="{ Binding PagePickerItems }"
-                    IsVisible="{ Binding IsBusyFristLoad, Converter = { StaticResource inverter } }"
-                    Title="Wybierz stronę"
-                    SelectedIndexChanged="Picker_SelectedIndexChanged"
-                    Grid.Row="0"/>
+            <Frame Style="{ StaticResource SinglePostFrameStyle }"
+                   IsVisible="{ Binding IsBusyFristLoad, Converter = { StaticResource inverter } }"
+                   Grid.Row="0">
+                <Picker ItemsSource="{ Binding PagePickerItems }"
+                        IsVisible="{ Binding IsBusyFristLoad, Converter = { StaticResource inverter } }"
+                        Title="Wybierz stronę"
+                        SelectedIndexChanged="Picker_SelectedIndexChanged"/>
+            </Frame>
             <ListView ItemsSource="{ Binding MTSPosts }"
                       IsVisible="{ Binding IsBusy, Converter = { StaticResource inverter } }"
                       HasUnevenRows="true"
