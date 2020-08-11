@@ -32,4 +32,9 @@
 
     <Style TargetType="Label" x:Key="LabelSecondaryStyle">
     </Style>
+
+    <Style TargetType="Button" x:Key="MainButtonStyle">
+        <Setter Property="BackgroundColor" Value="{ StaticResource PrimaryColor }"/>
+        <Setter Property="TextColor" Value="{ StaticResource BrigthTextColor }"/>
+    </Style>
 </ResourceDictionary>

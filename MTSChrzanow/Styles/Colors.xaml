@@ -7,4 +7,5 @@
     <Color x:Key="PostFrameBgColor">#ffffff</Color>
     <Color x:Key="DetailsFrameBgColor">#ffffff</Color>
     <Color x:Key="AppBgColor">#ededed</Color>
+    <Color x:Key="BrigthTextColor">#ffffff</Color>
 </ResourceDictionary>
