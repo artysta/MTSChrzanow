@@ -8,10 +8,14 @@
              xmlns:local="clr-namespace:MTSChrzanow"
              Title="O aplikacji"
              BackgroundColor="{ StaticResource AppBgColor }">
-    <ContentView>
-        <StackLayout>
-            <Label Text="Oficjalna aplikacja drużyny MTS Chrzanów."/>
-            <Image Source="{ local:ImageResource MTSChrzanow.Images.logo_mts.png }"/>
-        </StackLayout>
-    </ContentView>
+    <Frame Style="{ StaticResource DetailsFrameStyle }">
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Oficjalna aplikacja drużyny MTS Chrzanów."
+                       Style="{ StaticResource LabelPrimaryStyle }"
+                       HorizontalOptions="Center"/>
+                <Image Source="{ local:ImageResource MTSChrzanow.Images.logo_mts.png }"/>
+            </StackLayout>
+        </ScrollView>
+    </Frame>
 </ContentPage>
