@@ -53,7 +53,7 @@ namespace MTSChrzanow.ViewModels
 			if (item == null)
 				return;
 
-			await _navigation.PushAsync(new PlayersPage(item.Type));
+			await _navigation.PushAsync(new PlayersPage(item));
 		}
 	}
 }

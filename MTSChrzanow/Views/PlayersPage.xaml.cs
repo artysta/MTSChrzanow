@@ -14,10 +14,10 @@ namespace MTSChrzanow.Views
 	{
 		private PlayersViewModel viewModel;
 
-		public PlayersPage(PositionsMenuItem.MenuItemType type)
+		public PlayersPage(PositionsMenuItem position)
 		{
 			InitializeComponent();
-			viewModel = new PlayersViewModel(Navigation, type);
+			viewModel = new PlayersViewModel(Navigation, position);
 			BindingContext = viewModel;
 		}
 
