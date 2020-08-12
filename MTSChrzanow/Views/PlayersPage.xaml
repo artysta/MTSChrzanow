@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              x:Class="MTSChrzanow.Views.PlayersPage"
-             Title="Zawodnicy"
+             Title="{ Binding PositionName }"
              BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
         <viewModels:PlayersViewModel/>
