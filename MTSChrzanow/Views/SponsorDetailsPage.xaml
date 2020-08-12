@@ -14,7 +14,8 @@
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
             <StackLayout>
-                <Image Source="{ Binding MTSSponsor.LogoSource }"/>
+                <Image Source="{ Binding MTSSponsor.LogoSource }"
+                       HeightRequest="150"/>
                 <Label Text="{ Binding MTSSponsor.Name }"/>
                 <Label Text="{ Binding MTSSponsor.City }"/>
                 <Label Text="{ Binding MTSSponsor.PostalCode }"/>
