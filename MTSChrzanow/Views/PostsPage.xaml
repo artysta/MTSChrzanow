@@ -33,7 +33,7 @@
                                VerticalOptions="Center"
                                Grid.Row="1"
                                Grid.RowSpan="2"/>
-            <Frame Style="{ StaticResource SinglePostFrameStyle }"
+            <Frame Style="{ StaticResource PickerFrameStyle }"
                    IsVisible="{ Binding IsBusyFristLoad, Converter = { StaticResource inverter } }"
                    Grid.Row="0">
                 <Picker ItemsSource="{ Binding PagePickerItems }"
@@ -69,6 +69,7 @@
                                            WidthRequest="60"/>
                                     <Label Text="{ Binding Title.Rendered }"
                                            Style="{ StaticResource LabelPrimaryStyle }"
+                                           TextType="Html"
                                            Grid.Row="0"
                                            Grid.Column="1"/>
                                     <Label Text="{ Binding Date }"
@@ -78,7 +79,7 @@
                                     <Label Text="{ Binding Content.Rendered }"
                                            Style="{ StaticResource LabelSecondaryStyle }"
                                            TextType="Html"
-                                           MaxLines="2"
+                                           MaxLines="3"
                                            Grid.Row="2"
                                            Grid.Column="1"/>
                                 </Grid>

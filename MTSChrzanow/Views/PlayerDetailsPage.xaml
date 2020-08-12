@@ -7,7 +7,7 @@
              x:Class="MTSChrzanow.Views.PlayerDetailsPage"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              xmlns:local="clr-namespace:MTSChrzanow"
-             Title="Szczegóły"
+             Title="{ Binding MTSPlayer.Name }"
              BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
         <viewModels:PlayerDetailsViewModel/>
@@ -16,13 +16,92 @@
         <ScrollView>
             <StackLayout>
                 <Image Source="{ Binding MTSPlayer.PhotoSource }"/>
-                <Label Text="{ Binding MTSPlayer.Name, StringFormat='Imię i nazwisko {0}.' }" FontAttributes="Bold"/>
-                <Label Text="{ Binding MTSPlayer.Number, StringFormat='Numer {0}.' }"/>
-                <Label Text="{ Binding MTSPlayer.Position, StringFormat='Pozycja {0}.' }"/>
-                <Label Text="{ Binding MTSPlayer.Nationality, StringFormat='Narodowość: {0}.' }"/>
-                <Label Text="{ Binding MTSPlayer.BirthDate, StringFormat='Data urodzenia {0}.' }"/>
-                <Label Text="{ Binding MTSPlayer.Height, StringFormat='Wzrost {0} cm.' }"/>
-                <Label Text="{ Binding MTSPlayer.Weight, StringFormat='Waga {0} kg.' }"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Imię i nazwisko"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding MTSPlayer.Name }"
+                           Grid.Row="0"
+                           Grid.Column="1"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="1"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"/>
+                    
+                    <Label Text="Pozycja"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="2"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding MTSPlayer.Position }"
+                           Grid.Row="2"
+                           Grid.Column="1"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="3"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"/>
+                    
+                    <Label Text="Narodowość"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="4"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding MTSPlayer.Nationality }"
+                           Grid.Row="4"
+                           Grid.Column="1"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="5"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"/>
+                    
+                    <Label Text="Data urodzenia"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="6"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding MTSPlayer.BirthDate }"
+                           Grid.Row="6"
+                           Grid.Column="1"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="7"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"/>
+
+                    <Label Text="Wysokość"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="8"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding MTSPlayer.Height }"
+                           Grid.Row="8"
+                           Grid.Column="1"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="9"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"/>
+                    
+                    <Label Text="Waga"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="10"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding MTSPlayer.Weight }"
+                           Grid.Row="10"
+                           Grid.Column="1"/>
+                </Grid>
             </StackLayout>
         </ScrollView>
     </Frame>

@@ -22,14 +22,23 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Label Text="{ Binding Name }"
-                                       Grid.Row="0"
-                                       Margin="10"/>
-                            </Grid>
+                            <Frame Style="{ StaticResource MenuElementFrameStyle }">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <BoxView Grid.Row="0"
+                                             Grid.Column="0"
+                                             Style="{ StaticResource BoxListElementDecorationStyle }"/>
+                                    <Label Text="{ Binding Name }"
+                                           Grid.Row="0"
+                                           Grid.Column="1"
+                                           VerticalOptions="Center"/>
+                                </Grid>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="MTSChrzanow.Views.SponsorDetailsPage"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
-             Title="Szczegóły"
+             Title="{ Binding MTSSponsor.Name }"
              BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
         <viewModels:SponsorDetailsViewModel/>
@@ -16,13 +16,84 @@
             <StackLayout>
                 <Image Source="{ Binding MTSSponsor.LogoSource }"
                        HeightRequest="150"/>
-                <Label Text="{ Binding MTSSponsor.Name }"/>
-                <Label Text="{ Binding MTSSponsor.City }"/>
-                <Label Text="{ Binding MTSSponsor.PostalCode }"/>
-                <Label Text="{ Binding MTSSponsor.Street }"/>
-                <Label Text="{ Binding MTSSponsor.PhoneNumber }"/>
-                <Label Text="{ Binding MTSSponsor.Mail }"/>
-                <Label Text="{ Binding MTSSponsor.WebSite }"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Miasto"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding MTSSponsor.City }"
+                           Grid.Row="0"
+                           Grid.Column="1"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="1"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"/>
+
+                    <Label Text="Kod pocztowy"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="2"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding MTSSponsor.PostalCode }"
+                           Grid.Row="2"
+                           Grid.Column="1"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="3"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"/>
+
+                    <Label Text="Ulica"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="4"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding MTSSponsor.Street }"
+                           Grid.Row="4"
+                           Grid.Column="1"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="5"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"/>
+
+                    <Label Text="Numer telefonu"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="6"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding MTSSponsor.PhoneNumber }"
+                           Grid.Row="6"
+                           Grid.Column="1"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="7"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"/>
+
+                    <Label Text="Adres e-mail"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="8"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding MTSSponsor.Mail }"
+                           Grid.Row="8"
+                           Grid.Column="1"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="9"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"/>
+                </Grid>
                 <Label Text="{ Binding MTSSponsor.Description }"/>
                 <Button Text="Odwiedź stronę sponsora"
                         CommandParameter="{ Binding MTSSPonsor.WebSite }"
