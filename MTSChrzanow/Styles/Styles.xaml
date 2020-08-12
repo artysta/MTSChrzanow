@@ -3,27 +3,49 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
+    <!-- P A G E S -->
+    
     <Style TargetType="NavigationPage" x:Key="ToolbarStyle">
         <Setter Property="BarTextColor" Value="{ StaticResource PrimaryColor }"/>
     </Style>
 
+    <!-- F R A M E S -->
+
     <Style TargetType="Frame" x:Key="SinglePostFrameStyle">
         <Setter Property="BackgroundColor" Value="{ StaticResource PostFrameBgColor }"/>
-        <Setter Property="CornerRadius" Value="5"/>
-        <Setter Property="Margin" Value="2"/>
-        <Setter Property="Padding" Value="5"/>
+        <Setter Property="CornerRadius" Value="1"/>
+        <Setter Property="Margin" Value="8, 4, 8, 4"/>
+        <Setter Property="Padding" Value="12"/>
+    </Style>
+
+    <Style TargetType="Frame" x:Key="MenuElementFrameStyle">
+        <Setter Property="BackgroundColor" Value="{ StaticResource PostFrameBgColor }"/>
+        <Setter Property="CornerRadius" Value="1"/>
+        <Setter Property="Margin" Value="2, 1, 2, 1"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+
+    <Style TargetType="Frame" x:Key="PickerFrameStyle">
+        <Setter Property="BackgroundColor" Value="{ StaticResource PostFrameBgColor }"/>
+        <Setter Property="CornerRadius" Value="1"/>
+        <Setter Property="Margin" Value="8, 8, 8, -2"/>
+        <Setter Property="Padding" Value="4"/>
     </Style>
 
     <Style TargetType="Frame" x:Key="DetailsFrameStyle">
         <Setter Property="BackgroundColor" Value="{ StaticResource DetailsFrameBgColor }"/>
-        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="CornerRadius" Value="1"/>
         <Setter Property="Margin" Value="6"/>
         <Setter Property="Padding" Value="6"/>
     </Style>
 
+    <!-- A C T I V I T Y    I N D I C A T O R S -->
+
     <Style TargetType="ActivityIndicator" x:Key="ActivityIndicatorStyle">
         <Setter Property="Color" Value="{ StaticResource PrimaryColor }"/>
     </Style>
+
+    <!-- L A B E L S -->
 
     <Style TargetType="Label" x:Key="LabelPrimaryStyle">
         <Setter Property="TextColor" Value="{ StaticResource PrimaryColor }"/>
@@ -33,8 +55,26 @@
     <Style TargetType="Label" x:Key="LabelSecondaryStyle">
     </Style>
 
+    <!-- B U T T O N S -->
+
     <Style TargetType="Button" x:Key="MainButtonStyle">
         <Setter Property="BackgroundColor" Value="{ StaticResource PrimaryColor }"/>
         <Setter Property="TextColor" Value="{ StaticResource BrigthTextColor }"/>
+    </Style>
+    
+    <!-- B O X    V I E W S-->
+    
+    <Style TargetType="BoxView" x:Key="BoxHorizontalLineStyle">
+        <Setter Property="BackgroundColor" Value="LightGray"/>
+        <Setter Property="HeightRequest" Value="0.5"/>
+    </Style>
+
+    <Style TargetType="BoxView" x:Key="BoxListElementDecorationStyle">
+        <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+        <Setter Property="HeightRequest" Value="60"/>
+        <Setter Property="WidthRequest" Value="5"/>
+        <Setter Property="CornerRadius" Value="1"/>
+        <Setter Property="BackgroundColor" Value="{ StaticResource PrimaryColor}"/>
     </Style>
 </ResourceDictionary>
