@@ -18,14 +18,17 @@ namespace MTSChrzanow.ViewModels
 
 		public ICommand GoToPlayerDetailsCommand => _goToPlayerDetailsCommand ?? (_goToPlayerDetailsCommand = new Command<MTSPlayer>(OnGoToPlayerDetails));
 
-		public PlayersViewModel() : this(null)	{ }
+		public string PositionName { get; set; }
 
-		public PlayersViewModel(INavigation navigation) : this(navigation, PositionsMenuItem.MenuItemType.Goalkeepers) { }
+		public PlayersViewModel() { }
 
-		public PlayersViewModel(INavigation navigation, PositionsMenuItem.MenuItemType type)
+		// public PlayersViewModel(INavigation navigation) : this(navigation, new PositionsMenuItem { Type = PositionsMenuItem.MenuItemType.Goalkeepers }) { }
+
+		public PlayersViewModel(INavigation navigation, PositionsMenuItem position)
 		{
+			PositionName = position.Title;
 			_navigation = navigation;
-			InitializePlayersList(type);
+			InitializePlayersList(position.Type);
 		}
 
 		public void InitializePlayersList(PositionsMenuItem.MenuItemType type)
