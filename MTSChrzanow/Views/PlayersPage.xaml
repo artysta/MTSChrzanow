@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
+             xmlns:local="clr-namespace:MTSChrzanow"
              x:Class="MTSChrzanow.Views.PlayersPage"
              Title="{ Binding PositionName }"
              BackgroundColor="{ StaticResource AppBgColor }">
@@ -25,14 +26,17 @@
                             <Frame Style="{ StaticResource MenuElementFrameStyle }">
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <BoxView Grid.Row="0"
-                                             Grid.Column="0"
-                                             Style="{ StaticResource BoxListElementDecorationStyle }"/>
+                                    <Frame Style="{ StaticResource RoundedImageFrameStyle }"
+                                           Grid.Row="0"
+                                           Grid.Column="0">
+                                        <Image Source="{ Binding IconSource }"/>
+                                    </Frame>
                                     <Label Text="{ Binding Name }"
                                            Grid.Row="0"
                                            Grid.Column="1"
