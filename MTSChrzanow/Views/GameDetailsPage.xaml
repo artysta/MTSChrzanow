@@ -14,10 +14,50 @@
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
             <StackLayout>
-                <Label Text="{ Binding Game.Home, StringFormat='Home: {0}' }"/>
-                <Label Text="VS"/>
-                <Label Text="{ Binding Game.Away, StringFormat='Away: {0}' }"/>
-                <Label Text="{ Binding Game.DateOfGame, StringFormat='Data spotkania to {0}' }"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Home"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding Game.Home }"
+                           Grid.Row="0"
+                           Grid.Column="1"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="1"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"/>
+
+                    <Label Text="Away"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="2"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding Game.Away }"
+                           Grid.Row="2"
+                           Grid.Column="1"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="3"
+                             Grid.Column="0"
+                             Grid.ColumnSpan="2"/>
+
+                    <Label Text="Data spotkania"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="4"
+                           Grid.Column="0"/>
+                    <Label Text="{ Binding Game.DateOfGame }"
+                           Grid.Row="4"
+                           Grid.Column="1"/>
+                </Grid>
             </StackLayout>
         </ScrollView>
     </Frame>
