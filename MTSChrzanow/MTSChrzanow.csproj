@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <None Remove="config.json" />
+    <None Remove="Images\icon_romian.png" />
+    <None Remove="Images\icon_xamarin.png" />
     <None Remove="Images\logo_chmax.png" />
     <None Remove="Images\logo_debal.png" />
     <None Remove="Images\logo_ds_auto.png" />
@@ -28,6 +30,8 @@
 
   <ItemGroup>
     <EmbeddedResource Include="config.json" />
+    <EmbeddedResource Include="Images\icon_romian.png" />
+    <EmbeddedResource Include="Images\icon_xamarin.png" />
     <EmbeddedResource Include="Images\logo_chmax.png" />
     <EmbeddedResource Include="Images\logo_debal.png" />
     <EmbeddedResource Include="Images\logo_ds_auto.png" />
