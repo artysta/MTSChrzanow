@@ -39,6 +39,14 @@
         <Setter Property="Padding" Value="6"/>
     </Style>
 
+    <Style TargetType="Frame" x:Key="RoundedImageFrameStyle">
+        <Setter Property="CornerRadius" Value="100"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="WidthRequest" Value="70"/>
+        <Setter Property="HeightRequest" Value="70"/>
+    </Style>
+
     <!-- A C T I V I T Y    I N D I C A T O R S -->
 
     <Style TargetType="ActivityIndicator" x:Key="ActivityIndicatorStyle">
@@ -62,7 +70,7 @@
         <Setter Property="TextColor" Value="{ StaticResource BrigthTextColor }"/>
     </Style>
     
-    <!-- B O X    V I E W S-->
+    <!-- B O X    V I E W S -->
     
     <Style TargetType="BoxView" x:Key="BoxHorizontalLineStyle">
         <Setter Property="BackgroundColor" Value="LightGray"/>
