@@ -17,6 +17,9 @@ namespace MTSChrzanow.Models
 		public Content Content { get; set; }
 		[JsonProperty("tags")]
 		public string[] Tags { get; set; }
+		[JsonProperty("featured_media")]
+		public int FeaturedMedia { get; set; }
+		public string ImageSource { get; set; }
 		
 		public override string ToString() =>
 			$"Id: { Id }" +
