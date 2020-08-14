@@ -13,11 +13,16 @@
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
             <StackLayout>
+                <Frame Padding="0">
+                    <Image Source="{ Binding MTSPost.ImageSource }"
+                           Aspect="AspectFill"/>
+                </Frame>
                 <Label Text="{ Binding MTSPost.Title.Rendered }"
                        Style="{ StaticResource LabelPrimaryStyle }"
                        HorizontalOptions="Center"/>
                 <Label Text="{ Binding MTSPost.Date }"/>
                 <Label TextType="Html" Text="{ Binding MTSPost.Content.Rendered }"/>
+                <Label TextType="Html" Text="{ Binding MTSPost.ImageSource }"/>
             </StackLayout>
     </ScrollView>
     </Frame>
