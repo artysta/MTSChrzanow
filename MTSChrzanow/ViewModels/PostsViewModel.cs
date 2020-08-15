@@ -1,14 +1,12 @@
 ﻿using MTSChrzanow.Models;
 using System.Collections.ObjectModel;
 using System.Net;
-using Android.Util;
 using System.Text;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Windows.Input;
 using Xamarin.Forms;
 using MTSChrzanow.Views;
-using Android.Content.Res;
 using System;
 using System.Threading.Tasks;
 
@@ -86,13 +84,15 @@ namespace MTSChrzanow.ViewModels
 
 			// Deserialize blog posts.
 			var posts = JsonConvert.DeserializeObject<List<MTSPost>>(json);
-			SetPosts(posts);
 
 			// Get total amount of pages and initialize picker values.
 			WebHeaderCollection headers = client.ResponseHeaders;
 			int totalPages = int.Parse(headers["X-WP-TotalPages"]);
 			SetPickerItemsValues(totalPages);
-			IsBusy = IsBusyFristLoad  = false;
+
+			SetPosts(posts);
+			GetPostsMedia();
+			IsBusy = IsBusyFristLoad = false;
 		}
 
 		private async Task GetPostsFromPage(int pageNumber)
@@ -104,7 +104,39 @@ namespace MTSChrzanow.ViewModels
 			// Deserialize blog posts.
 			var posts = JsonConvert.DeserializeObject<List<MTSPost>>(json);
 			SetPosts(posts);
+			GetPostsMedia();
 			IsBusy = false;
+		}
+
+		private async Task GetPostsMedia()
+		{
+			WebClient client = new WebClient();
+			
+			foreach (MTSPost p in MTSPosts)
+			{
+				string query = GetQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiSinglePostMedia, p.FeaturedMedia.ToString());
+				System.Diagnostics.Debug.WriteLine("Query for post id " + p.Id + ": " + query);
+
+				try
+				{
+					string json = await client.DownloadStringTaskAsync(query);
+					MTSPostMedia media = JsonConvert.DeserializeObject<MTSPostMedia>(json);
+
+					// There is problem to pass uri's that starts with "http" as image source at this moment so... replace "http" to "https".
+					p.ImageSource = media.Guid.Rendered.StartsWith("http:") ? media.Guid.Rendered.Replace("http:", "https:")
+																				: media.Guid.Rendered;
+				}
+				catch (Exception e)
+				{
+					// Assign default image if sth went wrong.
+					p.ImageSource = "https://mtschrzanow.pl/wp-content/uploads/2019/01/logokolor.png";
+					System.Diagnostics.Debug.WriteLine(e.Message);
+				}
+
+				System.Diagnostics.Debug.WriteLine("Post title: " + p.Title + ", image source: " + p.ImageSource + ", media id: " + p.FeaturedMedia);
+			}
+
+			return;
 		}
 
 		private void SetPickerItemsValues(int k)
