@@ -13,6 +13,8 @@ namespace MTSChrzanow
 		public static string MTSChrzanowApiUrl { get; private set; }
 		public static string MTSChrzanowApiPostsUrl { get; private set; }
 		public static string MTSChrzanowApiPostsFromPageUrl { get; private set; }
+		public static string MTSChrzanowApiSinglePostMedia { get; private set; }
+
 
 		public App()
 		{
@@ -42,6 +44,7 @@ namespace MTSChrzanow
 					MTSChrzanowApiUrl = dynamicJson["MTSChrzanowApiUrl"].Value<string>();
 					MTSChrzanowApiPostsUrl = dynamicJson["MTSChrzanowApiPostsUrl"].Value<string>();
 					MTSChrzanowApiPostsFromPageUrl = dynamicJson["MTSChrzanowApiPostsFromPageUrl"].Value<string>();
+					MTSChrzanowApiSinglePostMedia = dynamicJson["MTSChrzanowApiSinglePostMedia"].Value<string>();
 				}
 			}
 		}
