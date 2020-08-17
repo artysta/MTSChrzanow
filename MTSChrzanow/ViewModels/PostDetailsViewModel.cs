@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MTSChrzanow.ViewModels
 {
-	public class DetailsViewModel : BaseViewModel
+	public class PostDetailsViewModel : BaseViewModel
 	{
 		private MTSPost _mtsPost;
 		public MTSPost MTSPost
@@ -17,9 +17,9 @@ namespace MTSChrzanow.ViewModels
 			}
 		}
 
-		public DetailsViewModel() { }
+		public PostDetailsViewModel() { }
 
-		public DetailsViewModel(MTSPost post)
+		public PostDetailsViewModel(MTSPost post)
 		{
 			MTSPost = post;
 			Android.Util.Log.Debug("DETAILS_PAGE", post.Title.Rendered);

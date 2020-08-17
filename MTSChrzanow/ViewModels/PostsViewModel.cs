@@ -160,7 +160,7 @@ namespace MTSChrzanow.ViewModels
 
 		private async void OnGoToDetails(MTSPost item)
 		{
-			await _navigation.PushAsync(new DetailsPage(item));
+			await _navigation.PushAsync(new PostDetailsPage(item));
 		}
 
 		private void OnSelectionChanged(int selectedPage)
