@@ -16,7 +16,7 @@
         <ScrollView>
             <StackLayout>
                 <Image Source="{ Binding MTSPlayer.PhotoSource }"/>
-                <Grid>
+                <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>

@@ -14,7 +14,7 @@
     <Style TargetType="Frame" x:Key="SinglePostFrameStyle">
         <Setter Property="BackgroundColor" Value="{ StaticResource PostFrameBgColor }"/>
         <Setter Property="CornerRadius" Value="1"/>
-        <Setter Property="Margin" Value="8, 4, 8, 4"/>
+        <Setter Property="Margin" Value="0, 4, 0, 4"/>
         <Setter Property="Padding" Value="12"/>
     </Style>
 
@@ -28,7 +28,7 @@
     <Style TargetType="Frame" x:Key="PickerFrameStyle">
         <Setter Property="BackgroundColor" Value="{ StaticResource PostFrameBgColor }"/>
         <Setter Property="CornerRadius" Value="1"/>
-        <Setter Property="Margin" Value="8, 8, 8, -2"/>
+        <Setter Property="Margin" Value="0, 0, 0, -2"/>
         <Setter Property="Padding" Value="4"/>
     </Style>
 
@@ -42,7 +42,7 @@
     <Style TargetType="Frame" x:Key="RoundedImageFrameStyle">
         <Setter Property="CornerRadius" Value="100"/>
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Margin" Value="15"/>
         <Setter Property="WidthRequest" Value="70"/>
         <Setter Property="HeightRequest" Value="70"/>
     </Style>

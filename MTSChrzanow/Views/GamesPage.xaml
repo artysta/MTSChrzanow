@@ -22,32 +22,30 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame Style="{ StaticResource MenuElementFrameStyle }">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"></RowDefinition>
-                                        <RowDefinition Height="auto"></RowDefinition>
-                                        <RowDefinition Height="auto"></RowDefinition>
-                                        <RowDefinition Height="auto"></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Label Text="{ Binding DateOfGame }"
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Text="{ Binding DateOfGame }"
                                            Style="{ StaticResource LabelPrimaryStyle }"
                                            HorizontalTextAlignment="Center"
                                            Grid.Row="0"
                                            Margin="0, 20, 0, 0"/>
-                                    <Label Text="{ Binding Home }"
+                                <Label Text="{ Binding Home }"
                                            HorizontalTextAlignment="Center"
                                            Grid.Row="1"
                                            Margin="0, 0, 0, 0"/>
-                                    <Label Text="VS"
+                                <Label Text="VS"
                                            HorizontalTextAlignment="Center"
                                            Grid.Row="2"/>
-                                    <Label Text="{ Binding Away }"
+                                <Label Text="{ Binding Away }"
                                            HorizontalTextAlignment="Center"
                                            Grid.Row="3"
                                            Margin="0, 0, 0, 20"/>
-                                </Grid>
-                            </Frame>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

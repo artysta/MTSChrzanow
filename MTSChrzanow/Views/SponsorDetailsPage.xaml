@@ -16,8 +16,9 @@
             <StackLayout>
                 <Image Source="{ Binding MTSSponsor.LogoSource }"
                        HeightRequest="150"/>
-                <Grid>
+                <Grid Margin="5">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>
@@ -93,12 +94,20 @@
                              Grid.Row="9"
                              Grid.Column="0"
                              Grid.ColumnSpan="2"/>
+
+                    <Label Text="{ Binding MTSSponsor.Description }"
+                           Grid.Row="10"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"/>
+
+                    <Button Text="Odwiedź stronę sponsora"
+                            CommandParameter="{ Binding MTSSPonsor.WebSite }"
+                            Style="{ StaticResource MainButtonStyle }"
+                            Clicked="Button_Clicked"
+                            Grid.Row="11"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"/>
                 </Grid>
-                <Label Text="{ Binding MTSSponsor.Description }"/>
-                <Button Text="Odwiedź stronę sponsora"
-                        CommandParameter="{ Binding MTSSPonsor.WebSite }"
-                        Style="{ StaticResource MainButtonStyle }"
-                        Clicked="Button_Clicked"/>
             </StackLayout>
         </ScrollView>
     </Frame>
