@@ -47,7 +47,8 @@
                       SeparatorVisibility="None"
                       ItemTapped="ListView_ItemTapped"
                       SelectionMode="None"
-                      Grid.Row="1">
+                      Grid.Row="1"
+                      CachingStrategy="RecycleElementAndDataTemplate">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

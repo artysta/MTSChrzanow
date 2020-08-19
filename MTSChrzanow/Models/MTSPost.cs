@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.ComponentModel;
 
 namespace MTSChrzanow.Models
 {
-	public class MTSPost
+	public class MTSPost : INotifyPropertyChanged
 	{
 		[JsonProperty("id")]
 		public long Id { get; set; }
@@ -19,8 +20,26 @@ namespace MTSChrzanow.Models
 		public string[] Tags { get; set; }
 		[JsonProperty("featured_media")]
 		public int FeaturedMedia { get; set; }
-		public string ImageSource { get; set; }
-		
+
+		private string _imageSource;
+		public string ImageSource
+		{
+			get => _imageSource;
+			set
+			{
+				this._imageSource = value;
+				RaisePropertyChanged("ImageSource");
+			}
+		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		private void RaisePropertyChanged(String name)
+		{
+			if (PropertyChanged != null)
+				this.PropertyChanged(this, new PropertyChangedEventArgs(name));
+		}
+
 		public override string ToString() =>
 			$"Id: { Id }" +
 			$"{ Date }" +
