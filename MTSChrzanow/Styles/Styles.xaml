@@ -80,6 +80,11 @@
         <Setter Property="BackgroundColor" Value="LightGray"/>
         <Setter Property="HeightRequest" Value="0.5"/>
     </Style>
+    
+    <Style TargetType="BoxView" x:Key="BoxVerticalLineStyle">
+        <Setter Property="BackgroundColor" Value="LightGray"/>
+        <Setter Property="WidthRequest" Value="0.5"/>
+    </Style>
 
     <Style TargetType="BoxView" x:Key="BoxListElementDecorationStyle">
         <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
