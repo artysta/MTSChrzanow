@@ -24,39 +24,55 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Label Text="Home"
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="0"
-                           Grid.Column="0"/>
-                    <Label Text="{ Binding Game.Home }"
-                           Grid.Row="0"
-                           Grid.Column="1"/>
+                           Grid.Column="0"
+                           HorizontalOptions="Center"
+                           FontSize="30"/>
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="1"
-                             Grid.Column="0"
-                             Grid.ColumnSpan="2"/>
-
-                    <Label Text="Away"
-                           Style="{ StaticResource LabelPrimaryStyle }"
+                             Grid.Column="0"/>
+                    <Label Text="{ Binding Game.Home }"
+                           HorizontalOptions="Center"
                            Grid.Row="2"
                            Grid.Column="0"/>
-                    <Label Text="{ Binding Game.Away }"
-                           Grid.Row="2"
-                           Grid.Column="1"/>
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="3"
-                             Grid.Column="0"
-                             Grid.ColumnSpan="2"/>
-
-                    <Label Text="Data spotkania"
+                             Grid.Column="0"/>
+                    <Label Text="{ Binding Game.HomeGoal }"
+                           Grid.Row="4"
+                           Grid.Column="0"
+                           HorizontalOptions="Center"
+                           FontSize="35"/>
+                    <BoxView Style="{ StaticResource BoxVerticalLineStyle }"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             Grid.RowSpan="5"/>
+                    <Label Text="Away"
                            Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="0"
+                           Grid.Column="2"
+                           HorizontalOptions="Center"
+                           FontSize="30"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="1"
+                             Grid.Column="2"/>
+                    <Label Text="{ Binding Game.Away }"
+                           HorizontalOptions="Center"
+                           Grid.Row="2"
+                           Grid.Column="2"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="3"
+                             Grid.Column="2"/>
+                    <Label Text="{ Binding Game.AwayGoal }"
                            Grid.Row="4"
-                           Grid.Column="0"/>
-                    <Label Text="{ Binding Game.DateOfGame }"
-                           Grid.Row="4"
-                           Grid.Column="1"/>
+                           Grid.Column="2"
+                           HorizontalOptions="Center"
+                           FontSize="35"/>
                 </Grid>
             </StackLayout>
         </ScrollView>
