@@ -20,6 +20,8 @@ namespace MTSChrzanow.Models
 				_homeGoal = value.Trim().Equals("") ? "-" : value;
 			}
 		}
+		[JsonProperty("home-logo-url")]
+		public string HomeLogoUrl { get; set; }
 		[JsonProperty("away")]
 		public string Away { get; set; }
 		[JsonProperty("away-goal")]
@@ -31,6 +33,8 @@ namespace MTSChrzanow.Models
 				_awayGoal = value.Trim().Equals("") ? "-" : value;
 			}
 		}
+		[JsonProperty("away-logo-url")]
+		public string AwayLogoUrl { get; set; }
 		[JsonProperty("date-of-game")]
 		public string DateOfGameString
 		{
