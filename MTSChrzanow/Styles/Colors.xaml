@@ -8,4 +8,5 @@
     <Color x:Key="DetailsFrameBgColor">#ffffff</Color>
     <Color x:Key="AppBgColor">#ffffff</Color>
     <Color x:Key="BrigthTextColor">#ffffff</Color>
+    <Color x:Key="AccentColor">#efba0b</Color>
 </ResourceDictionary>
