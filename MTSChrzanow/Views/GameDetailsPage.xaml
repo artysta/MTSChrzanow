@@ -16,18 +16,19 @@
             <StackLayout>
                 <Grid Margin="5">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Text="Home"
                            Style="{ StaticResource LabelPrimaryStyle }"
@@ -41,7 +42,8 @@
                     <StackLayout Grid.Row="2"
                                  Grid.Column="0">
                         <Image Source="{ Binding Game.HomeLogoUrl }"
-                               HeightRequest="100"/>
+                               HeightRequest="100"
+                               WidthRequest="100"/>
                     </StackLayout>
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="3"
@@ -74,7 +76,8 @@
                     <StackLayout Grid.Row="2"
                                  Grid.Column="2">
                         <Image Source="{ Binding Game.AwayLogoUrl }"
-                               HeightRequest="100"/>
+                               HeightRequest="100"
+                               WidthRequest="100"/>
                     </StackLayout>
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="3"
@@ -91,6 +94,11 @@
                            Grid.Column="2"
                            HorizontalOptions="Center"
                            FontSize="35"/>
+                    <Label Text="{ Binding Message }"
+                           Grid.Row="7"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="3"
+                           HorizontalOptions="Center"/>
                 </Grid>
             </StackLayout>
         </ScrollView>
