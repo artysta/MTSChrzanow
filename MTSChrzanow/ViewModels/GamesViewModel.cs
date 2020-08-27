@@ -1,8 +1,6 @@
 ﻿using MTSChrzanow.Models;
 using System.Collections.ObjectModel;
 using System.Net;
-using Android.Util;
-using System.Text;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Windows.Input;
@@ -55,7 +53,7 @@ namespace MTSChrzanow.ViewModels
 
 		private async Task SetAllGames()
 		{
-			string query = App.MTSChrzanowFirebaseUrl;
+			string query = App.MTSChrzanowFirebaseUrl + App.MTSChrzanowFirebaseGamesUrl;
 			string json = await new WebClient().DownloadStringTaskAsync(query);
 			var games = JsonConvert.DeserializeObject<List<Game>>(json);
 
