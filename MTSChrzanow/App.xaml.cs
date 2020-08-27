@@ -15,6 +15,8 @@ namespace MTSChrzanow
 		public static string MTSChrzanowApiPostsFromPageUrl { get; private set; }
 		public static string MTSChrzanowApiSinglePostMedia { get; private set; }
 		public static string MTSChrzanowFirebaseUrl { get; private set; }
+		public static string MTSChrzanowFirebaseGamesUrl { get; private set; }
+		public static string MTSChrzanowRealTimeGameChild { get; private set; }
 
 		public App()
 		{
@@ -46,6 +48,8 @@ namespace MTSChrzanow
 					MTSChrzanowApiPostsFromPageUrl = dynamicJson["MTSChrzanowApiPostsFromPageUrl"].Value<string>();
 					MTSChrzanowApiSinglePostMedia = dynamicJson["MTSChrzanowApiSinglePostMedia"].Value<string>();
 					MTSChrzanowFirebaseUrl = dynamicJson["MTSChrzanowFirebaseUrl"].Value<string>();
+					MTSChrzanowFirebaseGamesUrl = dynamicJson["MTSChrzanowFirebaseGamesUrl"].Value<string>();
+					MTSChrzanowRealTimeGameChild = dynamicJson["MTSChrzanowRealTimeGameChild"].Value<string>();
 				}
 			}
 		}
