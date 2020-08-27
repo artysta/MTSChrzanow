@@ -8,6 +8,7 @@
 			Table,
 			Players,
 			Sponsors,
+			RealtimeGame,
 			About
 		}
 

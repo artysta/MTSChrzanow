@@ -35,6 +35,7 @@ namespace MTSChrzanow.ViewModels
 				new MainMenuItem { Type = MainMenuItem.MenuItemType.Table, Title = "Terminarz" },
 				new MainMenuItem { Type = MainMenuItem.MenuItemType.Players, Title = "Zawodnicy" },
 				new MainMenuItem { Type = MainMenuItem.MenuItemType.Sponsors, Title = "Sponsorzy" },
+				new MainMenuItem { Type = MainMenuItem.MenuItemType.RealtimeGame, Title = "Wynik na żywo" },
 				new MainMenuItem { Type = MainMenuItem.MenuItemType.About, Title = "O aplikacji" }
 			};
 
@@ -70,6 +71,10 @@ namespace MTSChrzanow.ViewModels
 			else if (item.Type == MainMenuItem.MenuItemType.Sponsors)
 			{
 				await _navigation.PushAsync(new SponsorsPage());
+			}
+			else if (item.Type == MainMenuItem.MenuItemType.RealtimeGame)
+			{
+				await _navigation.PushAsync(new RealtimeGamePage());
 			}
 			else if (item.Type == MainMenuItem.MenuItemType.About)
 			{
