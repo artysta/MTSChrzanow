@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              xmlns:converters="clr-namespace:MTSChrzanow.Converters"
-             xmlns:local="clr-namespace:MTSChrzanow"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="MTSChrzanow.Views.PostsPage"
              Title="Aktualności"
              BackgroundColor="{ StaticResource AppBgColor }">
@@ -33,18 +33,14 @@
                                VerticalOptions="Center"
                                Grid.Row="1"
                                Grid.RowSpan="2"/>
-            <Frame Style="{ StaticResource PickerFrameStyle }"
-                   IsVisible="{ Binding IsBusyFristLoad, Converter = { StaticResource inverter } }"
-                   Grid.Row="0">
-                <Picker ItemsSource="{ Binding PagePickerItems }"
-                        IsVisible="{ Binding IsBusyFristLoad, Converter = { StaticResource inverter } }"
-                        Title="Wybierz stronę"
-                        SelectedIndexChanged="Picker_SelectedIndexChanged"/>
-            </Frame>
+            <Picker ItemsSource="{ Binding PagePickerItems }"
+                    IsVisible="{ Binding IsBusyFristLoad, Converter = { StaticResource inverter } }"
+                    Title="Wybierz stronę"
+                    SelectedIndexChanged="Picker_SelectedIndexChanged"/>
             <ListView ItemsSource="{ Binding MTSPosts }"
                       IsVisible="{ Binding IsBusy, Converter = { StaticResource inverter } }"
                       HasUnevenRows="true"
-                      SeparatorVisibility="None"
+                      SeparatorVisibility="Default"
                       ItemTapped="ListView_ItemTapped"
                       SelectionMode="None"
                       Grid.Row="1"
@@ -52,45 +48,44 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame Style="{ StaticResource SinglePostFrameStyle }" Padding="0">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"></RowDefinition>
-                                        <RowDefinition Height="auto"></RowDefinition>
-                                        <RowDefinition Height="auto"></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                                        <ColumnDefinition Width="auto"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <Frame Grid.Row="0"
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                    <RowDefinition Height="auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Frame Grid.Row="0"
                                            Grid.Column="0"
                                            Grid.RowSpan="3"
                                            Padding="0"
                                            WidthRequest="100"
                                            HeightRequest="100">
-                                        <Image Source="{ Binding ImageSource }"
-                                               Aspect="AspectFill"/>
-                                    </Frame>
-                                    <Label Text="{ Binding Title.Rendered }"
+                                    <ffimageloading:CachedImage Source="{ Binding ImageSource }"
+                                                                Aspect="AspectFill"
+                                                                CacheDuration="30"/>
+                                </Frame>
+                                <Label Text="{ Binding Title.Rendered }"
                                            Style="{ StaticResource LabelPrimaryStyle }"
                                            TextType="Html"
                                            Margin="0, 10, 0, 0"
                                            Grid.Row="0"
                                            Grid.Column="1"/>
-                                    <Label Text="{ Binding Date }"
+                                <Label Text="{ Binding Date }"
                                            Style="{ StaticResource LabelSecondaryStyle }"
                                            Grid.Row="1"
                                            Grid.Column="1"/>
-                                    <Label Text="{ Binding Content.Rendered }"
+                                <Label Text="{ Binding Content.Rendered }"
                                            Style="{ StaticResource LabelSecondaryStyle }"
                                            TextType="Html"
                                            Margin="0, 0, 0, 10"
                                            MaxLines="3"
                                            Grid.Row="2"
                                            Grid.Column="1"/>
-                                </Grid>
-                            </Frame>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

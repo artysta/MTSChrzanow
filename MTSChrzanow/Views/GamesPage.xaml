@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              xmlns:converters="clr-namespace:MTSChrzanow.Converters"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="MTSChrzanow.Views.GamesPage"
              Title="Mecze"
              BackgroundColor="{ StaticResource AppBgColor }">
@@ -52,9 +53,10 @@
                                              Grid.RowSpan="3"
                                              Grid.Column="0"
                                              VerticalOptions="Center">
-                                    <Image Source="{ Binding HomeLogoUrl }"
-                                           HeightRequest="75"
-                                           WidthRequest="75"/>
+                                    <ffimageloading:CachedImage Source="{ Binding HomeLogoUrl }"
+                                                                HeightRequest="75"
+                                                                WidthRequest="75"
+                                                                CacheDuration="30"/>
                                 </StackLayout>
                                 <Label Text="{ Binding DateOfGame }"
                                        Style="{ StaticResource LabelPrimaryStyle }"
@@ -81,9 +83,10 @@
                                              Grid.RowSpan="3"
                                              Grid.Column="2"
                                              VerticalOptions="Center">
-                                    <Image Source="{ Binding AwayLogoUrl }"
-                                           HeightRequest="75"
-                                           WidthRequest="75"/>
+                                    <ffimageloading:CachedImage Source="{ Binding AwayLogoUrl }"
+                                                                HeightRequest="75"
+                                                                WidthRequest="75"
+                                                                CacheDuration="30"/>
                                 </StackLayout>
                             </Grid>
                         </ViewCell>

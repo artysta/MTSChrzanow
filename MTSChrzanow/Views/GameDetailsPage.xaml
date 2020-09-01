@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="MTSChrzanow.Views.GameDetailsPage"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              Title="Szczegóły"
              BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
@@ -75,9 +76,10 @@
                              Grid.Column="2"/>
                     <StackLayout Grid.Row="2"
                                  Grid.Column="2">
-                        <Image Source="{ Binding Game.AwayLogoUrl }"
-                               HeightRequest="100"
-                               WidthRequest="100"/>
+                        <ffimageloading:CachedImage Source="{ Binding Game.AwayLogoUrl }"
+                                                    HeightRequest="100"
+                                                    WidthRequest="100"
+                                                    CacheDuration="30"/>
                     </StackLayout>
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="3"

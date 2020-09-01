@@ -7,6 +7,7 @@
              x:Class="MTSChrzanow.Views.RealtimeGamePage"
              xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              xmlns:converters="clr-namespace:MTSChrzanow.Converters"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              Title="Wynik na żywo"
              BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
@@ -53,12 +54,13 @@
                              Grid.Row="1"
                              Grid.Column="0"/>
                         <StackLayout Grid.Row="2"
-                                 Grid.Column="0">
-                            <Image Source="{ Binding RealtimeGame.HomeLogoUrl }"
-                               HeightRequest="100"
-                               WidthRequest="100"/>
+                                     Grid.Column="0">
+                            <ffimageloading:CachedImage Source="{ Binding RealtimeGame.HomeLogoUrl }"
+                                                        HeightRequest="100"
+                                                        WidthRequest="100"
+                                                        CacheDuration="30"/>
                         </StackLayout>
-                        <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="3"
                              Grid.Column="0"/>
                         <Label Text="{ Binding RealtimeGame.Home }"
@@ -88,9 +90,10 @@
                              Grid.Column="2"/>
                         <StackLayout Grid.Row="2"
                                  Grid.Column="2">
-                            <Image Source="{ Binding RealtimeGame.AwayLogoUrl }"
-                               HeightRequest="100"
-                               WidthRequest="100"/>
+                            <ffimageloading:CachedImage Source="{ Binding RealtimeGame.AwayLogoUrl }"
+                                                    HeightRequest="100"
+                                                    WidthRequest="100"
+                                                    CacheDuration="30"/>
                         </StackLayout>
                         <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="3"
