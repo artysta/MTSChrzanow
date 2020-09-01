@@ -1,6 +1,7 @@
 ﻿using MTSChrzanow.Models;
 using MTSChrzanow.ViewModels;
 using System.ComponentModel;
+using System.Web;
 using Xamarin.Forms;
 
 namespace MTSChrzanow.Views
@@ -14,7 +15,7 @@ namespace MTSChrzanow.Views
 		{
 			InitializeComponent();
 			BindingContext = new PostDetailsViewModel(post);
-			Title = post.Title.Rendered;
+			Title = HttpUtility.HtmlDecode(post.Title.Rendered);
 		}
 	}
 }

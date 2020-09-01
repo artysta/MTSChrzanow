@@ -22,11 +22,13 @@
                 </Frame>
                 <Label Text="{ Binding MTSPost.Title.Rendered }"
                        Style="{ StaticResource LabelPrimaryStyle }"
+                       TextType="Html"
                        HorizontalOptions="Center"/>
                 <Label Text="{ Binding MTSPost.Date }"
                        Style="{ StaticResource DetailsLabelStyle }"/>
-                <Label TextType="Html" Text="{ Binding MTSPost.Content.Rendered }"
-                       Style="{ StaticResource DetailsLabelStyle }"/>
+                <Label Text="{ Binding MTSPost.Content.Rendered }"
+                       Style="{ StaticResource DetailsLabelStyle }"
+                       TextType="Html"/>
             </StackLayout>
     </ScrollView>
     </Frame>
