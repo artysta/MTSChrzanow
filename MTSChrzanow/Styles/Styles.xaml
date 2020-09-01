@@ -50,13 +50,13 @@
     <!-- A C T I V I T Y    I N D I C A T O R S -->
 
     <Style TargetType="ActivityIndicator" x:Key="ActivityIndicatorStyle">
-        <Setter Property="Color" Value="{ StaticResource PrimaryColor }"/>
+        <Setter Property="Color" Value="{ StaticResource AccentColor }"/>
     </Style>
 
     <!-- L A B E L S -->
 
     <Style TargetType="Label" x:Key="LabelPrimaryStyle">
-        <Setter Property="TextColor" Value="{ StaticResource PrimaryColor }"/>
+        <Setter Property="TextColor" Value="{ StaticResource PrimaryDarkColor }"/>
         <Setter Property="FontAttributes" Value="Bold"/>
     </Style>
 

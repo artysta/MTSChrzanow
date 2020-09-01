@@ -2,11 +2,12 @@
 <ResourceDictionary
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    
-    <Color x:Key="PrimaryColor">#003a75</Color>
+
+    <Color x:Key="PrimaryColor">#0063c7</Color>
+    <Color x:Key="PrimaryDarkColor">#003a75</Color>
+    <Color x:Key="AccentColor">#efba0b</Color>
     <Color x:Key="PostFrameBgColor">#ffffff</Color>
     <Color x:Key="DetailsFrameBgColor">#ffffff</Color>
     <Color x:Key="AppBgColor">#ffffff</Color>
     <Color x:Key="BrigthTextColor">#ffffff</Color>
-    <Color x:Key="AccentColor">#efba0b</Color>
 </ResourceDictionary>
