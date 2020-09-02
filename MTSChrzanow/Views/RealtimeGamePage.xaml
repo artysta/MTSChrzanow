@@ -22,95 +22,100 @@
     
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
-                <StackLayout>
-                    <ActivityIndicator IsRunning="{ Binding IsBusy }"
-                                       IsVisible="{ Binding IsBusy }"
-                                       Style="{ StaticResource ActivityIndicatorStyle }"
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center"/>
-                    <Grid Margin="5" IsVisible="{ Binding IsBusy, Converter = { StaticResource inverter } }">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Text="Home"
+            <StackLayout>
+                <!--<ActivityIndicator IsRunning="{ Binding IsBusy }"
+                                   IsVisible="{ Binding IsBusy }"
+                                   Style="{ StaticResource ActivityIndicatorStyle }"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>-->
+                <Grid Margin="5" IsVisible="{ Binding IsGameGoing }">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Home"
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="0"
                            Grid.Column="0"
                            HorizontalOptions="Center"
                            FontSize="30"/>
-                        <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
-                             Grid.Row="1"
-                             Grid.Column="0"/>
-                        <StackLayout Grid.Row="2"
-                                     Grid.Column="0">
-                            <ffimageloading:CachedImage Source="{ Binding RealtimeGame.HomeLogoUrl }"
-                                                        HeightRequest="100"
-                                                        WidthRequest="100"
-                                                        CacheDuration="30"/>
-                        </StackLayout>
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
-                             Grid.Row="3"
-                             Grid.Column="0"/>
-                        <Label Text="{ Binding RealtimeGame.Home }"
-                           HorizontalOptions="Center"
-                           Grid.Row="4"
-                           Grid.Column="0"/>
-                        <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
-                             Grid.Row="5"
-                             Grid.Column="0"/>
-                        <Label Text="{ Binding RealtimeGame.HomeGoal }"
-                           Grid.Row="6"
-                           Grid.Column="0"
-                           HorizontalOptions="Center"
-                           FontSize="35"/>
-                        <BoxView Style="{ StaticResource BoxVerticalLineStyle }"
-                             Grid.Row="0"
-                             Grid.Column="1"
-                             Grid.RowSpan="7"/>
-                        <Label Text="Away"
-                           Style="{ StaticResource LabelPrimaryStyle }"
-                           Grid.Row="0"
-                           Grid.Column="2"
-                           HorizontalOptions="Center"
-                           FontSize="30"/>
-                        <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="1"
-                             Grid.Column="2"/>
-                        <StackLayout Grid.Row="2"
-                                 Grid.Column="2">
-                            <ffimageloading:CachedImage Source="{ Binding RealtimeGame.AwayLogoUrl }"
+                             Grid.Column="0"/>
+                    <StackLayout Grid.Row="2"
+                                 Grid.Column="0">
+                        <ffimageloading:CachedImage Source="{ Binding RealtimeGame.HomeLogoUrl }"
                                                     HeightRequest="100"
                                                     WidthRequest="100"
                                                     CacheDuration="30"/>
-                        </StackLayout>
-                        <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                    </StackLayout>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="3"
+                             Grid.Column="0"/>
+                    <Label Text="{ Binding RealtimeGame.Home }"
+                           HorizontalOptions="Center"
+                           Grid.Row="4"
+                           Grid.Column="0"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="5"
+                             Grid.Column="0"/>
+                    <Label Text="{ Binding RealtimeGame.HomeGoal }"
+                           Grid.Row="6"
+                           Grid.Column="0"
+                           HorizontalOptions="Center"
+                           FontSize="35"/>
+                    <BoxView Style="{ StaticResource BoxVerticalLineStyle }"
+                             Grid.Row="0"
+                             Grid.Column="1"
+                             Grid.RowSpan="7"/>
+                    <Label Text="Away"
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           Grid.Row="0"
+                           Grid.Column="2"
+                           HorizontalOptions="Center"
+                           FontSize="30"/>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                             Grid.Row="1"
+                             Grid.Column="2"/>
+                    <StackLayout Grid.Row="2"
+                                 Grid.Column="2">
+                        <ffimageloading:CachedImage Source="{ Binding RealtimeGame.AwayLogoUrl }"
+                                                    HeightRequest="100"
+                                                    WidthRequest="100"
+                                                    CacheDuration="30"/>
+                    </StackLayout>
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="3"
                              Grid.Column="2"/>
-                        <Label Text="{ Binding RealtimeGame.Away }"
+                    <Label Text="{ Binding RealtimeGame.Away }"
                            HorizontalOptions="Center"
                            Grid.Row="4"
                            Grid.Column="2"/>
-                        <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
+                    <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="5"
                              Grid.Column="2"/>
-                        <Label Text="{ Binding RealtimeGame.AwayGoal }"
+                    <Label Text="{ Binding RealtimeGame.AwayGoal }"
                            Grid.Row="6"
                            Grid.Column="2"
                            HorizontalOptions="Center"
                            FontSize="35"/>
-                    </Grid>
+                </Grid>
+                <Label IsVisible="{ Binding IsGameGoing, Converter = { StaticResource inverter } }"
+                       Text="Aktualnie nie trwa żaden mecz! :("
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       FontSize="20"/>
             </StackLayout>
         </ScrollView>
     </Frame>
