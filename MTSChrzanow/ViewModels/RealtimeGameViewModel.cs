@@ -1,6 +1,7 @@
-﻿using Firebase.Database;
-using MTSChrzanow.Models;
-using System.Threading.Tasks;
+﻿using MTSChrzanow.Models;
+using Firebase.Database;
+using System.Reactive.Linq;
+using System;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -8,6 +9,7 @@ namespace MTSChrzanow.ViewModels
 	{
 		private RealtimeGame _realtimeGame;
 		private bool _isBusy;
+		private bool _isGameGoing;
 
 		public RealtimeGame RealtimeGame
 		{
@@ -27,27 +29,41 @@ namespace MTSChrzanow.ViewModels
 			}
 		}
 
-		public FirebaseClient FirebaseClient { get; set; }
+		public bool IsGameGoing
+		{
+			get => _isGameGoing;
+			set
+			{
+				SetProperty(ref _isGameGoing, value);
+			}
+		}
+
+		public FirebaseClient Firebase { get; set; }
 
 		public RealtimeGameViewModel()
 		{
-			FirebaseClient = new FirebaseClient(App.MTSChrzanowFirebaseUrl);
-			GetRealtimeGameAsync();
+			Firebase = new FirebaseClient(App.MTSChrzanowFirebaseUrl);
+			StartListening();
 		}
 
-		public async void GetRealtimeGameAsync()
+		public void StartListening()
 		{
-			IsBusy = true;
-			Task<RealtimeGame> task = GetRealtimeGame();
-			RealtimeGame = await task;
-			IsBusy = false;
-		}
-
-		public async Task<RealtimeGame> GetRealtimeGame()
-		{
-			return (await FirebaseClient
+			var observable = Firebase
 			  .Child(App.MTSChrzanowRealTimeGameChild)
-			  .OnceSingleAsync<RealtimeGame>());
+			  .AsObservable<RealtimeGame>()
+			  .Subscribe(game =>
+			  {
+				  if (game.Key.Equals(""))
+				  {
+					  IsGameGoing = false;
+				  }
+				  else
+				  {
+					  IsGameGoing = true;
+					  RealtimeGame = game.Object;
+				  }
+			  });
 		}
+
 	}
 }
