@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
+using Shiny;
 using UIKit;
 
 namespace MTSChrzanow.iOS
 {
-    // The UIApplicationDelegate for the application. This class is responsible for launching the 
-    // User Interface of the application, as well as listening (and optionally responding) to 
-    // application events from iOS.
-    [Register("AppDelegate")]
+	// The UIApplicationDelegate for the application. This class is responsible for launching the 
+	// User Interface of the application, as well as listening (and optionally responding) to 
+	// application events from iOS.
+	[Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
         //
@@ -22,6 +19,8 @@ namespace MTSChrzanow.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            iOSShinyHost.Init(platformBuild: services => services.UseNotifications());
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
