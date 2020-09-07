@@ -19,7 +19,6 @@ namespace MTSChrzanow.Views
 
 		private void Register_Button_Clicked(object sender, System.EventArgs e)
 		{
-			DisplayAlert("Rejestracja", "Pomyślnie utworzono konto!", "Ok");
 			_viewModel.LoginCommand.Execute(null);
 		}
 	}

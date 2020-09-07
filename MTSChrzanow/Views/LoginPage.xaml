@@ -9,9 +9,11 @@
              BackgroundColor="{ StaticResource AppBgColor }">
     <ScrollView>
         <StackLayout>
-            <Entry Placeholder="E-mail..."/>
+            <Entry Placeholder="E-mail..."
+                   Text="{ Binding Email }"/>
             <Entry Placeholder="Hasło..."
-                   IsPassword="True"/>
+                   IsPassword="True"
+                   Text="{ Binding Password }"/>
             <Button Text="Zaloguj"
                     Style="{ StaticResource MainButtonStyle }"
                     Clicked="Login_Button_Clicked"/>

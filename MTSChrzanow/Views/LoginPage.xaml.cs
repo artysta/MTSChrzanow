@@ -20,7 +20,6 @@ namespace MTSChrzanow.Views
 
 		private void Login_Button_Clicked(object sender, System.EventArgs e)
 		{
-			DisplayAlert("Logowanie", "Pomyślnie zalogowano do konta!", "Ok");
 			_viewModel.LoginCommand.Execute(null);
 		}
 
