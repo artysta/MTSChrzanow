@@ -27,7 +27,8 @@ namespace MTSChrzanow
 		private async Task InitializeApp()
 		{
 			await LoadConfig();
-			MainPage = new NavigationPage(new MainPage());
+			//MainPage = new NavigationPage(new MainPage());
+			MainPage = new NavigationPage(new LoginPage());
 		}
 
 		private static async Task LoadConfig()
