@@ -349,5 +349,9 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-# Config file that contains API keys and Urls.
+# Config file that contains API keys and Urls
 config.json
+
+# Google Services config files (Firebase)
+google-services.json
+GoogleService-Info.plist
