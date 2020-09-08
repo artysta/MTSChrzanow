@@ -9,6 +9,8 @@
              BackgroundColor="{ StaticResource AppBgColor }">
     <ScrollView>
         <StackLayout>
+            <ActivityIndicator IsVisible="{ Binding IsBusy }"
+                               IsRunning="{ Binding IsBusy }"/>
             <Entry Placeholder="E-mail..."
                    Text="{ Binding Email }"/>
             <Entry Placeholder="Hasło..."

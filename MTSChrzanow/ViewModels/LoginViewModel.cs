@@ -27,7 +27,6 @@ namespace MTSChrzanow.ViewModels
 		}
 
 		private string _password = "";
-
 		public string Password
 		{
 			set
@@ -37,6 +36,19 @@ namespace MTSChrzanow.ViewModels
 			get
 			{
 				return _password;
+			}
+		}
+
+		private bool _isBusy;
+		public bool IsBusy
+		{
+			set
+			{
+				SetProperty(ref _isBusy, value);
+			}
+			get
+			{
+				return _isBusy;
 			}
 		}
 
@@ -74,16 +86,36 @@ namespace MTSChrzanow.ViewModels
 
 			try
 			{
+				IsBusy = true;
 				var token = await auth.LoginWithEmailPassword(Email, Password);
 				System.Diagnostics.Debug.WriteLine($"TOKEN: { token }");
+				IsBusy = false;
 			}
 			catch (Exception e)
 			{
-				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Email i hasło nie zgadzają się!", "Ok");
-				System.Diagnostics.Debug.WriteLine($"Exception message: { e.Message }");
+				IsBusy = false;
+
+				// I know that it is not proper way to catch exceptions.
+				// I might be wrong, but I think that there is no cross-platform (Xamarin.Forms) Firebase Auth library. That is why I am catching eceptions like this.
+				// In this case I should catch exceptions for Android & iOS separately, but I think, that this method is enough good at this moment.
+				switch (e.GetType().ToString())
+				{
+					case "Firebase.Auth.FirebaseAuthInvalidCredentialsException":
+						await Application.Current.MainPage.DisplayAlert("Uwaga!", "Email i hasło nie zgadzają się!", "Ok");
+						break;
+					case "Firebase.Auth.FirebaseAuthWeakPasswordException":
+						await Application.Current.MainPage.DisplayAlert("Uwaga!", "Hasło jest zbyt słabe!", "Ok");
+						break;
+					case "Firebase.FirebaseNetworkException":
+						await Application.Current.MainPage.DisplayAlert("Uwaga!", "Wykryto problem z połączeniem internetowym!", "Ok");
+						break;
+					default:
+						await Application.Current.MainPage.DisplayAlert("Uwaga!", "Coś poszło nie tak! :(", "Ok");
+						break;
+				}
+
 				return;
 			}
-
 			await Application.Current.MainPage.DisplayAlert("Logowanie.", "Pomyślnie zalogowano do konta!", "Ok");
 			await _navigation.PushAsync(new MainPage());
 		}
