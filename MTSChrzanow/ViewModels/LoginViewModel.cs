@@ -1,4 +1,5 @@
 ﻿using MTSChrzanow.Views;
+using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -60,6 +61,26 @@ namespace MTSChrzanow.ViewModels
 			if (Password.Trim().Equals(""))
 			{
 				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Pole hasło nie może być puste!", "Ok");
+				return;
+			}
+
+			IFirebaseAuthenticator auth = DependencyService.Get<IFirebaseAuthenticator>();
+
+			if (auth == null)
+			{
+				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Coś poszło nie tak! :(", "Ok");
+				return;
+			}
+
+			try
+			{
+				var token = await auth.LoginWithEmailPassword(Email, Password);
+				System.Diagnostics.Debug.WriteLine($"TOKEN: { token }");
+			}
+			catch (Exception e)
+			{
+				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Email i hasło nie zgadzają się!", "Ok");
+				System.Diagnostics.Debug.WriteLine($"Exception message: { e.Message }");
 				return;
 			}
 
