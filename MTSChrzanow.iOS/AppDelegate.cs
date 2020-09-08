@@ -24,6 +24,7 @@ namespace MTSChrzanow.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            Firebase.Core.App.Configure();
 
             return base.FinishedLaunching(app, options);
         }
