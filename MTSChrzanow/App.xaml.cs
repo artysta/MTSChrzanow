@@ -4,7 +4,9 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 using MTSChrzanow.Views;
+using MTSChrzanow.ViewModels;
 
 namespace MTSChrzanow
 {
@@ -17,6 +19,7 @@ namespace MTSChrzanow
 		public static string MTSChrzanowFirebaseUrl { get; private set; }
 		public static string MTSChrzanowFirebaseGamesUrl { get; private set; }
 		public static string MTSChrzanowRealTimeGameChild { get; private set; }
+		public static AppViewModel ViewModel { get; private set; }
 
 		public App()
 		{
@@ -27,8 +30,10 @@ namespace MTSChrzanow
 		private async Task InitializeApp()
 		{
 			await LoadConfig();
+			ViewModel = new AppViewModel();
 			//MainPage = new NavigationPage(new MainPage());
-			MainPage = new NavigationPage(new LoginPage());
+			MainPage = Preferences.ContainsKey("REMEMBERED_USER") ? new NavigationPage(new MainPage())
+																  : new NavigationPage(new LoginPage());
 		}
 
 		private static async Task LoadConfig()

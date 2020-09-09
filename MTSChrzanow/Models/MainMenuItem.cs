@@ -9,6 +9,7 @@
 			Players,
 			Sponsors,
 			RealtimeGame,
+			UserProfile,
 			About
 		}
 

@@ -36,6 +36,7 @@ namespace MTSChrzanow.ViewModels
 				new MainMenuItem { Type = MainMenuItem.MenuItemType.Players, Title = "Zawodnicy" },
 				new MainMenuItem { Type = MainMenuItem.MenuItemType.Sponsors, Title = "Sponsorzy" },
 				new MainMenuItem { Type = MainMenuItem.MenuItemType.RealtimeGame, Title = "Wynik na żywo" },
+				new MainMenuItem { Type = MainMenuItem.MenuItemType.UserProfile, Title = "Twój profil" },
 				new MainMenuItem { Type = MainMenuItem.MenuItemType.About, Title = "O aplikacji" }
 			};
 
@@ -56,33 +57,31 @@ namespace MTSChrzanow.ViewModels
 			if (item == null)
 				return;
 
-			if (item.Type == MainMenuItem.MenuItemType.Posts)
+			switch (item.Type)
 			{
-				await _navigation.PushAsync(new PostsPage());
-			}
-			else if (item.Type == MainMenuItem.MenuItemType.Table)
-			{
-				await _navigation.PushAsync(new GamesPage());
-			}
-			else if (item.Type == MainMenuItem.MenuItemType.Players)
-			{
-				await _navigation.PushAsync(new PositionsPage());
-			}
-			else if (item.Type == MainMenuItem.MenuItemType.Sponsors)
-			{
-				await _navigation.PushAsync(new SponsorsPage());
-			}
-			else if (item.Type == MainMenuItem.MenuItemType.RealtimeGame)
-			{
-				await _navigation.PushAsync(new RealtimeGamePage());
-			}
-			else if (item.Type == MainMenuItem.MenuItemType.About)
-			{
-				await _navigation.PushAsync(new AboutPage());
-			}
-			else
-			{
-				return;
+				case MainMenuItem.MenuItemType.Posts:
+					await _navigation.PushAsync(new PostsPage());
+					break;
+				case MainMenuItem.MenuItemType.Table:
+					await _navigation.PushAsync(new GamesPage());
+					break;
+				case MainMenuItem.MenuItemType.Players:
+					await _navigation.PushAsync(new PositionsPage());
+					break;
+				case MainMenuItem.MenuItemType.Sponsors:
+					await _navigation.PushAsync(new SponsorsPage());
+					break;
+				case MainMenuItem.MenuItemType.RealtimeGame:
+					await _navigation.PushAsync(new RealtimeGamePage());
+					break;
+				case MainMenuItem.MenuItemType.UserProfile:
+					await _navigation.PushAsync(new UserProfilePage());
+					break;
+				case MainMenuItem.MenuItemType.About:
+					await _navigation.PushAsync(new AboutPage());
+					break;
+				default:
+					return;
 			}
 		}
 	}

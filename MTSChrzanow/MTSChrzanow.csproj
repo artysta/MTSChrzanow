@@ -87,6 +87,9 @@
     <Compile Update="Views\SponsorDetailsPage.xaml.cs">
       <DependentUpon>SponsorDetailsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\UserProfilePage.xaml.cs">
+      <DependentUpon>UserProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\PlayerDetailsPage.xaml.cs">
       <DependentUpon>PlayerDetailsPage.xaml</DependentUpon>
     </Compile>

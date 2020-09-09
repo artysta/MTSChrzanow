@@ -1,7 +1,9 @@
 ﻿using MTSChrzanow.Views;
+using MTSChrzanow.Models;
 using System;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -52,6 +54,19 @@ namespace MTSChrzanow.ViewModels
 			}
 		}
 
+		private bool _isRememberMeChecked;
+		public bool IsRememberMeChecked
+		{
+			set
+			{
+				SetProperty(ref _isRememberMeChecked, value);
+			}
+			get
+			{
+				return _isRememberMeChecked;
+			}
+		}
+
 		public LoginViewModel(INavigation navigation)
 		{
 			_navigation = navigation;
@@ -88,7 +103,6 @@ namespace MTSChrzanow.ViewModels
 			{
 				IsBusy = true;
 				var token = await auth.LoginWithEmailPassword(Email, Password);
-				System.Diagnostics.Debug.WriteLine($"TOKEN: { token }");
 				IsBusy = false;
 			}
 			catch (Exception e)
@@ -116,8 +130,19 @@ namespace MTSChrzanow.ViewModels
 
 				return;
 			}
+
+			if (IsRememberMeChecked)
+			{
+				Preferences.Set("REMEMBERED_USER", Email);
+			}
+
+			App.ViewModel.LoggedUser = new User()
+			{
+				Email = Email
+			};
+			
+			(Application.Current).MainPage = new NavigationPage(new MainPage());
 			await Application.Current.MainPage.DisplayAlert("Logowanie.", "Pomyślnie zalogowano do konta!", "Ok");
-			await _navigation.PushAsync(new MainPage());
 		}
 	}
 }
