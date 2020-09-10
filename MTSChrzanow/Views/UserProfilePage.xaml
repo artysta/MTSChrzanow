@@ -13,8 +13,8 @@
     </ContentPage.BindingContext>
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
-            <StackLayout>
-                <Label Text="Zalogowany jako:"/>
+            <StackLayout Margin="6">
+                <Label Text="Jesteś zalogowany jako:"/>
                 <Label Text="{ Binding LoggedUserEmail }"/>
                 <Button Text="Wyloguj"
                         Style="{ StaticResource MainButtonStyle }"

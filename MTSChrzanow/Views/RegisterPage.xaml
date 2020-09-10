@@ -8,20 +8,22 @@
              Title="Rejestracja"
              BackgroundColor="{ StaticResource AppBgColor }">
     <ScrollView>
-        <StackLayout>
-            <ActivityIndicator IsVisible="{ Binding IsBusy }"
+        <Frame Style="{ StaticResource DetailsFrameStyle }">
+            <StackLayout Margin="6">
+                <ActivityIndicator IsVisible="{ Binding IsBusy }"
                                IsRunning="{ Binding IsBusy }"/>
-            <Entry Placeholder="E-mail..."
+                <Entry Placeholder="E-mail..."
                    Text="{ Binding Email }"/>
-            <Entry Placeholder="Hasło..."
+                <Entry Placeholder="Hasło..."
                    IsPassword="True"
                    Text="{ Binding Password }"/>
-            <Entry Placeholder="Powtórz hasło..."
+                <Entry Placeholder="Powtórz hasło..."
                    IsPassword="True"
                    Text="{ Binding PasswordRepeat }"/>
-            <Button Text="Zarejestruj"
+                <Button Text="Zarejestruj"
                     Style="{ StaticResource MainButtonStyle }"
                     Clicked="Register_Button_Clicked"/>
-        </StackLayout>
+            </StackLayout>
+        </Frame>
     </ScrollView>
 </ContentPage>

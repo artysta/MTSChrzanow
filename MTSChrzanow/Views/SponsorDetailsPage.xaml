@@ -16,7 +16,7 @@
             <StackLayout>
                 <Image Source="{ Binding MTSSponsor.LogoSource }"
                        HeightRequest="150"/>
-                <Grid Margin="5">
+                <Grid Margin="6">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"></RowDefinition>
                         <RowDefinition Height="auto"></RowDefinition>

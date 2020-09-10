@@ -13,23 +13,35 @@
     </ContentPage.BindingContext>
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
-            <StackLayout>
-                <Frame Padding="0"
-                       HeightRequest="300">
-                    <ffimageloading:CachedImage Source="{ Binding MTSPost.ImageSource }"
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                    <Frame Padding="0"
+                           CornerRadius="5"
+                           Grid.Row="0"
+                           Grid.Column="0">
+                        <ffimageloading:CachedImage Source="{ Binding MTSPost.ImageSource }"
                                                 Aspect="AspectFill"
                                                 CacheDuration="30"/>
-                </Frame>
-                <Label Text="{ Binding MTSPost.Title.Rendered }"
+                    </Frame>
+                <StackLayout Grid.Row="1"
+                             Grid.Column="0">
+                    <Label Text="{ Binding MTSPost.Title.Rendered }"
                        Style="{ StaticResource LabelPrimaryStyle }"
                        TextType="Html"
                        HorizontalOptions="Center"/>
-                <Label Text="{ Binding MTSPost.Date }"
+                    <Label Text="{ Binding MTSPost.Date }"
                        Style="{ StaticResource DetailsLabelStyle }"/>
-                <Label Text="{ Binding MTSPost.Content.Rendered }"
+                    <Label Text="{ Binding MTSPost.Content.Rendered }"
                        Style="{ StaticResource DetailsLabelStyle }"
                        TextType="Html"/>
-            </StackLayout>
-    </ScrollView>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
     </Frame>
 </ContentPage>
