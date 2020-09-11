@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.ComponentModel;
 
 namespace MTSChrzanow.Models
 {
-	public class RealtimeGame : INotifyPropertyChanged
+	public class RealtimeGame : BaseModel
 	{
 		private string _home;
 		private string _homeGoal;
@@ -89,14 +87,6 @@ namespace MTSChrzanow.Models
 				_isGoing = value;
 				RaisePropertyChanged("IsGoing");
 			}
-		}
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		private void RaisePropertyChanged(String name)
-		{
-			if (PropertyChanged != null)
-				this.PropertyChanged(this, new PropertyChangedEventArgs(name));
 		}
 	}
 }

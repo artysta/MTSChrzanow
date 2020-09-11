@@ -1,11 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.ComponentModel;
 using System.Globalization;
 
 namespace MTSChrzanow.Models
 {
-	public class Game : INotifyPropertyChanged
+	public class Game : BaseModel
 	{
 		private string _homeGoal;
 		private string _awayGoal;
@@ -51,14 +50,6 @@ namespace MTSChrzanow.Models
 
 		[JsonProperty("is-finished")]
 		public bool IsFinished { get; set; }
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		private void RaisePropertyChanged(String name)
-		{
-			if (PropertyChanged != null)
-				this.PropertyChanged(this, new PropertyChangedEventArgs(name));
-		}
 
 		public override string ToString() => $"Home { Home },Away { Away }, Date of match { DateOfGameString }, Is finished { IsFinished }";
 	}

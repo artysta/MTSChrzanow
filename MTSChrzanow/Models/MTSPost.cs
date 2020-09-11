@@ -1,10 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.ComponentModel;
 
 namespace MTSChrzanow.Models
 {
-	public class MTSPost : INotifyPropertyChanged
+	public class MTSPost : BaseModel
 	{
 		[JsonProperty("id")]
 		public long Id { get; set; }
@@ -30,14 +29,6 @@ namespace MTSChrzanow.Models
 				this._imageSource = value;
 				RaisePropertyChanged("ImageSource");
 			}
-		}
-
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		private void RaisePropertyChanged(String name)
-		{
-			if (PropertyChanged != null)
-				this.PropertyChanged(this, new PropertyChangedEventArgs(name));
 		}
 
 		public override string ToString() =>
