@@ -1,12 +1,14 @@
 ﻿using MTSChrzanow.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Windows.Input;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace MTSChrzanow.ViewModels
 {
 	public class PostDetailsViewModel : BaseViewModel
 	{
+		private ICommand _openPostInBrowserCommand;
+		public ICommand GoToDetailsCommand => _openPostInBrowserCommand ?? (_openPostInBrowserCommand = new Command(OnObenPostInBrowser));
 		private MTSPost _mtsPost;
 		public MTSPost MTSPost
 		{
@@ -23,6 +25,11 @@ namespace MTSChrzanow.ViewModels
 		{
 			MTSPost = post;
 			Android.Util.Log.Debug("DETAILS_PAGE", post.Title.Rendered);
+		}
+
+		private async void OnObenPostInBrowser()
+		{
+			await Launcher.OpenAsync(MTSPost.Link);
 		}
 	}
 }

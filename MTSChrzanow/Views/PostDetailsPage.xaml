@@ -32,14 +32,18 @@
                 <StackLayout Grid.Row="1"
                              Grid.Column="0">
                     <Label Text="{ Binding MTSPost.Title.Rendered }"
-                       Style="{ StaticResource LabelPrimaryStyle }"
-                       TextType="Html"
-                       HorizontalOptions="Center"/>
-                    <Label Text="{ Binding MTSPost.Date }"
-                       Style="{ StaticResource DetailsLabelStyle }"/>
+                           Style="{ StaticResource LabelPrimaryStyle }"
+                           TextType="Html"
+                           HorizontalOptions="Center"/>
+                    <Label Text="{Binding MTSPost.Date, StringFormat='Dodano {0}'}"
+                           Style="{ StaticResource DetailsLabelStyle }"/>
                     <Label Text="{ Binding MTSPost.Content.Rendered }"
-                       Style="{ StaticResource DetailsLabelStyle }"
-                       TextType="Html"/>
+                           Style="{ StaticResource DetailsLabelStyle }"
+                           TextType="Html"/>
+                    <Button Text="Otwórz post w przeglądarce"
+                            Clicked="Button_Clicked"
+                            Style="{ StaticResource MainButtonStyle }"
+                            Margin="6"/>
                 </StackLayout>
             </Grid>
         </ScrollView>
