@@ -20,79 +20,81 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ContentView>
-        <Grid>
-            <ActivityIndicator IsRunning="{ Binding IsBusy }"
+    <Frame Style="{ StaticResource DetailsFrameStyle }">
+        <ContentView>
+            <Grid>
+                <ActivityIndicator IsRunning="{ Binding IsBusy }"
                                IsVisible="{ Binding IsBusy }"
                                Style="{ StaticResource ActivityIndicatorStyle }"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
-            <ListView ItemsSource="{ Binding Games }"
+                <ListView ItemsSource="{ Binding Games }"
                       IsVisible="{ Binding IsBusy, Converter = { StaticResource inverter } }"
                       HasUnevenRows="true"
                       SeparatorVisibility="Default"
                       ItemTapped="ListView_ItemTapped"
                       SelectionMode="None"
                       CachingStrategy="RecycleElementAndDataTemplate">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <StackLayout Grid.Row="1"
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Row="1"
                                              Grid.RowSpan="3"
                                              Grid.Column="0"
                                              VerticalOptions="Center">
-                                    <ffimageloading:CachedImage Source="{ Binding HomeLogoUrl }"
+                                        <ffimageloading:CachedImage Source="{ Binding HomeLogoUrl }"
                                                                 HeightRequest="75"
                                                                 WidthRequest="75"
                                                                 CacheDuration="30"/>
-                                </StackLayout>
-                                <Label Text="{ Binding DateOfGame }"
+                                    </StackLayout>
+                                    <Label Text="{ Binding DateOfGame }"
                                        Style="{ StaticResource LabelPrimaryStyle }"
                                        HorizontalTextAlignment="Center"
                                        Grid.Row="0"
                                        Grid.Column="0"
                                        Grid.ColumnSpan="3"
                                        Margin="0, 20, 0, 0"/>
-                                <Label Text="{ Binding Home }"
+                                    <Label Text="{ Binding Home }"
                                        HorizontalTextAlignment="Center"
                                        Grid.Row="1"
                                        Grid.Column="1"
                                        Margin="0, 0, 0, 0"/>
-                                <Label Text="VS"
+                                    <Label Text="VS"
                                        HorizontalTextAlignment="Center"
                                        Grid.Row="2"
                                        Grid.Column="1"/>
-                                <Label Text="{ Binding Away }"
+                                    <Label Text="{ Binding Away }"
                                        HorizontalTextAlignment="Center"
                                        Grid.Row="3"
                                        Grid.Column="1"
                                        Margin="0, 0, 0, 20"/>
-                                <StackLayout Grid.Row="1"
+                                    <StackLayout Grid.Row="1"
                                              Grid.RowSpan="3"
                                              Grid.Column="2"
                                              VerticalOptions="Center">
-                                    <ffimageloading:CachedImage Source="{ Binding AwayLogoUrl }"
+                                        <ffimageloading:CachedImage Source="{ Binding AwayLogoUrl }"
                                                                 HeightRequest="75"
                                                                 WidthRequest="75"
                                                                 CacheDuration="30"/>
-                                </StackLayout>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
-    </ContentView>
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </ContentView>
+    </Frame>
 </ContentPage>

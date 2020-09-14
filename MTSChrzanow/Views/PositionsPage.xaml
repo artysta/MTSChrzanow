@@ -13,39 +13,41 @@
         <viewModels:PositionsViewModel/>
     </ContentPage.BindingContext>
 
-    <ContentView>
-        <StackLayout>
-            <ListView ItemsSource="{ Binding MenuItems }"
+    <Frame Style="{ StaticResource DetailsFrameStyle }">
+        <ContentView>
+            <StackLayout>
+                <ListView ItemsSource="{ Binding MenuItems }"
                       HasUnevenRows="true"
                       SeparatorVisibility="Default"
                       ItemTapped="ListView_ItemTapped"
                       SelectionMode="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="4*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Text="{ Binding Title }"
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{ Binding Title }"
                                        Grid.Column="0"
                                        Grid.Row="0"
                                        VerticalOptions="Center"
                                        Margin="30"/>
-                                <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_arrow.png }"
+                                    <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_arrow.png }"
                                        WidthRequest="10"
                                        Grid.Column="1"
                                        Grid.Row="0"
                                        VerticalOptions="Center"/>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-    </ContentView>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentView>
+    </Frame>
 </ContentPage>
