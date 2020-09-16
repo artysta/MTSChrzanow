@@ -1,14 +1,14 @@
-﻿using MTSChrzanow.Models;
+﻿using MTSChrzanow.Helpers;
+using MTSChrzanow.Models;
+using MTSChrzanow.Views;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net;
-using System.Text;
-using Newtonsoft.Json;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using MTSChrzanow.Views;
-using System;
-using System.Threading.Tasks;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -42,7 +42,7 @@ namespace MTSChrzanow.ViewModels
 				SetProperty(ref _pagePickerItems, value);
 			}
 		}
-		
+
 		public bool IsBusy
 		{
 			get { return _isBusy; }
@@ -51,7 +51,7 @@ namespace MTSChrzanow.ViewModels
 				SetProperty(ref _isBusy, value);
 			}
 		}
-		
+
 		public bool IsBusyFristLoad
 		{
 			get { return _isFirstBusy; }
@@ -79,7 +79,7 @@ namespace MTSChrzanow.ViewModels
 		{
 			IsBusy = IsBusyFristLoad = true;
 			WebClient client = new WebClient();
-			string query = GetQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiPostsUrl);
+			string query = QueryBuilder.CreateQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiPostsUrl);
 			string json = await client.DownloadStringTaskAsync(query);
 
 			// Deserialize blog posts.
@@ -87,7 +87,7 @@ namespace MTSChrzanow.ViewModels
 
 			// Get total amount of pages and initialize picker values.
 			WebHeaderCollection headers = client.ResponseHeaders;
-			int totalPages = int.Parse(headers["X-WP-TotalPages"]);
+			int totalPages = int.Parse(headers[App.MTSChrzanowWPTotalPages]);
 			SetPickerItemsValues(totalPages);
 
 			SetPosts(posts);
@@ -98,7 +98,10 @@ namespace MTSChrzanow.ViewModels
 		private async Task GetPostsFromPage(int pageNumber)
 		{
 			IsBusy = true;
-			string query = GetQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiPostsFromPageUrl, pageNumber.ToString());
+			string query = QueryBuilder.CreateQuery(App.MTSChrzanowApiUrl,
+													App.MTSChrzanowApiPostsFromPageUrl,
+													pageNumber.ToString());
+
 			string json = await new WebClient().DownloadStringTaskAsync(query);
 
 			// Deserialize blog posts.
@@ -111,11 +114,12 @@ namespace MTSChrzanow.ViewModels
 		private async Task GetPostsMedia()
 		{
 			WebClient client = new WebClient();
-			
+
 			foreach (MTSPost p in MTSPosts)
 			{
-				string query = GetQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiSinglePostMedia, p.FeaturedMedia.ToString());
-				System.Diagnostics.Debug.WriteLine("Query for post id " + p.Id + ": " + query);
+				string query = QueryBuilder.CreateQuery(App.MTSChrzanowApiUrl,
+														App.MTSChrzanowApiSinglePostMedia,
+														p.FeaturedMedia.ToString());
 
 				try
 				{
@@ -124,7 +128,7 @@ namespace MTSChrzanow.ViewModels
 
 					// There is problem to pass uri's that starts with "http" as image source at this moment so... replace "http" to "https".
 					p.ImageSource = media.Guid.Rendered.StartsWith("http:") ? media.Guid.Rendered.Replace("http:", "https:")
-																				: media.Guid.Rendered;
+																			: media.Guid.Rendered;
 				}
 				catch (Exception e)
 				{
@@ -132,8 +136,6 @@ namespace MTSChrzanow.ViewModels
 					p.ImageSource = "https://mtschrzanow.pl/wp-content/uploads/2019/01/logokolor.png";
 					System.Diagnostics.Debug.WriteLine(e.Message);
 				}
-
-				System.Diagnostics.Debug.WriteLine("Post title: " + p.Title + ", image source: " + p.ImageSource + ", media id: " + p.FeaturedMedia);
 			}
 
 			return;
@@ -149,13 +151,6 @@ namespace MTSChrzanow.ViewModels
 			}
 
 			PagePickerItems = new ObservableCollection<string>(items);
-		}
-
-		private string GetQuery(params string[] list)
-		{
-			StringBuilder sb = new StringBuilder();
-			foreach (string s in list) sb.Append(s);
-			return sb.ToString();
 		}
 
 		private async void OnGoToDetails(MTSPost item)
