@@ -54,6 +54,11 @@
         <Setter Property="HeightRequest" Value="70"/>
     </Style>
 
+    <Style TargetType="Frame" x:Key="MainMenuGridFrame">
+        <Setter Property="CornerRadius" Value="2"/>
+        <Setter Property="Margin" Value="1"/>
+    </Style>
+    
     <!-- A C T I V I T Y    I N D I C A T O R S -->
 
     <Style TargetType="ActivityIndicator" x:Key="ActivityIndicatorStyle">

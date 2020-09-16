@@ -10,11 +10,11 @@
              Title="MTS Chrzanów"
              BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.BindingContext>
-        <viewModels:MainViewModel/>
+        <viewModels:MainViewModel />
     </ContentPage.BindingContext>
 
-    <Frame Style="{ StaticResource DetailsFrameStyle }">
-        <ContentView>
+    <ContentView Margin="6">
+        <!--
             <StackLayout>
                 <ListView ItemsSource="{ Binding MenuItems }"
                       HasUnevenRows="true"
@@ -48,6 +48,136 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-        </ContentView>
-    </Frame>
+            -->
+
+        <!-- This is not so elegant solution, but maybe I will try to make dynamic grid view if I have some more free time. -->
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Frame ClassId="Posts"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Style="{ StaticResource MainMenuGridFrame }">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_posts.png }"
+                               WidthRequest="40" />
+                        <Label Text="Aktualności"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <Frame ClassId="Table"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Style="{ StaticResource MainMenuGridFrame }">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_timetable.png }"
+                               WidthRequest="40" />
+                        <Label Text="Terminarz"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <Frame ClassId="Players"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       Style="{ StaticResource MainMenuGridFrame }">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_players.png }"
+                               WidthRequest="40" />
+                        <Label Text="Zawodnicy"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <Frame ClassId="Sponsors"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       Style="{ StaticResource MainMenuGridFrame }">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_sponsors.png }"
+                               WidthRequest="40" />
+                        <Label Text="Sponsorzy"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <Frame ClassId="RealtimeGame"
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Style="{ StaticResource MainMenuGridFrame }">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_realtimegame.png }"
+                               WidthRequest="40" />
+                        <Label Text="Wynik na żywo"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <Frame ClassId="UserProfile"
+                       Grid.Row="2"
+                       Grid.Column="1"
+                       Style="{ StaticResource MainMenuGridFrame }">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_userprofile.png }"
+                               WidthRequest="40" />
+                        <Label Text="Twój profil"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <Frame ClassId="About"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       Style="{ StaticResource MainMenuGridFrame }">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_about.png }"
+                               WidthRequest="40" />
+                        <Label Text="O aplikacji"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </ScrollView>
+    </ContentView>
 </ContentPage>
