@@ -21,5 +21,10 @@ namespace MTSChrzanow.Droid
             var token = await user.User.GetIdTokenAsync(false);
             return token.Token;
         }
+
+        public string GetCurrentUserID()
+		{
+            return FirebaseAuth.Instance.CurrentUser.Uid;
+		}
     }
 }
