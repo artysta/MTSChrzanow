@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿/*
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Firebase.Auth;
 using MTSChrzanow.iOS;
@@ -21,3 +22,4 @@ namespace MTSChrzanow.iOS
         }
     }
 }
+*/
