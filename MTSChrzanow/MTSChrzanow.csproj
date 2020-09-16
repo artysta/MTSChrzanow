@@ -12,7 +12,14 @@
 
   <ItemGroup>
     <None Remove="config.json" />
+    <None Remove="Images\Icons\icon_about.png" />
     <None Remove="Images\Icons\icon_arrow.png" />
+    <None Remove="Images\Icons\icon_players.png" />
+    <None Remove="Images\Icons\icon_posts.png" />
+    <None Remove="Images\Icons\icon_realtimegame.png" />
+    <None Remove="Images\Icons\icon_sponsors.png" />
+    <None Remove="Images\Icons\icon_timetable.png" />
+    <None Remove="Images\Icons\icon_userprofile.png" />
     <None Remove="Images\icon_romian.png" />
     <None Remove="Images\icon_xamarin.png" />
     <None Remove="Images\logo_chmax.png" />
@@ -31,7 +38,14 @@
 
   <ItemGroup>
     <EmbeddedResource Include="config.json" />
+    <EmbeddedResource Include="Images\Icons\icon_about.png" />
+    <EmbeddedResource Include="Images\Icons\icon_players.png" />
+    <EmbeddedResource Include="Images\Icons\icon_posts.png" />
     <EmbeddedResource Include="Images\Icons\icon_arrow.png" />
+    <EmbeddedResource Include="Images\Icons\icon_realtimegame.png" />
+    <EmbeddedResource Include="Images\Icons\icon_sponsors.png" />
+    <EmbeddedResource Include="Images\Icons\icon_timetable.png" />
+    <EmbeddedResource Include="Images\Icons\icon_userprofile.png" />
     <EmbeddedResource Include="Images\icon_romian.png" />
     <EmbeddedResource Include="Images\icon_xamarin.png" />
     <EmbeddedResource Include="Images\logo_chmax.png" />
