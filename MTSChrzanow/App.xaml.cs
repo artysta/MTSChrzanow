@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Xamarin.Essentials;
 using MTSChrzanow.Views;
 using MTSChrzanow.ViewModels;
+using MTSChrzanow.Helpers;
 
 namespace MTSChrzanow
 {
@@ -19,6 +20,9 @@ namespace MTSChrzanow
 		public static string MTSChrzanowFirebaseUrl { get; private set; }
 		public static string MTSChrzanowFirebaseGamesUrl { get; private set; }
 		public static string MTSChrzanowRealTimeGameChild { get; private set; }
+		public static string MTSChrzanowFirebaseAuth { get; private set; }
+		public static string MTSChrzanowWPTotalPages { get; private set; }
+
 		public static AppViewModel ViewModel { get; private set; }
 
 		public App()
@@ -32,8 +36,9 @@ namespace MTSChrzanow
 			await LoadConfig();
 			ViewModel = new AppViewModel();
 			//MainPage = new NavigationPage(new MainPage());
-			MainPage = Preferences.ContainsKey("REMEMBERED_USER") ? new NavigationPage(new MainPage())
-																  : new NavigationPage(new LoginPage());
+
+			MainPage = await UserHelper.UserExists() ? new NavigationPage(new MainPage())
+													 : new NavigationPage(new LoginPage());
 		}
 
 		private static async Task LoadConfig()
@@ -48,7 +53,6 @@ namespace MTSChrzanow
 				{
 					var json = await reader.ReadToEndAsync();
 					var dynamicJson = JObject.Parse(json);
-
 					MTSChrzanowApiUrl = dynamicJson["MTSChrzanowApiUrl"].Value<string>();
 					MTSChrzanowApiPostsUrl = dynamicJson["MTSChrzanowApiPostsUrl"].Value<string>();
 					MTSChrzanowApiPostsFromPageUrl = dynamicJson["MTSChrzanowApiPostsFromPageUrl"].Value<string>();
@@ -56,6 +60,8 @@ namespace MTSChrzanow
 					MTSChrzanowFirebaseUrl = dynamicJson["MTSChrzanowFirebaseUrl"].Value<string>();
 					MTSChrzanowFirebaseGamesUrl = dynamicJson["MTSChrzanowFirebaseGamesUrl"].Value<string>();
 					MTSChrzanowRealTimeGameChild = dynamicJson["MTSChrzanowRealTimeGameChild"].Value<string>();
+					MTSChrzanowFirebaseAuth = dynamicJson["MTSChrzanowFirebaseAuth"].Value<string>();
+					MTSChrzanowWPTotalPages = dynamicJson["MTSChrzanowWPTotalPages"].Value<string>();
 				}
 			}
 		}

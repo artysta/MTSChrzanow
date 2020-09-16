@@ -1,5 +1,8 @@
 ﻿using MTSChrzanow.Models;
 using Xamarin.Essentials;
+using System;
+using Xamarin.Forms;
+using MTSChrzanow.Helpers;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -9,10 +12,12 @@ namespace MTSChrzanow.ViewModels
 
 		public AppViewModel()
 		{
-			LoggedUser = new User()
-			{
-				Email = Preferences.Get("REMEMBERED_USER", "N/A")
-			};
+			GetUserData();
+		}
+
+		public async void GetUserData()
+		{
+			LoggedUser = await UserHelper.GetUserAsync();
 		}
 	}
 }

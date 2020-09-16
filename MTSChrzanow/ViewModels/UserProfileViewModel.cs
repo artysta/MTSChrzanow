@@ -1,7 +1,7 @@
-﻿using System.Windows.Input;
-using Xamarin.Forms;
-using Xamarin.Essentials;
+﻿using MTSChrzanow.Helpers;
 using MTSChrzanow.Views;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -28,7 +28,7 @@ namespace MTSChrzanow.ViewModels
 
 		private async void OnLogoutButtonClicked()
 		{
-			Preferences.Remove("REMEMBERED_USER");
+			UserHelper.RemoveUser();
 
 			(Application.Current).MainPage = new NavigationPage(new LoginPage());
 			await Application.Current.MainPage.DisplayAlert("Informacja.", "Zostałeś pomyślnie wylogowany!", "Ok");

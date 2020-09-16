@@ -1,7 +1,9 @@
-﻿using MTSChrzanow.Models;
-using Firebase.Database;
-using System.Reactive.Linq;
+﻿using Firebase.Database;
+using MTSChrzanow.Helpers;
+using MTSChrzanow.Models;
 using System;
+using System.Reactive.Linq;
+using System.Threading.Tasks;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -42,7 +44,20 @@ namespace MTSChrzanow.ViewModels
 
 		public RealtimeGameViewModel()
 		{
-			Firebase = new FirebaseClient(App.MTSChrzanowFirebaseUrl);
+			Initialize();
+		}
+
+		public async void Initialize()
+		{
+			IsBusy = true;
+			App.ViewModel.LoggedUser.Token = await UserHelper.GetAccessTokenAsync();
+
+			FirebaseOptions auth = new FirebaseOptions()
+			{
+				AuthTokenAsyncFactory = () => Task.FromResult(App.ViewModel.LoggedUser.Token)
+			};
+
+			Firebase = new FirebaseClient(App.MTSChrzanowFirebaseUrl, auth);
 			StartListening();
 		}
 
@@ -62,6 +77,7 @@ namespace MTSChrzanow.ViewModels
 					  IsGameGoing = true;
 					  RealtimeGame = game.Object;
 				  }
+				  if (IsBusy) IsBusy = false;
 			  });
 		}
 

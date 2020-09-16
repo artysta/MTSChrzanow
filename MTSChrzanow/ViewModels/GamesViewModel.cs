@@ -1,12 +1,13 @@
-﻿using MTSChrzanow.Models;
-using System.Collections.ObjectModel;
-using System.Net;
+﻿using MTSChrzanow.Helpers;
+using MTSChrzanow.Models;
+using MTSChrzanow.Views;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Net;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using MTSChrzanow.Views;
-using System.Threading.Tasks;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -47,13 +48,18 @@ namespace MTSChrzanow.ViewModels
 		public async void InitializeGamesList()
 		{
 			IsBusy = true;
+			App.ViewModel.LoggedUser.Token = await UserHelper.GetAccessTokenAsync();
 			await SetAllGames();
 			IsBusy = false;
 		}
 
 		private async Task SetAllGames()
 		{
-			string query = App.MTSChrzanowFirebaseUrl + App.MTSChrzanowFirebaseGamesUrl;
+			string query = QueryBuilder.CreateQuery(App.MTSChrzanowFirebaseUrl,
+													App.MTSChrzanowFirebaseGamesUrl,
+													App.MTSChrzanowFirebaseAuth,
+													App.ViewModel.LoggedUser.Token);
+
 			string json = await new WebClient().DownloadStringTaskAsync(query);
 			var games = JsonConvert.DeserializeObject<List<Game>>(json);
 

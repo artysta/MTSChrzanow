@@ -1,9 +1,9 @@
-﻿using MTSChrzanow.Views;
+﻿using MTSChrzanow.Helpers;
 using MTSChrzanow.Models;
+using MTSChrzanow.Views;
 using System;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Xamarin.Essentials;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -38,6 +38,19 @@ namespace MTSChrzanow.ViewModels
 			get
 			{
 				return _password;
+			}
+		}
+
+		private string _token = "";
+		public string Token
+		{
+			set
+			{
+				SetProperty(ref _token, value);
+			}
+			get
+			{
+				return _token;
 			}
 		}
 
@@ -91,18 +104,10 @@ namespace MTSChrzanow.ViewModels
 				return;
 			}
 
-			IFirebaseAuthenticator auth = DependencyService.Get<IFirebaseAuthenticator>();
-
-			if (auth == null)
-			{
-				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Coś poszło nie tak! :(", "Ok");
-				return;
-			}
-
 			try
 			{
 				IsBusy = true;
-				var token = await auth.LoginWithEmailPassword(Email, Password);
+				Token = await UserHelper.LoginUser(Email, Password);
 				IsBusy = false;
 			}
 			catch (Exception e)
@@ -131,15 +136,12 @@ namespace MTSChrzanow.ViewModels
 				return;
 			}
 
+			App.ViewModel.LoggedUser = new User(Email, Password);
+
 			if (IsRememberMeChecked)
 			{
-				Preferences.Set("REMEMBERED_USER", Email);
+				UserHelper.SaveUserAsync(App.ViewModel.LoggedUser);
 			}
-
-			App.ViewModel.LoggedUser = new User()
-			{
-				Email = Email
-			};
 			
 			(Application.Current).MainPage = new NavigationPage(new MainPage());
 			await Application.Current.MainPage.DisplayAlert("Logowanie.", "Pomyślnie zalogowano do konta!", "Ok");

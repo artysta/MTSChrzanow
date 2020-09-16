@@ -1,13 +1,8 @@
-﻿using Android.Content.Res;
-using MTSChrzanow.Models;
+﻿using MTSChrzanow.Models;
 using MTSChrzanow.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Xamarin.Forms;
-using Java.IO;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -17,15 +12,75 @@ namespace MTSChrzanow.ViewModels
 		private INavigation _navigation;
 		private ICommand _goToPostsCommand;
 
+		/*
+		
+		--> C O D E    F O R    T H E    L I S T    V I E W    L A Y O U T <--
+		 
 		public ICommand GoToSelectedPage => _goToPostsCommand ?? (_goToPostsCommand = new Command<MainMenuItem>(OnMenuItemClicked));
+
+		*/
+		public ICommand GoToSelectedPage => _goToPostsCommand ?? (_goToPostsCommand = new Command<string>(OnMenuItemClicked));
 
 		public MainViewModel() : this(null)	{ }
 
 		public MainViewModel(INavigation navigation)
 		{
 			_navigation = navigation;
+
+			/*
+			
+			--> C O D E    F O R    T H E    L I S T    V I E W    L A Y O U T <--
+			 
 			InitializeMenu();
+			
+			 */
 		}
+
+		public ObservableCollection<MainMenuItem> MenuItems
+		{
+			get { return _menuItems; }
+			set
+			{
+				SetProperty(ref _menuItems, value);
+			}
+		}
+
+		private async void OnMenuItemClicked(string item)
+		{
+			if (item == null)
+				return;
+
+			switch (item)
+			{
+				case "Posts":
+					await _navigation.PushAsync(new PostsPage());
+					break;
+				case "Table":
+					await _navigation.PushAsync(new GamesPage());
+					break;
+				case "Players":
+					await _navigation.PushAsync(new PositionsPage());
+					break;
+				case "Sponsors":
+					await _navigation.PushAsync(new SponsorsPage());
+					break;
+				case "RealtimeGame":
+					await _navigation.PushAsync(new RealtimeGamePage());
+					break;
+				case "UserProfile":
+					await _navigation.PushAsync(new UserProfilePage());
+					break;
+				case "About":
+					await _navigation.PushAsync(new AboutPage());
+					break;
+				default:
+					return;
+			}
+		}
+
+		/*
+
+		--> C O D E    F O R    T H E    L I S T    V I E W    L A Y O U T <--
 
 		public void InitializeMenu()
 		{
@@ -43,15 +98,6 @@ namespace MTSChrzanow.ViewModels
 			MenuItems = new ObservableCollection<MainMenuItem>(items);
 		}
 
-		public ObservableCollection<MainMenuItem> MenuItems
-		{
-			get { return _menuItems; }
-			set
-			{
-				SetProperty(ref _menuItems, value);
-			}
-		}
-		
 		private async void OnMenuItemClicked(MainMenuItem item)
 		{
 			if (item == null)
@@ -84,5 +130,7 @@ namespace MTSChrzanow.ViewModels
 					return;
 			}
 		}
+
+		*/
 	}
 }

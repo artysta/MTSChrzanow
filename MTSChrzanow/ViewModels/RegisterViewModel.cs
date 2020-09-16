@@ -1,7 +1,8 @@
-﻿using MTSChrzanow.Views;
+﻿using MTSChrzanow.Helpers;
+using MTSChrzanow.Views;
+using System;
 using System.Windows.Input;
 using Xamarin.Forms;
-using System;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -88,18 +89,10 @@ namespace MTSChrzanow.ViewModels
 				return;
 			}
 
-			IFirebaseAuthenticator auth = DependencyService.Get<IFirebaseAuthenticator>();
-
-			if (auth == null)
-			{
-				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Coś poszło nie tak! :(", "Ok");
-				return;
-			}
-
 			try
 			{
 				IsBusy = true;
-				var token = await auth.SignupWithEmailPassword(Email, Password);
+				await UserHelper.RegisterUser(Email, Password);
 				IsBusy = false;
 				await Application.Current.MainPage.DisplayAlert("Rejestracja.", "Pomyślnie zarejestrowano konto!", "Ok");
 			}
