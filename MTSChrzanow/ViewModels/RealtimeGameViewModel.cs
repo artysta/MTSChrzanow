@@ -68,7 +68,7 @@ namespace MTSChrzanow.ViewModels
 			  .AsObservable<RealtimeGame>()
 			  .Subscribe(game =>
 			  {
-				  if (game.Key.Equals(""))
+				  if (game.Key.Equals("") || !game.Object.IsGoing)
 				  {
 					  IsGameGoing = false;
 				  }
