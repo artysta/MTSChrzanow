@@ -355,3 +355,6 @@ config.json
 # Google Services config files (Firebase)
 google-services.json
 GoogleService-Info.plist
+
+# Photos of players
+MTSChrzanow/Images/Players/*.jpg
