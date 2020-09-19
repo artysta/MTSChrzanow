@@ -10,10 +10,6 @@
              x:Class="MTSChrzanow.Views.GamesPage"
              Title="Mecze"
              BackgroundColor="{ StaticResource AppBgColor }">
-    <ContentPage.BindingContext>
-        <viewModels:GamesViewModel/>
-    </ContentPage.BindingContext>
-
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:NegateBooleanConverter x:Key="inverter" />

@@ -12,6 +12,7 @@
             <StackLayout Margin="6">
                 <ActivityIndicator IsVisible="{ Binding IsBusy }"
                                IsRunning="{ Binding IsBusy }"/>
+                <Label Text="Żeby korzystać z aplikacji, musisz się zalogować. Jeśli nie posiadasz konta, możesz je założyć." />
                 <Entry Placeholder="E-mail..."
                    Text="{ Binding Email }"/>
                 <Entry Placeholder="Hasło..."

@@ -10,6 +10,7 @@
     <ScrollView>
         <Frame Style="{ StaticResource DetailsFrameStyle }">
             <StackLayout Margin="6">
+                <Label Text="Uzupełnij swoje dane. Pamiętaj, by podać prawdziwy adres e-mail i że hasło musi składać się z przynajmniej 5 znaków." />
                 <ActivityIndicator IsVisible="{ Binding IsBusy }"
                                IsRunning="{ Binding IsBusy }"/>
                 <Entry Placeholder="E-mail..."

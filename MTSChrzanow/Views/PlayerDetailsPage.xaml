@@ -15,7 +15,9 @@
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
             <StackLayout>
-                <Image Source="{ Binding MTSPlayer.PhotoSource }"/>
+                <Image Source="{ Binding MTSPlayer.PhotoSource }"
+                       Aspect="AspectFill"
+                       HeightRequest="500"/>
                 <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"></RowDefinition>
