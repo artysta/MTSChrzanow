@@ -2,6 +2,7 @@
 using MTSChrzanow.Models;
 using MTSChrzanow.Views;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net;
@@ -48,7 +49,18 @@ namespace MTSChrzanow.ViewModels
 		public async void InitializeGamesList()
 		{
 			IsBusy = true;
-			App.ViewModel.LoggedUser.Token = await UserHelper.GetAccessTokenAsync();
+			try
+			{
+				//FirebaseNetworkException
+				App.ViewModel.LoggedUser.Token = await UserHelper.GetAccessTokenAsync();
+			}
+			catch (Exception e)
+			{
+				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Coś poszło nie tak! Sprawdź połączenie internetowe! :(", "Ok");
+				(Application.Current).MainPage = new NavigationPage(new MainPage());
+				return;
+			}
+
 			await SetAllGames();
 			IsBusy = false;
 		}

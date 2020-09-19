@@ -1,9 +1,11 @@
 ﻿using Firebase.Database;
 using MTSChrzanow.Helpers;
 using MTSChrzanow.Models;
+using MTSChrzanow.Views;
 using System;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -50,7 +52,18 @@ namespace MTSChrzanow.ViewModels
 		public async void Initialize()
 		{
 			IsBusy = true;
-			App.ViewModel.LoggedUser.Token = await UserHelper.GetAccessTokenAsync();
+
+			try
+			{
+				//FirebaseNetworkException
+				App.ViewModel.LoggedUser.Token = await UserHelper.GetAccessTokenAsync();
+			}
+			catch (Exception e)
+			{
+				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Coś poszło nie tak! Sprawdź połączenie internetowe! :(", "Ok");
+				(Application.Current).MainPage = new NavigationPage(new MainPage());
+				return;
+			}
 
 			FirebaseOptions auth = new FirebaseOptions()
 			{
