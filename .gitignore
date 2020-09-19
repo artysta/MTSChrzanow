@@ -358,3 +358,7 @@ GoogleService-Info.plist
 
 # Photos of players
 MTSChrzanow/Images/Players/*.jpg
+
+# Logos of sponsors
+MTSChrzanow/Images/Sponsors/*.jpg
+MTSChrzanow/Images/Sponsors/*.png
