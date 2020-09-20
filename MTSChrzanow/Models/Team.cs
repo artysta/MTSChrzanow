@@ -4,6 +4,8 @@ namespace MTSChrzanow.Models
 {
 	public class Team
 	{
+		public int Index { get; set; }
+
 		[JsonProperty("name")]
 		public string Name { get; set; }
 		[JsonProperty("points")]

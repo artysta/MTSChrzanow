@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System;
 using MTSChrzanow.Views;
+using System.Linq;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -65,11 +66,15 @@ namespace MTSChrzanow.ViewModels
 													App.MTSChrzanowFirebaseTableUrl,
 													App.MTSChrzanowFirebaseAuth,
 													App.ViewModel.LoggedUser.Token);
-
 			string json = await new WebClient().DownloadStringTaskAsync(query);
 			var teams = JsonConvert.DeserializeObject<List<Team>>(json);
-
-			Teams = new ObservableCollection<Team>(teams);
+			
+			for (int i = 0; i < teams.Count; i++)
+			{
+				teams[i].Index = i + 1;
+			}
+			
+			Teams = new ObservableCollection<Team>(teams.OrderByDescending(o => o.Points).ToList());
 		}
 	}	
 }
