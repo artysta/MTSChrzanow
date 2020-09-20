@@ -97,9 +97,25 @@
                                VerticalOptions="Center" />
                     </StackLayout>
                 </Frame>
-                <Frame ClassId="Players"
+                <Frame ClassId="Table"
                        Grid.Row="1"
                        Grid.Column="0"
+                       Style="{ StaticResource MainMenuGridFrame }">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_timetable.png }"
+                               WidthRequest="40" />
+                        <Label Text="Tabela"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <Frame ClassId="Players"
+                       Grid.Row="1"
+                       Grid.Column="1"
                        Style="{ StaticResource MainMenuGridFrame }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
@@ -114,8 +130,8 @@
                     </StackLayout>
                 </Frame>
                 <Frame ClassId="Sponsors"
-                       Grid.Row="1"
-                       Grid.Column="1"
+                       Grid.Row="2"
+                       Grid.Column="0"
                        Style="{ StaticResource MainMenuGridFrame }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
@@ -131,7 +147,7 @@
                 </Frame>
                 <Frame ClassId="RealtimeGame"
                        Grid.Row="2"
-                       Grid.Column="0"
+                       Grid.Column="1"
                        Style="{ StaticResource MainMenuGridFrame }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
@@ -146,8 +162,8 @@
                     </StackLayout>
                 </Frame>
                 <Frame ClassId="UserProfile"
-                       Grid.Row="2"
-                       Grid.Column="1"
+                       Grid.Row="3"
+                       Grid.Column="0"
                        Style="{ StaticResource MainMenuGridFrame }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
@@ -163,7 +179,7 @@
                 </Frame>
                 <Frame ClassId="About"
                        Grid.Row="3"
-                       Grid.Column="0"
+                       Grid.Column="1"
                        Style="{ StaticResource MainMenuGridFrame }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />

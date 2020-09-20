@@ -6,6 +6,7 @@
 		{
 			Posts,
 			Schedule,
+			Table,
 			Players,
 			Sponsors,
 			RealtimeGame,

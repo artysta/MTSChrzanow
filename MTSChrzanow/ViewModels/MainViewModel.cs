@@ -58,6 +58,9 @@ namespace MTSChrzanow.ViewModels
 				case "Schedule":
 					await _navigation.PushAsync(new GamesPage());
 					break;
+				case "Table":
+					await _navigation.PushAsync(new TablePage());
+					break;
 				case "Players":
 					await _navigation.PushAsync(new PositionsPage());
 					break;

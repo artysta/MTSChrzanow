@@ -154,6 +154,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\TablePage.xaml.cs">
+      <DependentUpon>TablePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>

@@ -22,6 +22,7 @@ namespace MTSChrzanow
 		public static string MTSChrzanowRealTimeGameChild { get; private set; }
 		public static string MTSChrzanowFirebaseAuth { get; private set; }
 		public static string MTSChrzanowWPTotalPages { get; private set; }
+		public static string MTSChrzanowFirebaseTableUrl { get; private set; }
 
 		public static AppViewModel ViewModel { get; private set; }
 
@@ -62,6 +63,7 @@ namespace MTSChrzanow
 					MTSChrzanowRealTimeGameChild = dynamicJson["MTSChrzanowRealTimeGameChild"].Value<string>();
 					MTSChrzanowFirebaseAuth = dynamicJson["MTSChrzanowFirebaseAuth"].Value<string>();
 					MTSChrzanowWPTotalPages = dynamicJson["MTSChrzanowWPTotalPages"].Value<string>();
+					MTSChrzanowFirebaseTableUrl = dynamicJson["MTSChrzanowFirebaseTableUrl"].Value<string>();
 				}
 			}
 		}
