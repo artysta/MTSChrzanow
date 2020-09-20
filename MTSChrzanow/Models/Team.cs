@@ -1,11 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Newtonsoft.Json;
 
 namespace MTSChrzanow.Models
 {
 	public class Team
 	{
+		[JsonProperty("name")]
+		public string Name { get; set; }
+		[JsonProperty("points")]
+		public int Points { get; set; }
+		[JsonProperty("games")]
+		public int Games { get; set; }
+		[JsonProperty("wins")]
+		public int Wins { get; set; }
+		[JsonProperty("losses")]
+		public int Losses { get; set; }
+		[JsonProperty("draws")]
+		public int Draws { get; set; }
+		[JsonProperty("logo-url")]
+		public string LogoUrl { get; set; }
 		public static string MTSChrzanow => "MTS Chrzanów";
 		public static string MKSOlimpiaMEDEX => "MKS Olimpia MEDEX Piekary Śląskie";
 		public static string SMSZPRPKielce => "SMS ZPRP Kielce";
