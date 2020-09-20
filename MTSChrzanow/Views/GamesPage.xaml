@@ -8,7 +8,7 @@
              xmlns:converters="clr-namespace:MTSChrzanow.Converters"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="MTSChrzanow.Views.GamesPage"
-             Title="Mecze"
+             Title="Terminarz"
              BackgroundColor="{ StaticResource AppBgColor }">
     <ContentPage.Resources>
         <ResourceDictionary>

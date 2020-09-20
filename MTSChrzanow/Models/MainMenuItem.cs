@@ -5,7 +5,7 @@
 		public enum MenuItemType
 		{
 			Posts,
-			Table,
+			Schedule,
 			Players,
 			Sponsors,
 			RealtimeGame,

@@ -81,7 +81,7 @@
                                VerticalOptions="Center" />
                     </StackLayout>
                 </Frame>
-                <Frame ClassId="Table"
+                <Frame ClassId="Schedule"
                        Grid.Row="0"
                        Grid.Column="1"
                        Style="{ StaticResource MainMenuGridFrame }">
