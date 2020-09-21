@@ -69,12 +69,12 @@ namespace MTSChrzanow.ViewModels
 			string json = await new WebClient().DownloadStringTaskAsync(query);
 			var teams = JsonConvert.DeserializeObject<List<Team>>(json);
 			
-			for (int i = 0; i < teams.Count; i++)
-			{
-				teams[i].Index = i + 1;
-			}
-			
 			Teams = new ObservableCollection<Team>(teams.OrderByDescending(o => o.Points).ToList());
+
+			for (int i = 0; i < Teams.Count; i++)
+			{
+				Teams[i].Index = i + 1;
+			}
 		}
 	}	
 }
