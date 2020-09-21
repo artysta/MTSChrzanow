@@ -30,7 +30,14 @@ namespace MTSChrzanow.ViewModels
 
 		private async void OnGoToSponsorWebsite(MTSSponsor sponsor)
 		{
-			await Launcher.OpenAsync(sponsor.WebSite);
+			if (string.IsNullOrWhiteSpace(sponsor.WebSite))
+			{
+				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Nie udało się otworzyć strony sponsora!", "Ok");
+			}
+			else
+			{
+				await Launcher.OpenAsync(sponsor.WebSite);
+			}
 		}
 	}
 }

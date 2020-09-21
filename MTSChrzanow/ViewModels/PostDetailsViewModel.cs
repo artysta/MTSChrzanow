@@ -24,12 +24,18 @@ namespace MTSChrzanow.ViewModels
 		public PostDetailsViewModel(MTSPost post)
 		{
 			MTSPost = post;
-			Android.Util.Log.Debug("DETAILS_PAGE", post.Title.Rendered);
 		}
 
 		private async void OnObenPostInBrowser()
 		{
-			await Launcher.OpenAsync(MTSPost.Link);
+			if (string.IsNullOrWhiteSpace(MTSPost.Link))
+			{
+				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Nie udało się otworzyć artykułu w przeglądarce!", "Ok");
+			}
+			else
+			{
+				await Launcher.OpenAsync(MTSPost.Link);
+			}
 		}
 	}
 }
