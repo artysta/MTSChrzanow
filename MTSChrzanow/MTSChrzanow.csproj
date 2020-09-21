@@ -13,13 +13,22 @@
   <ItemGroup>
     <None Remove="config.json" />
     <None Remove="Images\Icons\icon_about.png" />
+    <None Remove="Images\Icons\icon_about_white.png" />
     <None Remove="Images\Icons\icon_arrow.png" />
     <None Remove="Images\Icons\icon_players.png" />
+    <None Remove="Images\Icons\icon_players_white.png" />
     <None Remove="Images\Icons\icon_posts.png" />
+    <None Remove="Images\Icons\icon_posts_white.png" />
     <None Remove="Images\Icons\icon_realtimegame.png" />
+    <None Remove="Images\Icons\icon_realtimegame_white.png" />
     <None Remove="Images\Icons\icon_sponsors.png" />
+    <None Remove="Images\Icons\icon_sponsors_white.png" />
+    <None Remove="Images\Icons\icon_table.png" />
+    <None Remove="Images\Icons\icon_table_white.png" />
     <None Remove="Images\Icons\icon_timetable.png" />
+    <None Remove="Images\Icons\icon_timetable_white.png" />
     <None Remove="Images\Icons\icon_userprofile.png" />
+    <None Remove="Images\Icons\icon_userprofile_white.png" />
     <None Remove="Images\icon_xamarin.png" />
     <None Remove="Images\logo_chmax.png" />
     <None Remove="Images\logo_debal.png" />
@@ -29,6 +38,7 @@
     <None Remove="Images\logo_mcdonalds.png" />
     <None Remove="Images\logo_mrowka.png" />
     <None Remove="Images\logo_mts.png" />
+    <None Remove="Images\logo_mts_white.png" />
     <None Remove="Images\logo_powiat_chrzanowski.png" />
     <None Remove="Images\logo_prbm_cembud.png" />
     <None Remove="Images\logo_unimetal_recycling.png" />
@@ -76,13 +86,22 @@
   <ItemGroup>
     <EmbeddedResource Include="config.json" />
     <EmbeddedResource Include="Images\Icons\icon_about.png" />
+    <EmbeddedResource Include="Images\Icons\icon_about_white.png" />
     <EmbeddedResource Include="Images\Icons\icon_players.png" />
+    <EmbeddedResource Include="Images\Icons\icon_players_white.png" />
     <EmbeddedResource Include="Images\Icons\icon_posts.png" />
     <EmbeddedResource Include="Images\Icons\icon_arrow.png" />
+    <EmbeddedResource Include="Images\Icons\icon_posts_white.png" />
     <EmbeddedResource Include="Images\Icons\icon_realtimegame.png" />
+    <EmbeddedResource Include="Images\Icons\icon_realtimegame_white.png" />
     <EmbeddedResource Include="Images\Icons\icon_sponsors.png" />
+    <EmbeddedResource Include="Images\Icons\icon_sponsors_white.png" />
+    <EmbeddedResource Include="Images\Icons\icon_table.png" />
+    <EmbeddedResource Include="Images\Icons\icon_table_white.png" />
     <EmbeddedResource Include="Images\Icons\icon_timetable.png" />
+    <EmbeddedResource Include="Images\Icons\icon_timetable_white.png" />
     <EmbeddedResource Include="Images\Icons\icon_userprofile.png" />
+    <EmbeddedResource Include="Images\Icons\icon_userprofile_white.png" />
     <EmbeddedResource Include="Images\icon_xamarin.png" />
     <EmbeddedResource Include="Images\logo_chmax.png" />
     <EmbeddedResource Include="Images\logo_debal.png" />
@@ -92,6 +111,7 @@
     <EmbeddedResource Include="Images\logo_mcdonalds.png" />
     <EmbeddedResource Include="Images\logo_mrowka.png" />
     <EmbeddedResource Include="Images\logo_mts.png" />
+    <EmbeddedResource Include="Images\logo_mts_white.png" />
     <EmbeddedResource Include="Images\logo_powiat_chrzanowski.png" />
     <EmbeddedResource Include="Images\logo_prbm_cembud.png" />
     <EmbeddedResource Include="Images\logo_unimetal_recycling.png" />
