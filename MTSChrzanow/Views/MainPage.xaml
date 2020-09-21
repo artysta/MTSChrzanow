@@ -8,6 +8,18 @@
              xmlns:local="clr-namespace:MTSChrzanow"
              Title="MTS Chrzanów"
              BackgroundColor="{ StaticResource AppBgColor }">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="{ local:ImageResource MTSChrzanow.Images.logo_mts_white.png }"
+                   WidthRequest="40"
+                   HeightRequest="40" />
+            <Label Text="MTS Chrzanów"
+                   VerticalTextAlignment="Center"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   TextColor="{ StaticResource BrigthTextColor }" />
+        </StackLayout>
+    </NavigationPage.TitleView>
     <ContentView Margin="6">
         <!--
             <StackLayout>
@@ -63,7 +75,8 @@
                 <Frame ClassId="Posts"
                        Grid.Row="0"
                        Grid.Column="0"
-                       Style="{ StaticResource MainMenuGridFrame }">
+                       Style="{ StaticResource MainMenuGridFrame }"
+                       BackgroundColor="{ StaticResource AccentColor }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </Frame.GestureRecognizers>
@@ -79,39 +92,44 @@
                 <Frame ClassId="Schedule"
                        Grid.Row="0"
                        Grid.Column="1"
-                       Style="{ StaticResource MainMenuGridFrame }">
+                       Style="{ StaticResource MainMenuGridFrame }"
+                       BackgroundColor="{ StaticResource PrimaryColor }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </Frame.GestureRecognizers>
                     <StackLayout HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_timetable.png }"
+                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_timetable_white.png }"
                                WidthRequest="40" />
                         <Label Text="Terminarz"
                                HorizontalOptions="Center"
-                               VerticalOptions="Center" />
+                               VerticalOptions="Center"
+                               TextColor="{ StaticResource BrigthTextColor }" />
                     </StackLayout>
                 </Frame>
                 <Frame ClassId="Table"
                        Grid.Row="1"
                        Grid.Column="0"
-                       Style="{ StaticResource MainMenuGridFrame }">
+                       Style="{ StaticResource MainMenuGridFrame }"
+                       BackgroundColor="{ StaticResource PrimaryColor }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </Frame.GestureRecognizers>
                     <StackLayout HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_timetable.png }"
+                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_table_white.png }"
                                WidthRequest="40" />
                         <Label Text="Tabela"
                                HorizontalOptions="Center"
-                               VerticalOptions="Center" />
+                               VerticalOptions="Center"
+                               TextColor="{ StaticResource BrigthTextColor }" />
                     </StackLayout>
                 </Frame>
                 <Frame ClassId="Players"
                        Grid.Row="1"
                        Grid.Column="1"
-                       Style="{ StaticResource MainMenuGridFrame }">
+                       Style="{ StaticResource MainMenuGridFrame }"
+                       BackgroundColor="{ StaticResource AccentColor }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </Frame.GestureRecognizers>
@@ -127,7 +145,8 @@
                 <Frame ClassId="Sponsors"
                        Grid.Row="2"
                        Grid.Column="0"
-                       Style="{ StaticResource MainMenuGridFrame }">
+                       Style="{ StaticResource MainMenuGridFrame }"
+                       BackgroundColor="{ StaticResource AccentColor }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </Frame.GestureRecognizers>
@@ -143,39 +162,44 @@
                 <Frame ClassId="RealtimeGame"
                        Grid.Row="2"
                        Grid.Column="1"
-                       Style="{ StaticResource MainMenuGridFrame }">
+                       Style="{ StaticResource MainMenuGridFrame }"
+                       BackgroundColor="{ StaticResource PrimaryColor }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </Frame.GestureRecognizers>
                     <StackLayout HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_realtimegame.png }"
+                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_realtimegame_white.png }"
                                WidthRequest="40" />
                         <Label Text="Wynik na żywo"
                                HorizontalOptions="Center"
-                               VerticalOptions="Center" />
+                               VerticalOptions="Center"
+                               TextColor="{ StaticResource BrigthTextColor }" />
                     </StackLayout>
                 </Frame>
                 <Frame ClassId="UserProfile"
                        Grid.Row="3"
                        Grid.Column="0"
-                       Style="{ StaticResource MainMenuGridFrame }">
+                       Style="{ StaticResource MainMenuGridFrame }"
+                       BackgroundColor="{ StaticResource PrimaryColor }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </Frame.GestureRecognizers>
                     <StackLayout HorizontalOptions="Center"
                                  VerticalOptions="Center">
-                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_userprofile.png }"
+                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_userprofile_white.png }"
                                WidthRequest="40" />
                         <Label Text="Twój profil"
                                HorizontalOptions="Center"
-                               VerticalOptions="Center" />
+                               VerticalOptions="Center"
+                               TextColor="{ StaticResource BrigthTextColor }" />
                     </StackLayout>
                 </Frame>
                 <Frame ClassId="About"
                        Grid.Row="3"
                        Grid.Column="1"
-                       Style="{ StaticResource MainMenuGridFrame }">
+                       Style="{ StaticResource MainMenuGridFrame }"
+                       BackgroundColor="{ StaticResource AccentColor }">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </Frame.GestureRecognizers>
