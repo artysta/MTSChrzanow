@@ -4,15 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              x:Class="MTSChrzanow.Views.SponsorsPage"
              xmlns:local="clr-namespace:MTSChrzanow"
              Title="Sponsorzy"
              BackgroundColor="{ StaticResource AppBgColor }">
-    <ContentPage.BindingContext>
-        <viewModels:SponsorsViewModel/>
-    </ContentPage.BindingContext>
-
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ContentView>
             <StackLayout>

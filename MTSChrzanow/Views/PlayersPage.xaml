@@ -4,15 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              xmlns:local="clr-namespace:MTSChrzanow"
              x:Class="MTSChrzanow.Views.PlayersPage"
              Title="{ Binding PositionName }"
              BackgroundColor="{ StaticResource AppBgColor }">
-    <ContentPage.BindingContext>
-        <viewModels:PlayersViewModel/>
-    </ContentPage.BindingContext>
-
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ContentView>
             <StackLayout>

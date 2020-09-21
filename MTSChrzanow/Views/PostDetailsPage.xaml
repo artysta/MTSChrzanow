@@ -5,12 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MTSChrzanow.Views.PostDetailsPage"
-             xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              BackgroundColor="{ StaticResource AppBgColor }">
-    <ContentPage.BindingContext>
-        <viewModels:PostDetailsViewModel/>
-    </ContentPage.BindingContext>
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
             <Grid>

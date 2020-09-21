@@ -5,12 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MTSChrzanow.Views.UserProfilePage"
-             xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              Title="Twój profil"
              BackgroundColor="{ StaticResource AppBgColor }">
-    <ContentPage.BindingContext>
-        <viewModels:SponsorDetailsViewModel/>
-    </ContentPage.BindingContext>
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
             <StackLayout Margin="6">

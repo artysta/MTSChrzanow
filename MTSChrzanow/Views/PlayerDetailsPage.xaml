@@ -5,13 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="MTSChrzanow.Views.PlayerDetailsPage"
-             xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
-             xmlns:local="clr-namespace:MTSChrzanow"
              Title="{ Binding MTSPlayer.Name }"
              BackgroundColor="{ StaticResource AppBgColor }">
-    <ContentPage.BindingContext>
-        <viewModels:PlayerDetailsViewModel/>
-    </ContentPage.BindingContext>
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
             <StackLayout>
