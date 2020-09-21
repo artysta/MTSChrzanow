@@ -161,13 +161,13 @@ namespace MTSChrzanow.Models
 				new MTSSponsor
 				{
 					Name = "Restauracja McDonald's - Chrzanów",
-					Description = "N/A",
+					Description = "",
 					City = "Chrzanów",
 					PostalCode = " 32-500",
 					Street = "Trzebińska 71",
 					PhoneNumber = "+48 664 718 101",
-					Mail = "N/A",
-					WebSite = "N/A",
+					Mail = "",
+					WebSite = "",
 					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_mcdonalds.png", assembly)
 				}
 			);
@@ -214,8 +214,8 @@ namespace MTSChrzanow.Models
 					PostalCode = "32-500",
 					Street = "Kusocińskiego 4",
 					PhoneNumber = "+48 (32) 623 05 07",
-					Mail = "N/A",
-					WebSite = "N/A",
+					Mail = "",
+					WebSite = "",
 					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
@@ -230,8 +230,8 @@ namespace MTSChrzanow.Models
 					PostalCode = "32-500",
 					Street = "Stara Huta 33",
 					PhoneNumber = "+48 (32) 623 48 33",
-					Mail = "N/A",
-					WebSite = "N/A",
+					Mail = "",
+					WebSite = "",
 					LogoSource = ImageSource.FromResource("MTSChrzanow.Images.logo_xamarin.png", assembly)
 				}
 			);
