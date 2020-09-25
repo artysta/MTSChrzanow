@@ -5,25 +5,25 @@ using Xamarin.Forms;
 
 namespace MTSChrzanow.Views
 {
-	// Learn more about making custom code visible in the Xamarin.Forms previewer
-	// by visiting https://aka.ms/xamarinforms-previewer
 	[DesignTimeVisible(false)]
 	public partial class SponsorDetailsPage : ContentPage
 	{
-		private SponsorDetailsViewModel viewModel;
+		private SponsorDetailsViewModel _viewModel;
 		private MTSSponsor _sponsor;
 
 		public SponsorDetailsPage(MTSSponsor sponsor)
 		{
-			_sponsor = sponsor;
 			InitializeComponent();
-			viewModel = new SponsorDetailsViewModel(_sponsor);
-			BindingContext = viewModel;
+			
+			if (sponsor != null)
+			{
+				_sponsor = sponsor;
+				_viewModel = new SponsorDetailsViewModel(_sponsor);
+				BindingContext = _viewModel;
+			}
 		}
 
-		private void Button_Clicked(object sender, System.EventArgs e)
-		{
-			viewModel.GoToDetailsCommand.Execute(_sponsor);
-		}
+		private void Button_Clicked(object sender, System.EventArgs e) =>
+			_viewModel.GoToDetailsCommand.Execute(_sponsor);
 	}
 }

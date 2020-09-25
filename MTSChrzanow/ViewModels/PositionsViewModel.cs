@@ -1,24 +1,25 @@
-﻿using Android.Content.Res;
+﻿using MTSChrzanow.Models;
 using MTSChrzanow.Views;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Xamarin.Forms;
-using MTSChrzanow.Models;
 
 namespace MTSChrzanow.ViewModels
 {
 	public class PositionsViewModel : BaseViewModel
 	{
-		private ObservableCollection<PositionsMenuItem> _menuItems;
 		private INavigation _navigation;
+
 		private ICommand _goToPositionCommand;
-		
 		public ICommand GoToSelectedPage => _goToPositionCommand ?? (_goToPositionCommand = new Command<PositionsMenuItem>(OnPositionItemClicked));
 
-		public PositionsViewModel() : this(null)	{ }
+		private ObservableCollection<PositionsMenuItem> _menuItems;
+		public ObservableCollection<PositionsMenuItem> MenuItems
+		{
+			get => _menuItems;
+			set => SetProperty(ref _menuItems, value);
+		}
 
 		public PositionsViewModel(INavigation navigation)
 		{
@@ -38,22 +39,13 @@ namespace MTSChrzanow.ViewModels
 
 			MenuItems = new ObservableCollection<PositionsMenuItem>(items);
 		}
-
-		public ObservableCollection<PositionsMenuItem> MenuItems
-		{
-			get { return _menuItems; }
-			set
-			{
-				SetProperty(ref _menuItems, value);
-			}
-		}
-		
+				
 		private async void OnPositionItemClicked(PositionsMenuItem item)
 		{
-			if (item == null)
-				return;
-
-			await _navigation.PushAsync(new PlayersPage(item));
+			if (item != null)
+			{
+				await _navigation.PushAsync(new PlayersPage(item));
+			}
 		}
 	}
 }

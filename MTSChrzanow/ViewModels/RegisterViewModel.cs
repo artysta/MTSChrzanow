@@ -9,65 +9,39 @@ namespace MTSChrzanow.ViewModels
 	public class RegisterViewModel : BaseViewModel
 	{
 		private INavigation _navigation;
+
 		private ICommand _registerCommand;
-		public ICommand LoginCommand => _registerCommand ?? (_registerCommand = new Command(OnRegister));
+		public ICommand RegisterCommand => _registerCommand ?? (_registerCommand = new Command(OnRegister));
 
 		private string _email = "";
 		public string Email
 		{
-			set
-			{
-				SetProperty(ref _email, value);
-			}
-			get
-			{
-				return _email;
-			}
+			get => _email;
+			set => SetProperty(ref _email, value);
 		}
 
 		private string _password = "";
 		public string Password
 		{
-			set
-			{
-				SetProperty(ref _password, value);
-			}
-			get
-			{
-				return _password;
-			}
+			get => _password;
+			set => SetProperty(ref _password, value);
 		}
 
 		private string _passwordRepeat = "";
 		public string PasswordRepeat
 		{
-			set
-			{
-				SetProperty(ref _passwordRepeat, value);
-			}
-			get
-			{
-				return _passwordRepeat;
-			}
+			get => _passwordRepeat;
+			set => SetProperty(ref _passwordRepeat, value);
 		}
 
 		private bool _isBusy;
 		public bool IsBusy
 		{
-			set
-			{
-				SetProperty(ref _isBusy, value);
-			}
-			get
-			{
-				return _isBusy;
-			}
+			set => SetProperty(ref _isBusy, value);
+			get => _isBusy;
 		}
 
-		public RegisterViewModel(INavigation navigation)
-		{
-			_navigation = navigation;
-		}
+		public RegisterViewModel(INavigation navigation) => _navigation = navigation;
 
 		private async void OnRegister()
 		{

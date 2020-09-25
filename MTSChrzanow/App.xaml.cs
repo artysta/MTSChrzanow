@@ -1,13 +1,12 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using MTSChrzanow.Helpers;
+using MTSChrzanow.ViewModels;
+using MTSChrzanow.Views;
+using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Essentials;
-using MTSChrzanow.Views;
-using MTSChrzanow.ViewModels;
-using MTSChrzanow.Helpers;
 
 namespace MTSChrzanow
 {
@@ -36,8 +35,6 @@ namespace MTSChrzanow
 		{
 			await LoadConfig();
 			ViewModel = new AppViewModel();
-			//MainPage = new NavigationPage(new MainPage());
-
 			MainPage = await UserHelper.UserExists() ? new NavigationPage(new MainPage())
 													 : new NavigationPage(new LoginPage());
 		}

@@ -13,8 +13,8 @@
             <StackLayout>
                 <Label Text="Oficjalna aplikacja drużyny MTS Chrzanów."
                        Style="{ StaticResource LabelPrimaryStyle }"
-                       HorizontalOptions="Center"/>
-                <Image Source="{ local:ImageResource MTSChrzanow.Images.logo_mts.png }"/>
+                       HorizontalOptions="Center" />
+                <Image Source="{ local:ImageResource MTSChrzanow.Images.logo_mts.png }" />
             </StackLayout>
         </ScrollView>
     </Frame>

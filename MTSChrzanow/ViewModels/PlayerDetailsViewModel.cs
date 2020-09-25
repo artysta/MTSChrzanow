@@ -8,17 +8,15 @@ namespace MTSChrzanow.ViewModels
 		public MTSPlayer MTSPlayer
 		{
 			get => _mtsPlayer;
-			set
-			{
-				SetProperty(ref _mtsPlayer, value);
-			}
+			set => SetProperty(ref _mtsPlayer, value);
 		}
-
-		public PlayerDetailsViewModel() { }
 
 		public PlayerDetailsViewModel(MTSPlayer player)
 		{
-			MTSPlayer = player;
+			if (player != null)
+			{
+				MTSPlayer = player;
+			}
 		}
 	}
 }

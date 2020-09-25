@@ -4,23 +4,19 @@ using Xamarin.Forms;
 
 namespace MTSChrzanow.Views
 {
-	// Learn more about making custom code visible in the Xamarin.Forms previewer
-	// by visiting https://aka.ms/xamarinforms-previewer
 	[DesignTimeVisible(false)]
 	public partial class UserProfilePage : ContentPage
 	{
-		private UserProfileViewModel viewModel;
+		private UserProfileViewModel _viewModel;
 
 		public UserProfilePage()
 		{
 			InitializeComponent();
-			viewModel = new UserProfileViewModel();
-			BindingContext = viewModel;
+			_viewModel = new UserProfileViewModel();
+			BindingContext = _viewModel;
 		}
 
-		private void Logout_Button_Clicked(object sender, System.EventArgs e)
-		{
-			viewModel.LogoutCommand.Execute(null);
-		}
+		private void Logout_Button_Clicked(object sender, System.EventArgs e) =>
+			_viewModel.LogoutCommand.Execute(null);
 	}
 }

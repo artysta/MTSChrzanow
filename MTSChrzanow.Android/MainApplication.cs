@@ -3,10 +3,10 @@ using Android.Runtime;
 using Shiny;
 using Shiny.Notifications;
 using System;
-
+    
 namespace MTSChrzanow.Droid
 {
-	[Application]
+    [Application]
     public class MainApplication : Application
     {
         public MainApplication(IntPtr handle, JniHandleOwnership transfer) : base(handle, transfer)

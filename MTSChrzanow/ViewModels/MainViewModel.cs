@@ -8,10 +8,6 @@ namespace MTSChrzanow.ViewModels
 {
 	public class MainViewModel : BaseViewModel
 	{
-		private ObservableCollection<MainMenuItem> _menuItems;
-		private INavigation _navigation;
-		private ICommand _goToPostsCommand;
-
 		/*
 		
 		--> C O D E    F O R    T H E    L I S T    V I E W    L A Y O U T <--
@@ -19,31 +15,31 @@ namespace MTSChrzanow.ViewModels
 		public ICommand GoToSelectedPage => _goToPostsCommand ?? (_goToPostsCommand = new Command<MainMenuItem>(OnMenuItemClicked));
 
 		*/
-		public ICommand GoToSelectedPage => _goToPostsCommand ?? (_goToPostsCommand = new Command<string>(OnMenuItemClicked));
 
-		public MainViewModel() : this(null)	{ }
+		private INavigation _navigation;
+		private ICommand _goToSelectedPage;
+		public ICommand GoToSelectedPage => _goToSelectedPage ?? (_goToSelectedPage = new Command<string>(OnMenuItemClicked));
 
+		private ObservableCollection<MainMenuItem> _menuItems;
+		public ObservableCollection<MainMenuItem> MenuItems
+		{
+			get => _menuItems;
+			set => SetProperty(ref _menuItems, value);
+		}
+
+		/*
+			
+		--> C O D E    F O R    T H E    L I S T    V I E W    L A Y O U T <--
+		
 		public MainViewModel(INavigation navigation)
 		{
 			_navigation = navigation;
-
-			/*
-			
-			--> C O D E    F O R    T H E    L I S T    V I E W    L A Y O U T <--
-			 
 			InitializeMenu();
+		}
 			
-			 */
-		}
+		*/
 
-		public ObservableCollection<MainMenuItem> MenuItems
-		{
-			get { return _menuItems; }
-			set
-			{
-				SetProperty(ref _menuItems, value);
-			}
-		}
+		public MainViewModel(INavigation navigation) => _navigation = navigation;
 
 		private async void OnMenuItemClicked(string item)
 		{

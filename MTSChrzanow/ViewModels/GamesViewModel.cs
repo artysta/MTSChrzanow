@@ -14,29 +14,23 @@ namespace MTSChrzanow.ViewModels
 {
 	class GamesViewModel : BaseViewModel
 	{
-		private bool _isBusy;
-		private ObservableCollection<Game> _games;
 		private INavigation _navigation;
-		private ICommand _goToGameCommand;
 
+		private ICommand _goToGameCommand;
 		public ICommand GoToGameDetailsCommand => _goToGameCommand ?? (_goToGameCommand = new Command<Game>(OnGameItemClicked));
 
+		private ObservableCollection<Game> _games;
 		public ObservableCollection<Game> Games
 		{
-			get { return _games; }
-			set
-			{
-				SetProperty(ref _games, value);
-			}
+			get => _games;
+			set => SetProperty(ref _games, value);
 		}
 
+		private bool _isBusy;
 		public bool IsBusy
 		{
-			get { return _isBusy; }
-			set
-			{
-				SetProperty(ref _isBusy, value);
-			}
+			get => _isBusy;
+			set => SetProperty(ref _isBusy, value);
 		}
 
 		public GamesViewModel() : this(null) { }
@@ -77,9 +71,7 @@ namespace MTSChrzanow.ViewModels
 
 			Games = new ObservableCollection<Game>(games);
 		}
-		private async void OnGameItemClicked(Game game)
-		{
-			await _navigation.PushAsync(new GameDetailsPage(game));
-		}
+
+		private async void OnGameItemClicked(Game game) => await _navigation.PushAsync(new GameDetailsPage(game));
 	}
 }

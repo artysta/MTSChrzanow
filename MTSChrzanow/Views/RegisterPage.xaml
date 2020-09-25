@@ -12,18 +12,18 @@
             <StackLayout Margin="6">
                 <Label Text="Uzupełnij swoje dane. Pamiętaj, by podać prawdziwy adres e-mail i że hasło musi składać się z przynajmniej 5 znaków." />
                 <ActivityIndicator IsVisible="{ Binding IsBusy }"
-                               IsRunning="{ Binding IsBusy }"/>
+                                   IsRunning="{ Binding IsBusy }" />
                 <Entry Placeholder="E-mail..."
-                   Text="{ Binding Email }"/>
+                       Text="{ Binding Email }" />
                 <Entry Placeholder="Hasło..."
-                   IsPassword="True"
-                   Text="{ Binding Password }"/>
+                       IsPassword="True"
+                       Text="{ Binding Password }" />
                 <Entry Placeholder="Powtórz hasło..."
-                   IsPassword="True"
-                   Text="{ Binding PasswordRepeat }"/>
+                       IsPassword="True"
+                       Text="{ Binding PasswordRepeat }" />
                 <Button Text="Zarejestruj"
-                    Style="{ StaticResource MainButtonStyle }"
-                    Clicked="Register_Button_Clicked"/>
+                        Style="{ StaticResource MainButtonStyle }"
+                        Clicked="Register_Button_Clicked" />
             </StackLayout>
         </Frame>
     </ScrollView>

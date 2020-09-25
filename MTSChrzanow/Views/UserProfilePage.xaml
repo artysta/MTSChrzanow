@@ -10,11 +10,11 @@
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
             <StackLayout Margin="6">
-                <Label Text="Jesteś zalogowany jako:"/>
-                <Label Text="{ Binding LoggedUserEmail }"/>
+                <Label Text="Jesteś zalogowany jako:" />
+                <Label Text="{ Binding LoggedUserEmail }" />
                 <Button Text="Wyloguj"
                         Style="{ StaticResource MainButtonStyle }"
-                        Clicked="Logout_Button_Clicked"/>
+                        Clicked="Logout_Button_Clicked" />
             </StackLayout>
         </ScrollView>
     </Frame>

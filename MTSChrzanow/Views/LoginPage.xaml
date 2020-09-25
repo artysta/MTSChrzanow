@@ -11,35 +11,35 @@
         <Frame Style="{ StaticResource DetailsFrameStyle }">
             <StackLayout Margin="6">
                 <ActivityIndicator IsVisible="{ Binding IsBusy }"
-                               IsRunning="{ Binding IsBusy }"/>
+                                   IsRunning="{ Binding IsBusy }" />
                 <Label Text="Żeby korzystać z aplikacji, musisz się zalogować. Jeśli nie posiadasz konta, możesz je założyć." />
                 <Entry Placeholder="E-mail..."
-                   Text="{ Binding Email }"/>
+                       Text="{ Binding Email }" />
                 <Entry Placeholder="Hasło..."
-                   IsPassword="True"
-                   Text="{ Binding Password }"/>
+                       IsPassword="True"
+                       Text="{ Binding Password }" />
                 <Button Text="Zaloguj"
-                    Style="{ StaticResource MainButtonStyle }"
-                    Clicked="Login_Button_Clicked"/>
+                        Style="{ StaticResource MainButtonStyle }"
+                        Clicked="Login_Button_Clicked" />
                 <Button Text="Załóż konto"
-                    Style="{ StaticResource MainButtonStyle }"
-                    Clicked="Register_Button_Clicked"/>
+                        Style="{ StaticResource MainButtonStyle }"
+                        Clicked="Register_Button_Clicked" />
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
                     <Label Text="Zapamiętaj mnie."
-                       Grid.Row="0"
-                       Grid.Column="1"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"/>
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
                     <CheckBox Grid.Row="0"
-                          Grid.Column="0"
-                          IsChecked="{ Binding IsRememberMeChecked }"/>
+                              Grid.Column="0"
+                              IsChecked="{ Binding IsRememberMeChecked }" />
                 </Grid>
             </StackLayout>
         </Frame>

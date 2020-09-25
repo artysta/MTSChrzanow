@@ -1,55 +1,45 @@
-﻿using MTSChrzanow.Models;
+﻿using MTSChrzanow.Helpers;
+using MTSChrzanow.Models;
+using MTSChrzanow.Views;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using MTSChrzanow.Helpers;
-using System.Net;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System;
-using MTSChrzanow.Views;
-using System.Linq;
 
 namespace MTSChrzanow.ViewModels
 {
 	class TableViewModel : BaseViewModel
 	{
-		private INavigation _navigation;
 		private ObservableCollection<Team> _teams;
 		public ObservableCollection<Team> Teams
 		{
-			get { return _teams; }
-			set
-			{
-				SetProperty(ref _teams, value);
-			}
+			get => _teams;
+			set => SetProperty(ref _teams, value);
 		}
-
+		
 		private bool _isBusy;
 		public bool IsBusy
 		{
-			get { return _isBusy; }
-			set
-			{
-				SetProperty(ref _isBusy, value);
-			}
+			get => _isBusy;
+			set => SetProperty(ref _isBusy, value);
 		}
 
-		public TableViewModel(INavigation navigation)
-		{
-			_navigation = navigation;
-			InitializeTable();
-		}
-
+		public TableViewModel() => InitializeTable();
+		
 		public async void InitializeTable()
 		{
 			IsBusy = true;
+
 			try
 			{
 				//FirebaseNetworkException
 				App.ViewModel.LoggedUser.Token = await UserHelper.GetAccessTokenAsync();
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Coś poszło nie tak! Sprawdź połączenie internetowe! :(", "Ok");
 				(Application.Current).MainPage = new NavigationPage(new MainPage());
@@ -62,10 +52,14 @@ namespace MTSChrzanow.ViewModels
 
 		private async Task GetAllTeams()
 		{
-			string query = QueryBuilder.CreateQuery(App.MTSChrzanowFirebaseUrl,
-													App.MTSChrzanowFirebaseTableUrl,
-													App.MTSChrzanowFirebaseAuth,
-													App.ViewModel.LoggedUser.Token);
+			string query = QueryBuilder.CreateQuery
+				(
+					App.MTSChrzanowFirebaseUrl,
+					App.MTSChrzanowFirebaseTableUrl,
+					App.MTSChrzanowFirebaseAuth,
+					App.ViewModel.LoggedUser.Token
+				);
+			
 			string json = await new WebClient().DownloadStringTaskAsync(query);
 			var teams = JsonConvert.DeserializeObject<List<Team>>(json);
 			

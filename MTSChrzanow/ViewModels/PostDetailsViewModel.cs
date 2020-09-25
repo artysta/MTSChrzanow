@@ -9,21 +9,20 @@ namespace MTSChrzanow.ViewModels
 	{
 		private ICommand _openPostInBrowserCommand;
 		public ICommand GoToDetailsCommand => _openPostInBrowserCommand ?? (_openPostInBrowserCommand = new Command(OnObenPostInBrowser));
+		
 		private MTSPost _mtsPost;
 		public MTSPost MTSPost
 		{
 			get => _mtsPost;
-			set
-			{
-				SetProperty(ref _mtsPost, value);
-			}
+			set => SetProperty(ref _mtsPost, value);
 		}
-
-		public PostDetailsViewModel() { }
 
 		public PostDetailsViewModel(MTSPost post)
 		{
-			MTSPost = post;
+			if (post != null)
+			{
+				MTSPost = post;
+			}
 		}
 
 		private async void OnObenPostInBrowser()

@@ -13,90 +13,90 @@
             <StackLayout>
                 <Grid Margin="6">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Text="Home"
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="0"
                            Grid.Column="0"
                            HorizontalOptions="Center"
-                           FontSize="30"/>
+                           FontSize="30" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="1"
-                             Grid.Column="0"/>
+                             Grid.Column="0" />
                     <StackLayout Grid.Row="2"
                                  Grid.Column="0">
                         <Image Source="{ Binding Game.HomeLogoUrl }"
                                HeightRequest="100"
-                               WidthRequest="100"/>
+                               WidthRequest="100" />
                     </StackLayout>
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="3"
-                             Grid.Column="0"/>
+                             Grid.Column="0" />
                     <Label Text="{ Binding Game.Home }"
                            HorizontalOptions="Center"
                            Grid.Row="4"
-                           Grid.Column="0"/>
+                           Grid.Column="0" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="5"
-                             Grid.Column="0"/>
+                             Grid.Column="0" />
                     <Label Text="{ Binding Game.HomeGoal }"
                            Grid.Row="6"
                            Grid.Column="0"
                            HorizontalOptions="Center"
-                           FontSize="35"/>
+                           FontSize="35" />
                     <BoxView Style="{ StaticResource BoxVerticalLineStyle }"
                              Grid.Row="0"
                              Grid.Column="1"
-                             Grid.RowSpan="7"/>
+                             Grid.RowSpan="7" />
                     <Label Text="Away"
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="0"
                            Grid.Column="2"
                            HorizontalOptions="Center"
-                           FontSize="30"/>
+                           FontSize="30" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="1"
-                             Grid.Column="2"/>
+                             Grid.Column="2" />
                     <StackLayout Grid.Row="2"
                                  Grid.Column="2">
                         <ffimageloading:CachedImage Source="{ Binding Game.AwayLogoUrl }"
                                                     HeightRequest="100"
                                                     WidthRequest="100"
-                                                    CacheDuration="30"/>
+                                                    CacheDuration="30" />
                     </StackLayout>
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="3"
-                             Grid.Column="2"/>
+                             Grid.Column="2" />
                     <Label Text="{ Binding Game.Away }"
                            HorizontalOptions="Center"
                            Grid.Row="4"
-                           Grid.Column="2"/>
+                           Grid.Column="2" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
                              Grid.Row="5"
-                             Grid.Column="2"/>
+                             Grid.Column="2" />
                     <Label Text="{ Binding Game.AwayGoal }"
                            Grid.Row="6"
                            Grid.Column="2"
                            HorizontalOptions="Center"
-                           FontSize="35"/>
+                           FontSize="35" />
                     <Label Text="{ Binding Message }"
                            Grid.Row="7"
                            Grid.Column="0"
                            Grid.ColumnSpan="3"
-                           HorizontalOptions="Center"/>
+                           HorizontalOptions="Center" />
                 </Grid>
             </StackLayout>
         </ScrollView>

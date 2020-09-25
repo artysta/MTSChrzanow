@@ -1,8 +1,5 @@
-﻿using MTSChrzanow.Models;
-using Xamarin.Essentials;
-using System;
-using Xamarin.Forms;
-using MTSChrzanow.Helpers;
+﻿using MTSChrzanow.Helpers;
+using MTSChrzanow.Models;
 
 namespace MTSChrzanow.ViewModels
 {
@@ -10,14 +7,8 @@ namespace MTSChrzanow.ViewModels
 	{
 		public User LoggedUser { get; set; }
 
-		public AppViewModel()
-		{
-			GetUserData();
-		}
-
-		public async void GetUserData()
-		{
-			LoggedUser = await UserHelper.GetUserAsync();
-		}
+		public AppViewModel() => GetUserData();
+		
+		public async void GetUserData() => LoggedUser = await UserHelper.GetUserAsync();
 	}
 }

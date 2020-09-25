@@ -27,7 +27,6 @@
                           IsVisible="{ Binding IsBusy, Converter = { StaticResource inverter } }"
                           HasUnevenRows="true"
                           SeparatorVisibility="Default"
-                          ItemTapped="ListView_ItemTapped"
                           SelectionMode="None"
                           CachingStrategy="RecycleElementAndDataTemplate">
                     <ListView.ItemTemplate>

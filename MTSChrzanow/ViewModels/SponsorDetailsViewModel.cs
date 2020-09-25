@@ -1,5 +1,4 @@
 ﻿using MTSChrzanow.Models;
-using System;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -10,22 +9,20 @@ namespace MTSChrzanow.ViewModels
 	{
 		private ICommand _goToDetailsCommand;
 		public ICommand GoToDetailsCommand => _goToDetailsCommand ?? (_goToDetailsCommand = new Command<MTSSponsor>(OnGoToSponsorWebsite));
-
+		
 		private MTSSponsor _mtsSponsor;
 		public MTSSponsor MTSSponsor
 		{
 			get => _mtsSponsor;
-			set
-			{
-				SetProperty(ref _mtsSponsor, value);
-			}
+			set => SetProperty(ref _mtsSponsor, value);
 		}
-
-		public SponsorDetailsViewModel() { }
 
 		public SponsorDetailsViewModel(MTSSponsor sponsor)
 		{
-			MTSSponsor = sponsor;
+			if (sponsor != null)
+			{
+				MTSSponsor = sponsor;
+			}
 		}
 
 		private async void OnGoToSponsorWebsite(MTSSponsor sponsor)

@@ -10,85 +10,51 @@ namespace MTSChrzanow.ViewModels
 	public class LoginViewModel : BaseViewModel
 	{
 		private INavigation _navigation;
+
 		private ICommand _goToRegisterPageCommand;
 		public ICommand GoToRegisterCommand => _goToRegisterPageCommand ?? (_goToRegisterPageCommand = new Command(OnGoToRegisterPage));
+
 		private ICommand _loginCommand;
 		public ICommand LoginCommand => _loginCommand ?? (_loginCommand = new Command(OnLogin));
 
 		private string _email = "";
 		public string Email
 		{
-			set
-			{
-				SetProperty(ref _email, value);
-			}
-			get
-			{
-				return _email;
-			}
+			get => _email;
+			set => SetProperty(ref _email, value);
 		}
 
 		private string _password = "";
 		public string Password
 		{
-			set
-			{
-				SetProperty(ref _password, value);
-			}
-			get
-			{
-				return _password;
-			}
+			get => _password;
+			set => SetProperty(ref _password, value);
 		}
 
 		private string _token = "";
 		public string Token
 		{
-			set
-			{
-				SetProperty(ref _token, value);
-			}
-			get
-			{
-				return _token;
-			}
+			get => _token;
+			set => SetProperty(ref _token, value);
 		}
 
 		private bool _isBusy;
 		public bool IsBusy
 		{
-			set
-			{
-				SetProperty(ref _isBusy, value);
-			}
-			get
-			{
-				return _isBusy;
-			}
+			get => _isBusy;
+			set => SetProperty(ref _isBusy, value);
 		}
 
 		private bool _isRememberMeChecked;
 		public bool IsRememberMeChecked
 		{
-			set
-			{
-				SetProperty(ref _isRememberMeChecked, value);
-			}
-			get
-			{
-				return _isRememberMeChecked;
-			}
+			get => _isRememberMeChecked;
+			set => SetProperty(ref _isRememberMeChecked, value);
 		}
 
-		public LoginViewModel(INavigation navigation)
-		{
-			_navigation = navigation;
-		}
+		public LoginViewModel(INavigation navigation) => _navigation = navigation;
 
-		private async void OnGoToRegisterPage()
-		{
-			await _navigation.PushAsync(new RegisterPage());
-		}
+		private async void OnGoToRegisterPage() => await _navigation.PushAsync(new RegisterPage());
 
 		private async void OnLogin()
 		{

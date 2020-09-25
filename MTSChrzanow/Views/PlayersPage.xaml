@@ -12,38 +12,37 @@
         <ContentView>
             <StackLayout>
                 <ListView ItemsSource="{ Binding MTSPlayers }"
-                      HasUnevenRows="true"
-                      SeparatorVisibility="Default"
-                      ItemTapped="ListView_ItemTapped"
-                      SelectionMode="None">
+                          HasUnevenRows="true"
+                          SeparatorVisibility="Default"
+                          ItemTapped="ListView_ItemTapped"
+                          SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Grid>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Frame Style="{ StaticResource RoundedImageFrameStyle }"
-                                       Grid.Column="0"
-                                       Grid.Row="0"
-                                       VerticalOptions="Center">
-                                        <Image Source="{ Binding IconSource }"/>
+                                           Grid.Column="0"
+                                           Grid.Row="0"
+                                           VerticalOptions="Center">
+                                        <Image Source="{ Binding IconSource }" />
                                     </Frame>
                                     <Label Text="{ Binding Name }"
-                                       Grid.Column="1"
-                                       Grid.Row="0"
-                                       VerticalOptions="Center"/>
+                                           Grid.Column="1"
+                                           Grid.Row="0"
+                                           VerticalOptions="Center" />
                                     <StackLayout Grid.Column="2"
-                                             Grid.Row="0"
-                                             VerticalOptions="Center">
+                                                 Grid.Row="0"
+                                                 VerticalOptions="Center">
                                         <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_arrow.png }"
-                                       
-                                       WidthRequest="10"/>
+                                               WidthRequest="10" />
                                     </StackLayout>
                                 </Grid>
                             </ViewCell>

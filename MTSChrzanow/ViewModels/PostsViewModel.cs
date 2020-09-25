@@ -14,54 +14,41 @@ namespace MTSChrzanow.ViewModels
 {
 	class PostsViewModel : BaseViewModel
 	{
-		private bool _isBusy;
-		private bool _isFirstBusy;
-		private ObservableCollection<MTSPost> _mtsPosts;
-		private ObservableCollection<string> _pagePickerItems;
 		private INavigation _navigation;
-		private ICommand _goToDetailsCommand;
-		private ICommand _pickerSelectionChanged;
 
+		private ICommand _goToDetailsCommand;
 		public ICommand GoToDetailsCommand => _goToDetailsCommand ?? (_goToDetailsCommand = new Command<MTSPost>(OnGoToDetails));
+
+		private ICommand _pickerSelectionChanged;
 		public ICommand PickerSelectionChanged => _pickerSelectionChanged ?? (_pickerSelectionChanged = new Command<int>(OnSelectionChanged));
 
+		private ObservableCollection<MTSPost> _mtsPosts;
 		public ObservableCollection<MTSPost> MTSPosts
 		{
-			get { return _mtsPosts; }
-			set
-			{
-				SetProperty(ref _mtsPosts, value);
-			}
+			get => _mtsPosts;
+			set => SetProperty(ref _mtsPosts, value);
 		}
 
+		private ObservableCollection<string> _pagePickerItems;
 		public ObservableCollection<string> PagePickerItems
 		{
-			get { return _pagePickerItems; }
-			set
-			{
-				SetProperty(ref _pagePickerItems, value);
-			}
+			get => _pagePickerItems;
+			set => SetProperty(ref _pagePickerItems, value);
 		}
-
+		
+		private bool _isBusy;
 		public bool IsBusy
 		{
-			get { return _isBusy; }
-			set
-			{
-				SetProperty(ref _isBusy, value);
-			}
+			get => _isBusy;
+			set => SetProperty(ref _isBusy, value);
 		}
 
+		private bool _isBusyFirstLoad;
 		public bool IsBusyFristLoad
 		{
-			get { return _isFirstBusy; }
-			set
-			{
-				SetProperty(ref _isFirstBusy, value);
-			}
+			get => _isBusyFirstLoad;
+			set => SetProperty(ref _isBusyFirstLoad, value);
 		}
-
-		public PostsViewModel() { }
 
 		public PostsViewModel(INavigation navigation)
 		{
@@ -71,7 +58,10 @@ namespace MTSChrzanow.ViewModels
 
 		private void SetPosts(List<MTSPost> posts)
 		{
-			if (posts != null) MTSPosts = new ObservableCollection<MTSPost>(posts);
+			if (posts != null)
+			{
+				MTSPosts = new ObservableCollection<MTSPost>(posts);
+			}
 		}
 
 		// Initialize pages when te app starts.
@@ -98,9 +88,13 @@ namespace MTSChrzanow.ViewModels
 		private async Task GetPostsFromPage(int pageNumber)
 		{
 			IsBusy = true;
-			string query = QueryBuilder.CreateQuery(App.MTSChrzanowApiUrl,
-													App.MTSChrzanowApiPostsFromPageUrl,
-													pageNumber.ToString());
+
+			string query = QueryBuilder.CreateQuery
+				(
+					App.MTSChrzanowApiUrl,
+					App.MTSChrzanowApiPostsFromPageUrl,
+					pageNumber.ToString()
+				);
 
 			string json = await new WebClient().DownloadStringTaskAsync(query);
 
@@ -117,9 +111,12 @@ namespace MTSChrzanow.ViewModels
 
 			foreach (MTSPost p in MTSPosts)
 			{
-				string query = QueryBuilder.CreateQuery(App.MTSChrzanowApiUrl,
-														App.MTSChrzanowApiSinglePostMedia,
-														p.FeaturedMedia.ToString());
+				string query = QueryBuilder.CreateQuery
+					(
+						App.MTSChrzanowApiUrl,
+						App.MTSChrzanowApiSinglePostMedia,
+						p.FeaturedMedia.ToString()
+					);
 
 				try
 				{
@@ -155,7 +152,10 @@ namespace MTSChrzanow.ViewModels
 
 		private async void OnGoToDetails(MTSPost item)
 		{
-			await _navigation.PushAsync(new PostDetailsPage(item));
+			if (item != null)
+			{
+				await _navigation.PushAsync(new PostDetailsPage(item));
+			}
 		}
 
 		private void OnSelectionChanged(int selectedPage)

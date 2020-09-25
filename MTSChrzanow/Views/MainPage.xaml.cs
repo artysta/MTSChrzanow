@@ -1,25 +1,20 @@
-﻿using Android.Webkit;
-using MTSChrzanow.Models;
-using MTSChrzanow.ViewModels;
+﻿using MTSChrzanow.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace MTSChrzanow.Views
 {
-	// Learn more about making custom code visible in the Xamarin.Forms previewer
-	// by visiting https://aka.ms/xamarinforms-previewer
 	[DesignTimeVisible(false)]
 	public partial class MainPage : ContentPage
 	{
-		MainViewModel viewModel;
+		private MainViewModel _viewModel;
 
 		public MainPage()
 		{
 			InitializeComponent();
-			viewModel = new MainViewModel(Navigation);
-			BindingContext = viewModel;
+			_viewModel = new MainViewModel(Navigation);
+			BindingContext = _viewModel;
 		}
 
 		/*
@@ -36,7 +31,7 @@ namespace MTSChrzanow.Views
 			await frame.ScaleTo(0.95, 110);
 			await frame.ScaleTo(1, 110);
 			await frame.FadeTo(1, 110);
-			viewModel.GoToSelectedPage.Execute(frame.ClassId);
+			_viewModel.GoToSelectedPage.Execute(frame.ClassId);
 		}
 	}
 }

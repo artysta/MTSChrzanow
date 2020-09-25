@@ -8,4 +8,3 @@ namespace MTSChrzanow.Models
 		public void RaisePropertyChanged(string name) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 	}
 }
-		
