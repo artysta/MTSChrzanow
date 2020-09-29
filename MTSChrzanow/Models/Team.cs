@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-
+	
 namespace MTSChrzanow.Models
 {
 	public class Team
@@ -8,18 +8,32 @@ namespace MTSChrzanow.Models
 
 		[JsonProperty("name")]
 		public string Name { get; set; }
-		[JsonProperty("points")]
-		public int Points { get; set; }
-		[JsonProperty("games")]
-		public int Games { get; set; }
+
+		public int Points
+		{
+			get => Wins * 3 + DrawsWins * 2 + DrawsLosses * 1;
+		}
+
+		public int Games
+		{
+			get => Wins + DrawsWins + DrawsLosses;
+		}
+
 		[JsonProperty("wins")]
 		public int Wins { get; set; }
 		[JsonProperty("losses")]
 		public int Losses { get; set; }
-		[JsonProperty("draws")]
-		public int Draws { get; set; }
+		[JsonProperty("draws-losses")]
+		public int DrawsLosses { get; set; }
+		[JsonProperty("draws-wins")]
+		public int DrawsWins { get; set; }
 		[JsonProperty("logo-url")]
 		public string LogoUrl { get; set; }
+		[JsonProperty("goals-for")]
+		public int GoalsFor { get; set; }
+		[JsonProperty("goals-against")]
+		public int GoalsAgainst { get; set; }
+
 		public static string MTSChrzanow => "MTS Chrzanów";
 		public static string MKSOlimpiaMEDEX => "MKS Olimpia MEDEX Piekary Śląskie";
 		public static string SMSZPRPKielce => "SMS ZPRP Kielce";
