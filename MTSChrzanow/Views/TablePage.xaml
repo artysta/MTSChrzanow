@@ -44,6 +44,7 @@
                                         <ColumnDefinition Width="2*" />
                                         <ColumnDefinition Width="2*" />
                                         <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
                                     </Grid.ColumnDefinitions>
                                     <Label Text="{ Binding Index }"
                                            Grid.Row="0"
@@ -64,22 +65,31 @@
                                     <Label Text="{ Binding Name }"
                                            Grid.Row="0"
                                            Grid.Column="2"
-                                           Grid.ColumnSpan="3" />
+                                           Grid.ColumnSpan="4" />
                                     <Label Text="{ Binding Points, StringFormat='PKT {0}' }"
                                            Grid.Row="1"
                                            Grid.Column="2" />
                                     <Label Text="{ Binding Games, StringFormat='G {0}' }"
                                            Grid.Row="1"
                                            Grid.Column="3" />
-                                    <Label Text="{ Binding Games, StringFormat='W {0}' }"
+                                    <Label Text="{ Binding Wins, StringFormat='W {0}' }"
                                            Grid.Row="1"
                                            Grid.Column="4" />
-                                    <Label Text="{ Binding Games, StringFormat='L {0}' }"
+                                    <Label Text="{ Binding Losses, StringFormat='L {0}' }"
+                                           Grid.Row="1"
+                                           Grid.Column="5" />
+                                    <Label Text="{ Binding DrawsLosses, StringFormat='DL {0}' }"
                                            Grid.Row="2"
                                            Grid.Column="2" />
-                                    <Label Text="{ Binding Games, StringFormat='D {0}' }"
+                                    <Label Text="{ Binding DrawsWins, StringFormat='DW {0}' }"
                                            Grid.Row="2"
                                            Grid.Column="3" />
+                                    <Label Text="{ Binding GoalsFor, StringFormat='GF {0}' }"
+                                           Grid.Row="2"
+                                           Grid.Column="4" />
+                                    <Label Text="{ Binding GoalsAgainst, StringFormat='GA {0}' }"
+                                           Grid.Row="2"
+                                           Grid.Column="5" />
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
