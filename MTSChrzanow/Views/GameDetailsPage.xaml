@@ -38,7 +38,7 @@
                              Grid.Column="0" />
                     <StackLayout Grid.Row="2"
                                  Grid.Column="0">
-                        <Image Source="{ Binding Game.HomeLogoUrl }"
+                        <ffimageloading:CachedImage Source="{ Binding Game.HomeLogoUrl }"
                                HeightRequest="100"
                                WidthRequest="100" />
                     </StackLayout>

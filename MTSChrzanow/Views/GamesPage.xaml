@@ -4,7 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:viewModels="clr-namespace:MTSChrzanow.ViewModels"
              xmlns:converters="clr-namespace:MTSChrzanow.Converters"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="MTSChrzanow.Views.GamesPage"

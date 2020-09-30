@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:local="clr-namespace:MTSChrzanow"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="MTSChrzanow.Views.PlayersPage"
              Title="{ Binding PositionName }"
              BackgroundColor="{ StaticResource AppBgColor }">
@@ -41,7 +42,7 @@
                                     <StackLayout Grid.Column="2"
                                                  Grid.Row="0"
                                                  VerticalOptions="Center">
-                                        <Image Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_arrow.png }"
+                                        <ffimageloading:CachedImage Source="{ local:ImageResource MTSChrzanow.Images.Icons.icon_arrow.png }"
                                                WidthRequest="10" />
                                     </StackLayout>
                                 </Grid>
