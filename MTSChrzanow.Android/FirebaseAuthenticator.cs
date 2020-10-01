@@ -22,6 +22,8 @@ namespace MTSChrzanow.Droid
             return token.Token;
         }
 
+        public void ResetPassword(string email) => FirebaseAuth.Instance.SendPasswordResetEmail(email);
+
         public string GetCurrentUserID()
 		{
             return FirebaseAuth.Instance.CurrentUser.Uid;

@@ -21,5 +21,8 @@ namespace MTSChrzanow.Views
 
 		private void Register_Button_Clicked(object sender, System.EventArgs e) =>
 			_viewModel.GoToRegisterCommand.Execute(null);
+
+		private void Reset_Password_Button_Clicked(object sender, System.EventArgs e) =>
+			_viewModel.ResetPasswordCommand.Execute(null);
 	}
 }

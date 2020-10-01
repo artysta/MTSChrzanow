@@ -24,6 +24,9 @@
                 <Button Text="Załóż konto"
                         Style="{ StaticResource MainButtonStyle }"
                         Clicked="Register_Button_Clicked" />
+                <Button Text="Zapomniałem hasła"
+                        Style="{ StaticResource MainButtonStyle }"
+                        Clicked="Reset_Password_Button_Clicked" />
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />

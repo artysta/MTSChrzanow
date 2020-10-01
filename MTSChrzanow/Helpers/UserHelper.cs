@@ -55,5 +55,11 @@ namespace MTSChrzanow.Helpers
 		}
 
 		public async static Task<string> GetAccessTokenAsync() => await LoginUser(App.ViewModel.LoggedUser.Email, App.ViewModel.LoggedUser.Password);
+	
+		public static void ResetPassword(string email)
+		{
+			IFirebaseAuthenticator auth = DependencyService.Get<IFirebaseAuthenticator>();
+			auth.ResetPassword(email);
+		}
 	}
 }

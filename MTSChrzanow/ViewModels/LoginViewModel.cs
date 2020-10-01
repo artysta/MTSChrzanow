@@ -17,6 +17,9 @@ namespace MTSChrzanow.ViewModels
 		private ICommand _loginCommand;
 		public ICommand LoginCommand => _loginCommand ?? (_loginCommand = new Command(OnLogin));
 
+		private ICommand _resetPasswordCommand;
+		public ICommand ResetPasswordCommand => _resetPasswordCommand ?? (_resetPasswordCommand = new Command(OnResetPassword));
+
 		private string _email = "";
 		public string Email
 		{
@@ -53,6 +56,21 @@ namespace MTSChrzanow.ViewModels
 		}
 
 		public LoginViewModel(INavigation navigation) => _navigation = navigation;
+
+		private async void OnResetPassword()
+		{
+			string email = await Application.Current.MainPage.DisplayPromptAsync("Resetowanie hasła", "Podaj adres email, na który ma zostać wysłana wiadomość z linkiem do resetowania hasła.", "Wyślij link", "Anuluj");
+		
+			if (string.IsNullOrEmpty(email))
+			{
+				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Resetowanie hasła zostało anulowane lub podano niepoprawny adres email!", "Ok");
+			}
+			else
+			{
+				UserHelper.ResetPassword(email);
+				await Application.Current.MainPage.DisplayAlert("Uwaga!", $"Wysłano link na adres { email }.", "Ok");
+			}
+		}
 
 		private async void OnGoToRegisterPage() => await _navigation.PushAsync(new RegisterPage());
 

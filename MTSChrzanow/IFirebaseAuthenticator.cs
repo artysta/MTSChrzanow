@@ -6,6 +6,7 @@ namespace MTSChrzanow
     {
         Task<string> LoginWithEmailPassword(string email, string password);
         Task<string> SignupWithEmailPassword(string email, string password);
+        void ResetPassword(string email);
         string GetCurrentUserID();
     }
 }
