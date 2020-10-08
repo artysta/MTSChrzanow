@@ -57,14 +57,14 @@ namespace MTSChrzanow.ViewModels
 				AuthTokenAsyncFactory = () => Task.FromResult(App.ViewModel.LoggedUser.Token)
 			};
 
-			Firebase = new FirebaseClient(App.MTSChrzanowFirebaseUrl, auth);
+			Firebase = new FirebaseClient(App.ApiFirebaseUrl, auth);
 			StartListening();
 		}
 
 		public void StartListening()
 		{
 			var observable = Firebase
-			  .Child(App.MTSChrzanowRealTimeGameChild)
+			  .Child(App.ApiRealTimeGameChild)
 			  .AsObservable<RealtimeGame>()
 			  .Subscribe(game =>
 			  {

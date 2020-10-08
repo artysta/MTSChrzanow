@@ -54,9 +54,9 @@ namespace MTSChrzanow.ViewModels
 		{
 			string query = QueryBuilder.CreateQuery
 				(
-					App.MTSChrzanowFirebaseUrl,
-					App.MTSChrzanowFirebaseTableUrl,
-					App.MTSChrzanowFirebaseAuth,
+					App.ApiFirebaseUrl,
+					App.ApiFirebaseTableUrl,
+					App.ApiFirebaseAuth,
 					App.ViewModel.LoggedUser.Token
 				);
 			

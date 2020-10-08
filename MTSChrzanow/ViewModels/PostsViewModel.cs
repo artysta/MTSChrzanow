@@ -69,7 +69,7 @@ namespace MTSChrzanow.ViewModels
 		{
 			IsBusy = IsBusyFristLoad = true;
 			WebClient client = new WebClient();
-			string query = QueryBuilder.CreateQuery(App.MTSChrzanowApiUrl, App.MTSChrzanowApiPostsUrl);
+			string query = QueryBuilder.CreateQuery(App.ApiUrl, App.ApiPostsUrl);
 			string json = await client.DownloadStringTaskAsync(query);
 
 			// Deserialize blog posts.
@@ -77,7 +77,7 @@ namespace MTSChrzanow.ViewModels
 
 			// Get total amount of pages and initialize picker values.
 			WebHeaderCollection headers = client.ResponseHeaders;
-			int totalPages = int.Parse(headers[App.MTSChrzanowWPTotalPages]);
+			int totalPages = int.Parse(headers[App.ApiWPTotalPages]);
 			SetPickerItemsValues(totalPages);
 
 			SetPosts(posts);
@@ -91,8 +91,8 @@ namespace MTSChrzanow.ViewModels
 
 			string query = QueryBuilder.CreateQuery
 				(
-					App.MTSChrzanowApiUrl,
-					App.MTSChrzanowApiPostsFromPageUrl,
+					App.ApiUrl,
+					App.ApiPostsFromPageUrl,
 					pageNumber.ToString()
 				);
 
@@ -113,8 +113,8 @@ namespace MTSChrzanow.ViewModels
 			{
 				string query = QueryBuilder.CreateQuery
 					(
-						App.MTSChrzanowApiUrl,
-						App.MTSChrzanowApiSinglePostMedia,
+						App.ApiUrl,
+						App.ApiSinglePostMedia,
 						p.FeaturedMedia.ToString()
 					);
 

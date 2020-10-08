@@ -61,9 +61,9 @@ namespace MTSChrzanow.ViewModels
 
 		private async Task SetAllGames()
 		{
-			string query = QueryBuilder.CreateQuery(App.MTSChrzanowFirebaseUrl,
-													App.MTSChrzanowFirebaseGamesUrl,
-													App.MTSChrzanowFirebaseAuth,
+			string query = QueryBuilder.CreateQuery(App.ApiFirebaseUrl,
+													App.ApiFirebaseGamesUrl,
+													App.ApiFirebaseAuth,
 													App.ViewModel.LoggedUser.Token);
 
 			string json = await new WebClient().DownloadStringTaskAsync(query);
