@@ -32,7 +32,7 @@
                     IsVisible="{ Binding IsBusyFristLoad, Converter = { StaticResource inverter } }"
                     Title="Wybierz stronę"
                     SelectedIndexChanged="Picker_SelectedIndexChanged" />
-            <ListView ItemsSource="{ Binding MTSPosts }"
+            <ListView ItemsSource="{ Binding BlogPosts }"
                       IsVisible="{ Binding IsBusy, Converter = { StaticResource inverter } }"
                       HasUnevenRows="true"
                       SeparatorVisibility="Default"

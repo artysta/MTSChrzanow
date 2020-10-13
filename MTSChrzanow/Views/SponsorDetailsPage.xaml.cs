@@ -9,9 +9,9 @@ namespace MTSChrzanow.Views
 	public partial class SponsorDetailsPage : ContentPage
 	{
 		private SponsorDetailsViewModel _viewModel;
-		private MTSSponsor _sponsor;
+		private Sponsor _sponsor;
 
-		public SponsorDetailsPage(MTSSponsor sponsor)
+		public SponsorDetailsPage(Sponsor sponsor)
 		{
 			InitializeComponent();
 			

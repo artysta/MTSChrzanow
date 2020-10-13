@@ -9,17 +9,17 @@ namespace MTSChrzanow.Views
 	[DesignTimeVisible(false)]
 	public partial class PostsPage : ContentPage
 	{
-		private PostsViewModel _viewModel;
+		private BlogPostsViewModel _viewModel;
 
 		public PostsPage()
 		{
 			InitializeComponent();
-			_viewModel = new PostsViewModel(Navigation);
+			_viewModel = new BlogPostsViewModel(Navigation);
 			BindingContext = _viewModel;
 		}
 
 		void ListView_ItemTapped(object sender, ItemTappedEventArgs e) =>
-			_viewModel.GoToDetailsCommand.Execute(e.Item as MTSPost);
+			_viewModel.GoToDetailsCommand.Execute(e.Item as BlogPost);
 
 		void Picker_SelectedIndexChanged(object sender, EventArgs e)
 		{

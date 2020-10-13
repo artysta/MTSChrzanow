@@ -8,7 +8,7 @@ namespace MTSChrzanow.Views
 	[DesignTimeVisible(false)]
 	public partial class PlayerDetailsPage : ContentPage
 	{
-		public PlayerDetailsPage(MTSPlayer player)
+		public PlayerDetailsPage(Player player)
 		{
 			InitializeComponent();
 

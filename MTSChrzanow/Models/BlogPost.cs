@@ -3,7 +3,7 @@ using System;
 
 namespace MTSChrzanow.Models
 {
-	public class MTSPost : BaseModel
+	public class BlogPost : BaseModel
 	{
 		[JsonProperty("id")]
 		public long Id { get; set; }

@@ -11,7 +11,7 @@
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ContentView>
             <StackLayout>
-                <ListView ItemsSource="{ Binding MTSSponsors }"
+                <ListView ItemsSource="{ Binding Sponsors }"
                           HasUnevenRows="true"
                           SeparatorVisibility="Default"
                           ItemTapped="ListView_ItemTapped"

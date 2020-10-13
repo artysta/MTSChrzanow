@@ -13,10 +13,10 @@ namespace MTSChrzanow.ViewModels
 
 		private ICommand _goToPlayerDetailsCommand;
 		public ICommand GoToPlayerDetailsCommand =>
-			_goToPlayerDetailsCommand ?? (_goToPlayerDetailsCommand = new Command<MTSPlayer>(OnGoToPlayerDetails));
+			_goToPlayerDetailsCommand ?? (_goToPlayerDetailsCommand = new Command<Player>(OnGoToPlayerDetails));
 
-		private ObservableCollection<MTSPlayer> _players;
-		public ObservableCollection<MTSPlayer> MTSPlayers
+		private ObservableCollection<Player> _players;
+		public ObservableCollection<Player> MTSPlayers
 		{
 			get => _players;
 			set => SetProperty(ref _players, value);
@@ -36,11 +36,11 @@ namespace MTSChrzanow.ViewModels
 
 		public void InitializePlayersList(PositionsMenuItem.MenuItemType type)
 		{
-			List<MTSPlayer> items = MTSPlayersData.GetPlayers(type);
-			MTSPlayers = new ObservableCollection<MTSPlayer>(items);
+			List<Player> items = PlayersData.GetPlayers(type);
+			MTSPlayers = new ObservableCollection<Player>(items);
 		}
 
-		private async void OnGoToPlayerDetails(MTSPlayer player)
+		private async void OnGoToPlayerDetails(Player player)
 		{
 			if (player != null)
 			{

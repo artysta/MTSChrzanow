@@ -1,6 +1,6 @@
 ﻿namespace MTSChrzanow.Models
 {
-	public class MTSPlayerPosition
+	public class PlayerPosition
 	{
 		public static string Goalkeeper => "Bramkarz";
 		public static string Fullback => "Rozgrywający";

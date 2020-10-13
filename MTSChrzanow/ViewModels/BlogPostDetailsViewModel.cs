@@ -5,35 +5,35 @@ using Xamarin.Forms;
 
 namespace MTSChrzanow.ViewModels
 {
-	public class PostDetailsViewModel : BaseViewModel
+	public class BlogPostDetailsViewModel : BaseViewModel
 	{
 		private ICommand _openPostInBrowserCommand;
 		public ICommand GoToDetailsCommand => _openPostInBrowserCommand ?? (_openPostInBrowserCommand = new Command(OnObenPostInBrowser));
 		
-		private MTSPost _mtsPost;
-		public MTSPost MTSPost
+		private BlogPost _post;
+		public BlogPost BlogPost
 		{
-			get => _mtsPost;
-			set => SetProperty(ref _mtsPost, value);
+			get => _post;
+			set => SetProperty(ref _post, value);
 		}
 
-		public PostDetailsViewModel(MTSPost post)
+		public BlogPostDetailsViewModel(BlogPost post)
 		{
 			if (post != null)
 			{
-				MTSPost = post;
+				BlogPost = post;
 			}
 		}
 
 		private async void OnObenPostInBrowser()
 		{
-			if (string.IsNullOrWhiteSpace(MTSPost.Link))
+			if (string.IsNullOrWhiteSpace(BlogPost.Link))
 			{
 				await Application.Current.MainPage.DisplayAlert("Uwaga!", "Nie udało się otworzyć artykułu w przeglądarce!", "Ok");
 			}
 			else
 			{
-				await Launcher.OpenAsync(MTSPost.Link);
+				await Launcher.OpenAsync(BlogPost.Link);
 			}
 		}
 	}

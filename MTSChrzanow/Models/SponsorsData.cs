@@ -5,16 +5,16 @@ using Xamarin.Forms;
 
 namespace MTSChrzanow.Models
 {
-	public class MTSSponsorsData
+	public class SponsorsData
 	{
-		public static List<MTSSponsor> GetMTSSponsors()
+		public static List<Sponsor> GetSponsors()
 		{
-			List<MTSSponsor> list = new List<MTSSponsor>();
+			List<Sponsor> list = new List<Sponsor>();
 			Assembly assembly = typeof(SponsorDetailsPage).GetTypeInfo().Assembly;
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Gmina Chrzanów",
 					Description = "Gmina Chrzanów zajmuje powierzchnię 79,44 km2. Tworzy ją miasto Chrzanów (38,32 km2) oraz sołectwa (41,12 km2) Balin, Luszowice, Pogorzyce, Płaza, Źrebce i Okradziejówka. Chrzanów graniczy z gminami: Jaworznem, Trzebinią, Libiążem, Babicami i Alwernią.Pod względem położenia geograficznego gmina zlokalizowana jest w południowej części Polski, w województwie małopolskim, na pograniczu Wyżyny Śląskiej i Wyżyny Krakowsko-Częstochowskiej, na małym grzbiecie jurajskim u wylotu Rowu Krzeszowickiego, nad lewym dopływem Wisły – rzeką Chechło.",
@@ -30,7 +30,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Unimetal Recycling Sp. z o.o.",
 					Description = "Unimetal Recycling Sp. z o.o. to firma, która od 20 lat z powodzeniem zajmuje się skupem, a przede wszystkim recyklingiem zużytych katalizatorów pochodzących z samochodów osobowych, ciężarówek, autobusów, maszyn rolniczych, górniczych oraz przemysłowych.Wszystko po to, by odzyskać zawarte w nich metale szlachetne – platynę, pallad oraz rod, które trafią do ponownego wykorzystania nie tylko w motoryzacji. Dzięki temu zyskuje zarówno przemysł jak i środowisko.Recykling odbywa się na najwyższym poziomie, a to co decyduje o naszym sukcesie, to doświadczona i wykwalifikowana kadra oraz bogate zaplecze techniczne. Posiadamy specjalistyczne laboratorium ze spektrometrami najnowszej generacji – Olympus oraz ICP MS, które precyzyjnie określają zawartość pierwiastków szlachetnych w dostarczonej partii.Współpracujemy z największymi skupami katalizatorów i stacjami demontażu pojazdów w Polsce i Europie. W 2018 roku do życia została powołana Fundacja Unimetal Recykling, której zadaniem jest realizacja planów wynikających z polityki CSR firmy.",
@@ -46,7 +46,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "MANT",
 					Description = "Świadczymy usługi szeroko pojętego marketingu internetowego. Na rynku usług internetowych istniejemy od 1 czerwca 2008 roku. Od samego początku dostrzegamy potencjał drzemiący w tej formie promocji, ze szczególnym uwzględnieniem pozycjonowania stron internetowych w najpopularniejszej wyszukiwarce – Google oraz social media.",
@@ -62,7 +62,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Chrzanowska Izba Gospodarcza",
 					Description = "Chrzanowska Izba Gospodarcza powstała w roku 2001 jako Stowarzyszenie Przedsiębiorców Prywatnych w Trzebini, zrzeszające podmioty gospodarcze z regionu Powiatu Chrzanowskiego.Od początku swojego istnienia podejmuje działania zmierzające do rozwoju przedsiębiorczości w różnych formach organizacyjnych, gromadzi i upowszechnia informacje dotyczące nawiązywania kontaktów gospodarczych, udziela podmiotom gospodarczym pomocy w rozwiązywaniu problemów. Wszelkie działania podejmowane przez Chrzanowską Izbę Gospodarczą ukierunkowane są na wspieranie i promocję firm członkowskich ale nie tylko – w wielu organizowanych przez nas projektach uczestniczą także firmy niezrzeszone, instytucje i różne organizacje.",
@@ -78,7 +78,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "DS Auto Sp. z o.o.",
 					Description = "DS AUTO jest od 20 lat największym w Polsce skupem katalizatorów. Posiadamy ponad 70 punktów partnerskich w całym kraju oraz 17 w pozostałych krajach europejskich. Miesięcznie skupujemy ponad 32 tysiące zużytych katalizatorów, które zostają poddane recyklingowi.Na naszej stronie internetowej znajduje się cennik zawierający ponad 7 500 modeli katalizatorów z aktualnymi cenami. Oferujemy również możliwość wyceny na facebooku poprzez Messenger. W 2018 roku założyliśmy skup wysyłkowy – detaliczny oraz hurtowy, czat na stronie czy infolinię.W związku z wprowadzonym programem Zdrowe Relacje Biznesowe, wspieramy nieustannie skupy, które chcą rozwijać swój biznes. Pomagamy w doborze odpowiednich narzędzi do pracy, oferujemy również nasze własne – tablet z autorską aplikacją CatCatalog do profesjonalnej wyceny. Wspieramy marketingowo oraz edukacyjnie.Zapraszamy do współpracy wszystkie skupy katalizatorów oraz stacje demontażu pojazdów, które chcą współpracować z najlepszymi odbiorcami na rynku. Z kolei wszystkich, którzy mają do sprzedania katalizator, zapraszamy serdecznie na naszą stronę, gdzie znajdują się dane kontaktowe wszystkich skupów partnerskich w Polsce.",
@@ -94,7 +94,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Duhabex Sp. z o.o.",
 					Description = "Duhabex Sp. z o.o. to firma świadcząca usługi transportowe krajowe i międzynarodowe.",
@@ -110,7 +110,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "PRBM CEM-BUD Sp. z o.o.",
 					Description = "Przedsiębiorstwo Remontowo – Budowlano – Montażowe „CEM-BUD” Sp. z o.o. zajmuje się usługami remontowo – budowlano – montażowymi na rzecz przemysłu ze szczególnym uwzględnieniem przemysłu cementowo – wapienniczego oraz osób fizycznych.Firma posiada kadrę pracowników o najwyższych kwalifikacjach i wieloletnim stażu mająca doświadczenie w pracy z wieloma firmami na terenie Unii Europejskiej w dziedzinie budownictwa i transportu.PRBM Cem-Bud należy do największych dystrybutorów wszystkich rodzajów cementów, za co firma została wielokrotnie wyróżniona między innymi Nagrodą Kazimierza Wielkiego ‘2005 oraz tytułem “Efektywna Firma” w rankingu sporządzanym przez Instytut Nowoczesnego Biznesu oraz nagrodą “Gepard Biznesu”.",
@@ -126,7 +126,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Centrum Medyczne IGAMED",
 					Description = "Centrum Medyczne IGAMED to nowo powstała, prywatna placówka o szerokim zakresie usług medycznych.",
@@ -142,7 +142,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "PSB Mrówka - Chrzanów",
 					Description = "Market Dekoracyjno-Budowlany Mrówka Chrzanów powstał w Chrzanowie w 2012 r. Jest to sklep samoobsługowy w całości składający się z polskiego kapitału. Należymy do Grupy Polskich Składów Budowlanych S.A. działających na rynku od 20 lat. Grupa PSB jest największą i najszybciej rozwijającą się siecią hurtowni materiałów budowlanych oraz marketów „dom i ogród” w Polsce. Sklep posiada w ofercie kilkanaście tysięcy pozycji asortymentowych, które podzielone są tematycznie na 12 działów:Dział BudowlanyDział Chemii GospodarczejDział DrzwiDział DekoracyjnyDział ElektronarzędziDział FarbDział KuchennyDział OgródDział OświetlenieDział SamochodowyDział SanitarnyDział AGDZdobywane przez lata doświadczenie pozwala nam dziś zaoferować nie tylko dobre produkty w dobrych cenach, ale także służyć pomocą w wyborze odpowiedniego towaru oraz rzetelną odpowiedzią na zadawane pytania. W sklepie Mrówka raz w miesiącu organizowane są promocje, o których klienci informowani są za pomocą gazetek promocyjnych. Oferta promocyjna jest dobrana tak, aby odpowiadać na bieżące potrzeby klient. Staramy się, aby atmosfera naszego sklepu była kameralna, by sprzedawca był blisko Państwa i mógł dopomóc w wyborze produktów fachową radą.",
@@ -158,7 +158,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Restauracja McDonald's - Chrzanów",
 					Description = "",
@@ -174,7 +174,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "ESSA",
 					Description = "Frima ESSA skupia się i specjalizuje w wynajmie i sprzedaży własnych nieruchomości pod dedykowaną marką ESSA.",
@@ -190,7 +190,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Artyzan Marcin Skwarek - KreatywneMaluchy.pl",
 					Description = "Firma KreatywneMaluchy.pl zajmuje się sprzedażą artykułów papierniczych i zabawek dla dzieci.",
@@ -206,7 +206,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Belfer-Sport. s.c. FUH",
 					Description = "Belfer-Sport. s.c. FUH jest firmą zajmującą się sprzedażą artykułów sportowych.",
@@ -222,7 +222,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Kamiński Ryszard. Zakład elektroinstalacyjny.",
 					Description = "Zakład elektroinstalacyjny zajmuje się montażem i obsługą instalacji elektrycznych.",
@@ -238,7 +238,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Ośrodek Szkolenia Kierowców L4you",
 					Description = "Ośrodek Szkolenia Kierowców L4you świadczy usługi w zakresie szkolenia kierowców.",
@@ -254,7 +254,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Powiat Chrzanowski",
 					Description = "Powiat chrzanowski zlokalizowany jest w północno-zachodniej części województwa małopolskiego na pograniczu Wyżyny Krakowsko-Częstochowskiej oraz Śląskiej. Posiada bardzo dogodne położenie geograficzne. Leży pomiędzy dwoma miastami wojewódzkimi, Krakowem i Katowicami. Stolicą powiatu jest miasto Chrzanów, umiejscowione w odległości około 50 km na północny zachód od Krakowa, oraz około 30 km na wschód od aglomeracji górnośląskiej. Dobrą komunikację zapewnia rozbudowany układ dróg, w tym przebiegająca przez powiat autostrada A4 oraz równoległa do niej linia kolejowa. Niedaleko od powiatu znajduj ą się dwa lotniska: jedno ponad 30 km od Chrzanowa, w podkrakowskich Balicach, a drugie w odległości ok. 65km- w Katowicach-Pyrzowicach.W skład powiatu wchodzą cztery gminy miejsko-wiejskie: Alwernia, Chrzanów, Libiąż, Trzebinia i jedna gmina wiejska Babice. Powiat zajmuje powierzchnię 371,5 km2. Zamieszkuje go ok. 129,1 tys. osób.",
@@ -270,7 +270,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Centrum Handlowe MAX",
 					Description = "Centrum Handlowe MAX udostępnia lokale dla firm usługowych.",
@@ -286,7 +286,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Debal s.c. Leszek Smoła i spółka",
 					Description = "Debal s.c. specjalizuje się w budowie domów szkieletowych zaczynając od stanu surowego aż do prac wykończeniowych.",
@@ -302,7 +302,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Kancelaria Radcy Prawnego Mateusz Mosor",
 					Description = "Kancelaria świadczy usługi prawne dla osób fizycznych oraz firm. Specjalnością kancelarii jest obsługa firm w wielu rodzajach działalności gospodarczej w zakresie prawnym.Kancelaria świadczy również profesjonalne usługi prawne dla osób fizycznych zarówno podczas składania pozwu jak i podczas obrony. Ponadto kancelaria świadczy szeroki zakres porad prawnych w różnych dziedzinach.",
@@ -318,7 +318,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Drukarnia OPTIMA",
 					Description = "Drukarnia OPTIMA jest dostawcą usług expresowego druku cyfrowego, wielkoformatowego i kompleksowej reprografii dokumentów.",
@@ -334,7 +334,7 @@ namespace MTSChrzanow.Models
 
 			list.Add
 			(
-				new MTSSponsor
+				new Sponsor
 				{
 					Name = "Bodylove",
 					Description = "Firma Bodylove jest studiem treningu personalnego, oferujący treningi personalne różnego typu, między innymi treningi odchudzające, kształtujące sylwetkę i wiele innych.",

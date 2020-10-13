@@ -12,21 +12,21 @@ using Xamarin.Forms;
 
 namespace MTSChrzanow.ViewModels
 {
-	class PostsViewModel : BaseViewModel
+	class BlogPostsViewModel : BaseViewModel
 	{
 		private INavigation _navigation;
 
 		private ICommand _goToDetailsCommand;
-		public ICommand GoToDetailsCommand => _goToDetailsCommand ?? (_goToDetailsCommand = new Command<MTSPost>(OnGoToDetails));
+		public ICommand GoToDetailsCommand => _goToDetailsCommand ?? (_goToDetailsCommand = new Command<BlogPost>(OnGoToDetails));
 
 		private ICommand _pickerSelectionChanged;
 		public ICommand PickerSelectionChanged => _pickerSelectionChanged ?? (_pickerSelectionChanged = new Command<int>(OnSelectionChanged));
 
-		private ObservableCollection<MTSPost> _mtsPosts;
-		public ObservableCollection<MTSPost> MTSPosts
+		private ObservableCollection<BlogPost> _blogPosts;
+		public ObservableCollection<BlogPost> BlogPosts
 		{
-			get => _mtsPosts;
-			set => SetProperty(ref _mtsPosts, value);
+			get => _blogPosts;
+			set => SetProperty(ref _blogPosts, value);
 		}
 
 		private ObservableCollection<string> _pagePickerItems;
@@ -50,17 +50,17 @@ namespace MTSChrzanow.ViewModels
 			set => SetProperty(ref _isBusyFirstLoad, value);
 		}
 
-		public PostsViewModel(INavigation navigation)
+		public BlogPostsViewModel(INavigation navigation)
 		{
 			_navigation = navigation;
 			InitializePages();
 		}
 
-		private void SetPosts(List<MTSPost> posts)
+		private void SetPosts(List<BlogPost> posts)
 		{
 			if (posts != null)
 			{
-				MTSPosts = new ObservableCollection<MTSPost>(posts);
+				BlogPosts = new ObservableCollection<BlogPost>(posts);
 			}
 		}
 
@@ -73,7 +73,7 @@ namespace MTSChrzanow.ViewModels
 			string json = await client.DownloadStringTaskAsync(query);
 
 			// Deserialize blog posts.
-			var posts = JsonConvert.DeserializeObject<List<MTSPost>>(json);
+			var posts = JsonConvert.DeserializeObject<List<BlogPost>>(json);
 
 			// Get total amount of pages and initialize picker values.
 			WebHeaderCollection headers = client.ResponseHeaders;
@@ -99,7 +99,7 @@ namespace MTSChrzanow.ViewModels
 			string json = await new WebClient().DownloadStringTaskAsync(query);
 
 			// Deserialize blog posts.
-			var posts = JsonConvert.DeserializeObject<List<MTSPost>>(json);
+			var posts = JsonConvert.DeserializeObject<List<BlogPost>>(json);
 			SetPosts(posts);
 			GetPostsMedia();
 			IsBusy = false;
@@ -109,7 +109,7 @@ namespace MTSChrzanow.ViewModels
 		{
 			WebClient client = new WebClient();
 
-			foreach (MTSPost p in MTSPosts)
+			foreach (BlogPost p in BlogPosts)
 			{
 				string query = QueryBuilder.CreateQuery
 					(
@@ -121,7 +121,7 @@ namespace MTSChrzanow.ViewModels
 				try
 				{
 					string json = await client.DownloadStringTaskAsync(query);
-					MTSPostMedia media = JsonConvert.DeserializeObject<MTSPostMedia>(json);
+					PostMedia media = JsonConvert.DeserializeObject<PostMedia>(json);
 
 					// There is problem to pass uri's that starts with "http" as image source at this moment so... replace "http" to "https".
 					p.ImageSource = media.Guid.Rendered.StartsWith("http:") ? media.Guid.Rendered.Replace("http:", "https:")
@@ -150,7 +150,7 @@ namespace MTSChrzanow.ViewModels
 			PagePickerItems = new ObservableCollection<string>(items);
 		}
 
-		private async void OnGoToDetails(MTSPost item)
+		private async void OnGoToDetails(BlogPost item)
 		{
 			if (item != null)
 			{

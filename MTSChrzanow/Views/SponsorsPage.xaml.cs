@@ -18,6 +18,6 @@ namespace MTSChrzanow.Views
 		}
 
 		void ListView_ItemTapped(object sender, ItemTappedEventArgs e) =>
-			_viewModel.GoToSelectedSponsor.Execute(e.Item as MTSSponsor);
+			_viewModel.GoToSelectedSponsor.Execute(e.Item as Sponsor);
 	}
 }

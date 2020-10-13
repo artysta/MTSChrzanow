@@ -9,15 +9,15 @@ namespace MTSChrzanow.Views
 	[DesignTimeVisible(false)]
 	public partial class PostDetailsPage : ContentPage
 	{
-		private PostDetailsViewModel _viewModel;
+		private BlogPostDetailsViewModel _viewModel;
 
-		public PostDetailsPage(MTSPost post)
+		public PostDetailsPage(BlogPost post)
 		{
 			InitializeComponent();
 
 			if (post != null)
 			{
-				_viewModel = new PostDetailsViewModel(post);
+				_viewModel = new BlogPostDetailsViewModel(post);
 				BindingContext = _viewModel;
 				Title = HttpUtility.HtmlDecode(post.Title.Rendered);
 			}

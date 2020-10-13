@@ -6,12 +6,12 @@
              mc:Ignorable="d"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="MTSChrzanow.Views.PlayerDetailsPage"
-             Title="{ Binding MTSPlayer.Name }"
+             Title="{ Binding Player.Name }"
              BackgroundColor="{ StaticResource AppBgColor }">
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
             <StackLayout>
-                <ffimageloading:CachedImage Source="{ Binding MTSPlayer.PhotoSource }"
+                <ffimageloading:CachedImage Source="{ Binding Player.PhotoSource }"
                        Aspect="AspectFill"
                        HeightRequest="500" />
                 <Grid Margin="5">
@@ -36,7 +36,7 @@
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="0"
                            Grid.Column="0" />
-                    <Label Text="{ Binding MTSPlayer.Name }"
+                    <Label Text="{ Binding Player.Name }"
                            Grid.Row="0"
                            Grid.Column="1" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
@@ -48,7 +48,7 @@
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="2"
                            Grid.Column="0" />
-                    <Label Text="{ Binding MTSPlayer.Position }"
+                    <Label Text="{ Binding Player.Position }"
                            Grid.Row="2"
                            Grid.Column="1" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
@@ -60,7 +60,7 @@
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="4"
                            Grid.Column="0" />
-                    <Label Text="{ Binding MTSPlayer.Nationality }"
+                    <Label Text="{ Binding Player.Nationality }"
                            Grid.Row="4"
                            Grid.Column="1" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
@@ -72,7 +72,7 @@
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="6"
                            Grid.Column="0" />
-                    <Label Text="{ Binding MTSPlayer.BirthDate }"
+                    <Label Text="{ Binding Player.BirthDate }"
                            Grid.Row="6"
                            Grid.Column="1" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
@@ -84,7 +84,7 @@
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="8"
                            Grid.Column="0" />
-                    <Label Text="{ Binding MTSPlayer.Height }"
+                    <Label Text="{ Binding Player.Height }"
                            Grid.Row="8"
                            Grid.Column="1" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
@@ -96,7 +96,7 @@
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="10"
                            Grid.Column="0" />
-                    <Label Text="{ Binding MTSPlayer.Weight }"
+                    <Label Text="{ Binding Player.Weight }"
                            Grid.Row="10"
                            Grid.Column="1" />
                 </Grid>

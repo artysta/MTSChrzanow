@@ -21,6 +21,6 @@ namespace MTSChrzanow.Views
 		}
 
 		public void ListView_ItemTapped(object sender, ItemTappedEventArgs e) =>
-			_viewModel.GoToPlayerDetailsCommand.Execute(e.Item as MTSPlayer);
+			_viewModel.GoToPlayerDetailsCommand.Execute(e.Item as Player);
 	}
 }

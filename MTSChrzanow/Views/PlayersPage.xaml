@@ -12,7 +12,7 @@
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ContentView>
             <StackLayout>
-                <ListView ItemsSource="{ Binding MTSPlayers }"
+                <ListView ItemsSource="{ Binding Players }"
                           HasUnevenRows="true"
                           SeparatorVisibility="Default"
                           ItemTapped="ListView_ItemTapped"

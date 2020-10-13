@@ -2,7 +2,7 @@
 
 namespace MTSChrzanow.Models
 {
-	public class MTSPostMedia
+	public class PostMedia
 	{
 		[JsonProperty("guid")]
 		public Guid Guid { get; set; }

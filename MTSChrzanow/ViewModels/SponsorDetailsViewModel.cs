@@ -8,24 +8,24 @@ namespace MTSChrzanow.ViewModels
 	public class SponsorDetailsViewModel : BaseViewModel
 	{
 		private ICommand _goToDetailsCommand;
-		public ICommand GoToDetailsCommand => _goToDetailsCommand ?? (_goToDetailsCommand = new Command<MTSSponsor>(OnGoToSponsorWebsite));
+		public ICommand GoToDetailsCommand => _goToDetailsCommand ?? (_goToDetailsCommand = new Command<Sponsor>(OnGoToSponsorWebsite));
 		
-		private MTSSponsor _mtsSponsor;
-		public MTSSponsor MTSSponsor
+		private Sponsor _sponsor;
+		public Sponsor Sponsor
 		{
-			get => _mtsSponsor;
-			set => SetProperty(ref _mtsSponsor, value);
+			get => _sponsor;
+			set => SetProperty(ref _sponsor, value);
 		}
 
-		public SponsorDetailsViewModel(MTSSponsor sponsor)
+		public SponsorDetailsViewModel(Sponsor sponsor)
 		{
 			if (sponsor != null)
 			{
-				MTSSponsor = sponsor;
+				Sponsor = sponsor;
 			}
 		}
 
-		private async void OnGoToSponsorWebsite(MTSSponsor sponsor)
+		private async void OnGoToSponsorWebsite(Sponsor sponsor)
 		{
 			if (string.IsNullOrWhiteSpace(sponsor.WebSite))
 			{

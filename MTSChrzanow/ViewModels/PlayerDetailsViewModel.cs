@@ -4,18 +4,18 @@ namespace MTSChrzanow.ViewModels
 {
 	public class PlayerDetailsViewModel : BaseViewModel
 	{
-		private MTSPlayer _mtsPlayer;
-		public MTSPlayer MTSPlayer
+		private Player _player;
+		public Player Player
 		{
-			get => _mtsPlayer;
-			set => SetProperty(ref _mtsPlayer, value);
+			get => _player;
+			set => SetProperty(ref _player, value);
 		}
 
-		public PlayerDetailsViewModel(MTSPlayer player)
+		public PlayerDetailsViewModel(Player player)
 		{
 			if (player != null)
 			{
-				MTSPlayer = player;
+				Player = player;
 			}
 		}
 	}

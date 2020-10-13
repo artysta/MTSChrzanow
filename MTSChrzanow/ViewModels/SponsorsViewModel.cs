@@ -12,13 +12,13 @@ namespace MTSChrzanow.ViewModels
 		private INavigation _navigation;
 
 		private ICommand _goToSponsorCommand;
-		public ICommand GoToSelectedSponsor => _goToSponsorCommand ?? (_goToSponsorCommand = new Command<MTSSponsor>(OnSponsorItemClicked));
+		public ICommand GoToSelectedSponsor => _goToSponsorCommand ?? (_goToSponsorCommand = new Command<Sponsor>(OnSponsorItemClicked));
 
-		private ObservableCollection<MTSSponsor> _mtsSponsors;
-		public ObservableCollection<MTSSponsor> MTSSponsors
+		private ObservableCollection<Sponsor> _sponsors;
+		public ObservableCollection<Sponsor> Sponsors
 		{
-			get => _mtsSponsors;
-			set => SetProperty(ref _mtsSponsors, value);
+			get => _sponsors;
+			set => SetProperty(ref _sponsors, value);
 		}
 
 		public SponsorsViewModel(INavigation navigation)
@@ -29,11 +29,11 @@ namespace MTSChrzanow.ViewModels
 
 		public void InitializeSponsors()
 		{
-			List<MTSSponsor> items = MTSSponsorsData.GetMTSSponsors();
-			MTSSponsors = new ObservableCollection<MTSSponsor>(items);
+			List<Sponsor> items = SponsorsData.GetSponsors();
+			Sponsors = new ObservableCollection<Sponsor>(items);
 		}
 		
-		private async void OnSponsorItemClicked(MTSSponsor sponsor)
+		private async void OnSponsorItemClicked(Sponsor sponsor)
 		{
 			if (sponsor != null)
 			{

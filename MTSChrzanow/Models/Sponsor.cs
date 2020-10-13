@@ -2,7 +2,7 @@
 
 namespace MTSChrzanow.Models
 {
-	public class MTSSponsor
+	public class Sponsor
 	{
 		public string Name { get; set; }
 		public string Description { get; set; }
