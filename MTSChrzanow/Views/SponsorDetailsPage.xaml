@@ -6,12 +6,12 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              mc:Ignorable="d"
              x:Class="MTSChrzanow.Views.SponsorDetailsPage"
-             Title="{ Binding MTSSponsor.Name }"
+             Title="{ Binding Sponsor.Name }"
              BackgroundColor="{ StaticResource AppBgColor }">
     <Frame Style="{ StaticResource DetailsFrameStyle }">
         <ScrollView>
             <StackLayout>
-                <ffimageloading:CachedImage Source="{ Binding MTSSponsor.LogoSource }"
+                <ffimageloading:CachedImage Source="{ Binding Sponsor.LogoSource }"
                        HeightRequest="150" />
                 <Grid Margin="6">
                     <Grid.RowDefinitions>
@@ -36,7 +36,7 @@
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="0"
                            Grid.Column="0" />
-                    <Label Text="{ Binding MTSSponsor.City }"
+                    <Label Text="{ Binding Sponsor.City }"
                            Grid.Row="0"
                            Grid.Column="1" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
@@ -48,7 +48,7 @@
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="2"
                            Grid.Column="0" />
-                    <Label Text="{ Binding MTSSponsor.PostalCode }"
+                    <Label Text="{ Binding Sponsor.PostalCode }"
                            Grid.Row="2"
                            Grid.Column="1" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
@@ -60,7 +60,7 @@
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="4"
                            Grid.Column="0" />
-                    <Label Text="{ Binding MTSSponsor.Street }"
+                    <Label Text="{ Binding Sponsor.Street }"
                            Grid.Row="4"
                            Grid.Column="1" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
@@ -72,7 +72,7 @@
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="6"
                            Grid.Column="0" />
-                    <Label Text="{ Binding MTSSponsor.PhoneNumber }"
+                    <Label Text="{ Binding Sponsor.PhoneNumber }"
                            Grid.Row="6"
                            Grid.Column="1" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
@@ -84,7 +84,7 @@
                            Style="{ StaticResource LabelPrimaryStyle }"
                            Grid.Row="8"
                            Grid.Column="0" />
-                    <Label Text="{ Binding MTSSponsor.Mail }"
+                    <Label Text="{ Binding Sponsor.Mail }"
                            Grid.Row="8"
                            Grid.Column="1" />
                     <BoxView Style="{ StaticResource BoxHorizontalLineStyle }"
@@ -92,13 +92,13 @@
                              Grid.Column="0"
                              Grid.ColumnSpan="2" />
 
-                    <Label Text="{ Binding MTSSponsor.Description }"
+                    <Label Text="{ Binding Sponsor.Description }"
                            Grid.Row="10"
                            Grid.Column="0"
                            Grid.ColumnSpan="2" />
 
                     <Button Text="Odwiedź stronę sponsora"
-                            CommandParameter="{ Binding MTSSPonsor.WebSite }"
+                            CommandParameter="{ Binding Sponsor.WebSite }"
                             Style="{ StaticResource MainButtonStyle }"
                             Clicked="Button_Clicked"
                             Grid.Row="11"
