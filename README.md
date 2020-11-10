@@ -1,4 +1,4 @@
-This Xamarin.Forms appliaction is writtern for Android & iOS devices. This application can be used by handball team, because it contains features such as:
+This **Xamarin.Forms** appliaction is written for **Android & iOS devices**. This application can be used by handball team, because it contains features such as:
  - news,
  - points table,
  - fixtures,
@@ -7,11 +7,11 @@ This Xamarin.Forms appliaction is writtern for Android & iOS devices. This appli
  - live score
  - user profile.
 
-Application is using Firebase Authentication to authenticate users, so you have to create account if you want to use this app.
+Application is using **Firebase Authentication** to authenticate users, so you have to create account if you want to use this app.
 
-There are a few things that you should do in order to run this appliaction, because it is using Wordpress CMS REST Api (so you need to have your own website) and Firebase Realtime Database to store data about fixtures, table & live score.
+There are a few things that you should do in order to run this appliaction, because it is using **Wordpress CMS REST Api** (so you need to have your own website) and **Firebase Realtime Database** to store data about fixtures, table & live score.
 
-It is important, to make your Firebase Realtime Database structure look like:
+It is important, to make your **Firebase Realtime Database** structure look like:
 
 ```
 your-project-.
@@ -96,4 +96,12 @@ You also need to create `config.json` file in shared project directory that will
 }
 ```
 
-The last thing that you should do is to add this appliaction (Android & iOS) to your Firebase project, download Google Services config files and add these to the appliaction. If you want to know how to do this check my "tutorial" - https://github.com/artysta/FirebaseAuthApp or read blog post on my website if you are polish speaker - http://adriankurek.pl/2020/09/24/xamarin-forms-cross-platform-firebase-authentication/.
+The last thing that you should do is to add this appliaction (**Android & iOS**) to your **Firebase project**, download **Google Services config files** and add these to the appliaction. If you want to know how to do this check my "tutorial" - https://github.com/artysta/FirebaseAuthApp or read blog post on my website if you are polish speaker - http://adriankurek.pl/2020/09/24/xamarin-forms-cross-platform-firebase-authentication/.
+
+## TODO:
+ - tests,
+ - dark theme support,
+ - cache images & other data,
+ - app localization & string resources,
+ - bug fixes,
+ - ...
