@@ -116,44 +116,6 @@
     <EmbeddedResource Include="Images\logo_prbm_cembud.png" />
     <EmbeddedResource Include="Images\logo_unimetal_recycling.png" />
     <EmbeddedResource Include="Images\logo_xamarin.png" />
-    <EmbeddedResource Include="Images\Players\bartosz_hardzina.jpg" />
-    <EmbeddedResource Include="Images\Players\bartosz_hardzina_face.jpg" />
-    <EmbeddedResource Include="Images\Players\bartosz_skoczylas.jpg" />
-    <EmbeddedResource Include="Images\Players\bartosz_skoczylas_face.jpg" />
-    <EmbeddedResource Include="Images\Players\dawid_skoczylas.jpg" />
-    <EmbeddedResource Include="Images\Players\dawid_skoczylas_face.jpg" />
-    <EmbeddedResource Include="Images\Players\filip_wadowski.jpg" />
-    <EmbeddedResource Include="Images\Players\filip_wadowski_face.jpg" />
-    <EmbeddedResource Include="Images\Players\grzegorz_malodobry.jpg" />
-    <EmbeddedResource Include="Images\Players\grzegorz_malodobry_face.jpg" />
-    <EmbeddedResource Include="Images\Players\jan_orlicki.jpg" />
-    <EmbeddedResource Include="Images\Players\jan_orlicki_face.jpg" />
-    <EmbeddedResource Include="Images\Players\kacper_wegrzyn.jpg" />
-    <EmbeddedResource Include="Images\Players\kacper_wegrzyn_face.jpg" />
-    <EmbeddedResource Include="Images\Players\marcin_gorkowski.jpg" />
-    <EmbeddedResource Include="Images\Players\marcin_gorkowski_face.jpg" />
-    <EmbeddedResource Include="Images\Players\marcin_hardzina.jpg" />
-    <EmbeddedResource Include="Images\Players\marcin_hardzina_face.jpg" />
-    <EmbeddedResource Include="Images\Players\marcin_witkowski.jpg" />
-    <EmbeddedResource Include="Images\Players\marcin_witkowski_face.jpg" />
-    <EmbeddedResource Include="Images\Players\mateusz_krasucki.jpg" />
-    <EmbeddedResource Include="Images\Players\mateusz_krasucki_face.jpg" />
-    <EmbeddedResource Include="Images\Players\maxymilian_pasierb.jpg" />
-    <EmbeddedResource Include="Images\Players\maxymilian_pasierb_face.jpg" />
-    <EmbeddedResource Include="Images\Players\michal_olszewik.jpg" />
-    <EmbeddedResource Include="Images\Players\michal_olszewik_face.jpg" />
-    <EmbeddedResource Include="Images\Players\patryk_madeja.jpg" />
-    <EmbeddedResource Include="Images\Players\patryk_madeja_face.jpg" />
-    <EmbeddedResource Include="Images\Players\patryk_plaszczak.jpg" />
-    <EmbeddedResource Include="Images\Players\patryk_plaszczak_face.jpg" />
-    <EmbeddedResource Include="Images\Players\patryk_rola.jpg" />
-    <EmbeddedResource Include="Images\Players\patryk_rola_face.jpg" />
-    <EmbeddedResource Include="Images\Players\pawel_stronski.jpg" />
-    <EmbeddedResource Include="Images\Players\pawel_stronski_face.jpg" />
-    <EmbeddedResource Include="Images\Players\przemyslaw_wierzbic.jpg" />
-    <EmbeddedResource Include="Images\Players\przemyslaw_wierzbic_face.jpg" />
-    <EmbeddedResource Include="Images\Players\tomasz_kowal.jpg" />
-    <EmbeddedResource Include="Images\Players\tomasz_kowal_face.jpg" />
   </ItemGroup>
 
   <ItemGroup>
