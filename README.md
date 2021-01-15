@@ -9,9 +9,11 @@ This **Xamarin.Forms** appliaction is written for **Android & iOS devices**. Thi
 
 Application is using **Firebase Authentication** to authenticate users, so you have to create account if you want to use this app.
 
-There are a few things that you should do in order to run this appliaction, because it is using **Wordpress CMS REST Api** (so you need to have your own website) and **Firebase Realtime Database** to store data about fixtures, table & live score.
+There are a few things that you should do in order to run this appliaction, because it is using **Wordpress CMS REST Api** (so you need to have your own website) and **Firebase Realtime Database** to store fixtures, table & live score data.
 
-It is important, to make your **Firebase Realtime Database** structure look like:
+You have to add appliaction (Android & iOS) to your Firebase project and download **Google Services config files**. Place **google-services.json** file in **MTSChrzanow/MTSChrzanow.Android** (set Build Action to GoogleServicesJson) and **GoogleService-Info.plist** file in **MTSChrzanow/MTSChrzanow.iOS** (set Build Action to BundleResource)..
+
+It is also important, to make your **Firebase Realtime Database** structure look like:
 
 ```
 your-project-.
@@ -79,24 +81,23 @@ For example:
 }
 ```
 
-You also need to create `config.json` file in shared project directory that will contain your project url and some endpoints.
+You also need to create `config.json` file in shared project directory (**MTSChrzanow/MTSChrzanow**) that will contain your project url and some endpoints.
 
 ```
 {
-	"ApiUrl": "https://yourwordpresswebsite.com/wp-json/wp/v2/",
-	"ApiPostsUrl": "posts",
-	"ApiPostsFromPageUrl": "posts?page=",
-	"ApiSinglePostMedia": "media/",
-	"FirebaseUrl": "https://your-firebase-project-name.firebaseio.com/",
-	"FirebaseGamesUrl": "games.json",
-	"RealTimeGameChild": "realtime/games",
-	"FirebaseAuth": "?auth=",
-	"WPTotalPages": "X-WP-TotalPages",
-	"FirebaseTableUrl": "table.json"
+  "ApiUrl": "https://yourwordpresswebsite.com/wp-json/wp/v2/",
+  "ApiPostsUrl": "posts",
+  "ApiPostsFromPageUrl": "posts?page=",
+  "ApiSinglePostMedia": "media/",
+  "ApiFirebaseUrl": "https://your-firebase-project-name.firebaseio.com/",
+  "ApiFirebaseGamesUrl": "games.json",
+  "ApiRealTimeGameChild": "realtime/games",
+  "ApiFirebaseAuth": "?auth=",
+  "ApiWPTotalPages": "X-WP-TotalPages",
+  "ApiFirebaseTableUrl": "table.json"
 }
-```
 
-The last thing that you should do is to add this appliaction (**Android & iOS**) to your **Firebase project**, download **Google Services config files** and add these to the appliaction. If you want to know how to do this check my "tutorial" - https://github.com/artysta/FirebaseAuthApp or read blog post on my website if you are polish speaker - http://adriankurek.pl/2020/09/24/xamarin-forms-cross-platform-firebase-authentication/.
+```
 
 ## TODO:
  - tests,
