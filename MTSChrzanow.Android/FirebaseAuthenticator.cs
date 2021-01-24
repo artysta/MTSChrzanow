@@ -2,6 +2,7 @@
 using Firebase.Auth;
 using Xamarin.Forms;
 using MTSChrzanow.Droid;
+using Android.Gms.Extensions;
 
 [assembly: Dependency(typeof(FirebaseAuthenticator))]
 namespace MTSChrzanow.Droid
@@ -11,14 +12,14 @@ namespace MTSChrzanow.Droid
         public async Task<string> LoginWithEmailPassword(string email, string password)
         {
             var user = await FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(email, password);
-            var token = await user.User.GetIdTokenAsync(false);
+            var token = await (user.User.GetIdToken(false).AsAsync<GetTokenResult>());
             return token.Token;
         }
 
         public async Task<string> SignupWithEmailPassword(string email, string password)
         {
             var user = await FirebaseAuth.Instance.CreateUserWithEmailAndPasswordAsync(email, password);
-            var token = await user.User.GetIdTokenAsync(false);
+            var token = await (user.User.GetIdToken(false).AsAsync<GetTokenResult>());
             return token.Token;
         }
 
